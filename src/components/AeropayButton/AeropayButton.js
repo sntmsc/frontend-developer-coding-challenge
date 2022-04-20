@@ -11,7 +11,8 @@ const AeropayButton = () =>{
             margin='0 3px 0 0'/>
             <Text
             w='60px'
-            weight='800'>10.000</Text>
+            weight='800'
+            background='gradient'>10.000</Text>
             <Image
             img='./assets/icons/chevron-default.svg'
             boxSize='24px'
