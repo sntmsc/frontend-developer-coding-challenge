@@ -45,7 +45,7 @@ const MainDescription = () =>{
         </GradientButton>
         <Image
           img='./assets/icons/Icons.svg'
-          boxSize='25px'
+          boxSize='23px'
           position='relative'
           top='15px'
           right='35px'

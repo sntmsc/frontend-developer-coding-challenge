@@ -8,7 +8,7 @@ const Header = () => {
     <Flex
     justify='space-between'
     w='100%'
-    p='3em 20em'
+    p='3em'
     m='0 0 3em 0'>
       <Image
           img='./assets/icons/aerolab-logo-1.svg'
