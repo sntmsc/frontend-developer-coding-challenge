@@ -10,21 +10,21 @@ const MainDescription = () =>{
       align='flex-start'
       m='3em 0 0 0'
       p='0'
-      w='450px'>
+      w='602px'>
         <Text
         spacing='2px'>
           EXPLORE THE
         </Text>
         <Text
         background= 'gradient'
-        fontSize='170px'
+        fontSize='200px'
         lineHeight='80%'
         weight='900'>
           TECH
         </Text>
         <Text
         background= 'black'
-        fontSize='170px'
+        fontSize='200px'
         weight='900'
         lineHeight='80%'>
           ZONE
@@ -39,8 +39,8 @@ const MainDescription = () =>{
         position='relative'>
         <GradientButton
         m='30px 0 0 0'
-        w='270px'
-        h='70px'>
+        w='318px'
+        h='80px'>
           VIEW ALL PRODUCTS
         </GradientButton>
         <Image

@@ -18,12 +18,15 @@ margin-bottom: ${props => props.mb ? props.mb : '0'};
 margin-right: ${props => props.mr ? props.mr : '0'};
 width: ${props => props.boxSize ? props.boxSize : props.w ? props.w : ''};
 height: ${props => props.boxSize ? props.boxSize : props.h ? props.h : ''};
+grid-gap: ${props => props.gap ? props.gap : ''};
 column-gap: ${props => props.columnGap ? props.columnGap : ''};
 background: ${props => props.background ? props.background : ''};
 background-image: ${props => props.backgroundImage ? props.backgroundImage : ''};
 background-repeat: repeat;
 border: ${props => props.border ? props.border : ''};
 border-radius: ${props => props.borderRadius ? props.borderRadius : ''};
+box-shadow: ${props => props.boxShadow ? props.boxShadow : ''};
+transform: ${props => props.transform ? props.transform : ''};
 overflow: ${props => props.overflow ? props.overflow : ''};
 clip-path: ${props => props.clipPath ? props.clipPath : ''};
 

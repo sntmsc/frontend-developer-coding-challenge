@@ -6,7 +6,7 @@ padding:0;
 width: ${props => props.w ? props.w : ''};
 background: ${props => props.background === 'gradient' ?
             '-webkit-linear-gradient(left,#176FEB, #FF80FF)' : props.background ?
-             props.background : '#7c899c'};
+             props.background : ' #7C899C'};
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
 font-family: 'Montserrat', sans-serif;
@@ -16,4 +16,5 @@ line-height: ${props => props.lineHeight ? props.lineHeight : '150%'};
 letter-spacing: ${props => props.spacing ? props.spacing : '0%'};
 text-style: none;
 text-align: ${props => props.textAlign ? props.textAlign : 'center'};
+user-select:  ${props => props.userSelect ? props.userSelect : '' };
 `

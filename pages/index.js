@@ -17,7 +17,7 @@ export default function Home() {
         w='100%'
         justify='center'
         columnGap='6rem'
-        mb='11rem'>
+        mb='20rem'>
           <MainDescription/>
           <MainImage/>
         </Flex>
