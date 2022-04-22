@@ -1,7 +1,8 @@
 import { Flex } from '../Flex/styled'
 import Image from '../Image/Image'
 import Text from '../Text/Text'
-const WalkthroughCard = ()=>{
+
+const WalkthroughCard = ({title, description, img, icon, transform, zIndex, right, left, bottom})=>{
     return(
         <Flex
         background='white'
@@ -11,9 +12,14 @@ const WalkthroughCard = ()=>{
         border='1px solid #DAE4F2'
         borderRadius='32px'
         boxShadow='0px 2px 40px rgba(0, 0, 0, 0.05)'
-        transform='rotate(3deg)'
+        transform={transform}
         align='flex-start'
-        direction='column'>
+        direction='column'
+        zIndex={zIndex}
+        position='absolute'
+        right={right}
+        left={left}
+        bottom={bottom}>
             <Flex
             background='linear-gradient(to left,rgba(255, 128, 255, .9),rgba(23, 111, 235, .4))'
             w='508px'
@@ -22,7 +28,7 @@ const WalkthroughCard = ()=>{
             overflow='hidden'
             justify='flex-start'>
                 <Image
-                img='./assets/illustrations/walkthroug-3-desktop.png'
+                img={img}
                 boxSize='498px'/>
             </Flex>
             <Flex
@@ -43,7 +49,7 @@ const WalkthroughCard = ()=>{
                     justify='flex-start'
                     m='0 16px'>
                         <Image
-                        img='./assets/icons/walkthrough-2.svg'
+                        img={icon}
                         boxSize='36.38px'/>
                     </Flex>
                     <Text
@@ -51,12 +57,13 @@ const WalkthroughCard = ()=>{
                     fontSize='32px'
                     m='0 16px'
                     userSelect='none'>
-                        3---ENJOY!
+                        {title}
                     </Text>
                 </Flex>
                 <Text
-                textAlign='left'>
-                    All done, you can relax! We'll take care of delivery of your tech item!
+                textAlign='left'
+                w='372px'>
+                    {description}
                 </Text>
             </Flex>
         </Flex>
@@ -67,8 +74,38 @@ const MainCards = () =>{
         <Flex
         w='100%'
         h='528px'
-        background='-webkit-linear-gradient(left,#176FEB, #FF80FF)'>
-            <WalkthroughCard/>
+        background='-webkit-linear-gradient(left,#176FEB, #FF80FF)'
+        position='relative'>
+            <WalkthroughCard
+            img='./assets/illustrations/walkthroug-1-desktop.png'
+            icon='./assets/icons/walkthrough-1.svg'
+            title='1---BROWSE'
+            description="Browse our tech catalog with more than 20 bottom tech products"
+            transform='rotate(-3deg)'
+            zIndex='1'
+            right=''
+            left='185px'
+            bottom='-80px'/>
+            <WalkthroughCard
+            img='./assets/illustrations/walkthroug-2-desktop.png'
+            icon='./assets/icons/walkthrough-3.svg'
+            title='2---CHOOSE'
+            description="Exchange your hard earned AeroPoints for the item you want"
+            transform=''
+            zIndex='2'
+            right=''
+            left=''
+            bottom='-20px'/>
+            <WalkthroughCard
+            img='./assets/illustrations/walkthroug-3-desktop.png'
+            icon='./assets/icons/walkthrough-2.svg'
+            title='3---ENJOY!'
+            description="All done, you can relax! We'll take care of delivery of your tech item!"
+            transform='rotate(3deg)'
+            zIndex='3'
+            right='185px'
+            left=''
+            bottom='-80px'/>
         </Flex>
     )
 }

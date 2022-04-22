@@ -29,5 +29,6 @@ box-shadow: ${props => props.boxShadow ? props.boxShadow : ''};
 transform: ${props => props.transform ? props.transform : ''};
 overflow: ${props => props.overflow ? props.overflow : ''};
 clip-path: ${props => props.clipPath ? props.clipPath : ''};
+z-index: ${props => props.zIndex ? props.zIndex : ''};
 
 `
