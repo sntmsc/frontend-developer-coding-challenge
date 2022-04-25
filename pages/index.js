@@ -3,11 +3,14 @@ import Header from '../src/components/main-section/Header'
 import MainImage from '../src/components/main-section/MainImage'
 import MainDescription from '../src/components/main-section/MainDescription'
 import MainCards from '../src/components/main-section/MainCards.js'
+import ProductsSection from '../src/components/products-section/ProductsSection'
 
 
 export default function Home() {
   return(
-    <div>
+    <Flex
+    justify='center'
+    direction='column'>
       <Header/>
       <Flex
       backgroundImage='url(/assets/illustrations/single-wave-pattern.svg)'
@@ -23,6 +26,7 @@ export default function Home() {
         </Flex>
           <MainCards/>
       </Flex>
-   </div>
+      <ProductsSection/>
+   </Flex>
   )
 }
