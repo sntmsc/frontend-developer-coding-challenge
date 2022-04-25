@@ -8,7 +8,7 @@ const MainDescription = () =>{
       <Flex
       direction='column'
       align='flex-start'
-      m='3em 0 0 0'
+      mt='3em'
       p='0'
       w='602px'>
         <Text

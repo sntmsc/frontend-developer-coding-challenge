@@ -47,7 +47,7 @@ const WalkthroughCard = ({title, description, img, icon, transform, zIndex, righ
                     padding='4px'
                     align='flex-start'
                     justify='flex-start'
-                    m='0 16px'>
+                    mr='16px'>
                         <Image
                         img={icon}
                         boxSize='36.38px'/>
@@ -55,7 +55,6 @@ const WalkthroughCard = ({title, description, img, icon, transform, zIndex, righ
                     <Text
                     background='gradient'
                     fontSize='32px'
-                    m='0 16px'
                     userSelect='none'>
                         {title}
                     </Text>

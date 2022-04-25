@@ -15,7 +15,7 @@ margin: ${props => props.m ? props.m : ''};
 width: ${props => props.boxSize ? props.boxSize : props.w ? props.w : '100px'};
 height: ${props => props.boxSize ? props.boxSize : props.h ? props.h : '20px'};
 column-gap: ${props => props.columnGap ? props.columnGap : ''};
-background: -webkit-linear-gradient(left,#176FEB, #FF80FF);
-border-radius: 20px;
+background: ${props => props.background ? props.background : '-webkit-linear-gradient(left,#176FEB, #FF80FF)'};
+border-radius: ${props => props.borderRadius ? props.borderRadius : '20px'};
 
 `

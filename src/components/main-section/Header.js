@@ -9,7 +9,7 @@ const Header = () => {
     justify='space-between'
     w='100%'
     p='3em'
-    m='0 0 3em 0'>
+    mb='3em'>
       <Image
           img='./assets/icons/aerolab-logo-1.svg'
           w='150px'

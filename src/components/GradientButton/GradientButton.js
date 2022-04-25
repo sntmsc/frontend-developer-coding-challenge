@@ -5,7 +5,7 @@ const GradientButton = (props) =>{
         <S.ButtonContainer
         {...props}>
             <Text
-            background='white'>
+            background={props.textColor ? props.textColor : 'white'}>
                 {props.children}
             </Text>
         </S.ButtonContainer>
