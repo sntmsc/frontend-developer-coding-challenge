@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const ButtonContainer = styled.div`
+export const ButtonContainer = styled.button`
 display: flex;
 justify-content: center;
 align-items: center;
@@ -16,6 +16,7 @@ width: ${props => props.boxSize ? props.boxSize : props.w ? props.w : '100px'};
 height: ${props => props.boxSize ? props.boxSize : props.h ? props.h : '20px'};
 column-gap: ${props => props.columnGap ? props.columnGap : ''};
 background: ${props => props.background ? props.background : '-webkit-linear-gradient(left,#176FEB, #FF80FF)'};
+border: none;
 border-radius: ${props => props.borderRadius ? props.borderRadius : '20px'};
 
 `
