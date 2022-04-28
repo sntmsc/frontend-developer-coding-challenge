@@ -4,10 +4,15 @@ const GradientButton = (props) =>{
     return(
         <S.ButtonContainer
         {...props}>
-            <Text
-            background={props.textColor ? props.textColor : 'white'}>
+            {typeof props.children === 'string' ?
+                <Text
+                background={props.textColor ? props.textColor : 'white'}>
+                    {props.children}
+                </Text>                             :
+                <>
                 {props.children}
-            </Text>
+                </>
+            }
         </S.ButtonContainer>
     )
 }

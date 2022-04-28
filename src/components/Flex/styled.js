@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const Flex = styled.div`
+flex-wrap: ${props => props.wrap ? props.wrap : 'no-wrap'};
 display: flex;
 justify-content: ${props => props.justify ? props.justify : 'center'};
 align-items: ${props => props.align ? props.align : 'center'};
@@ -23,6 +24,7 @@ column-gap: ${props => props.columnGap ? props.columnGap : ''};
 background: ${props => props.background ? props.background : ''};
 background-image: ${props => props.backgroundImage ? props.backgroundImage : ''};
 background-repeat: repeat;
+border-top: ${props => props.borderTop ? props.borderTop : ''};
 border: ${props => props.border ? props.border : ''};
 border-radius: ${props => props.borderRadius ? props.borderRadius : ''};
 box-shadow: ${props => props.boxShadow ? props.boxShadow : ''};
