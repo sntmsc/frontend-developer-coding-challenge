@@ -1,12 +1,12 @@
 import { Flex } from '../../Flex/styled' 
 import Text from '../../Text/Text'
-import Image from '../../Image/Image'
 import { Divider } from '../../Divider/styled'
 import GradientButton from '../../GradientButton/GradientButton'
 import Selector from './Selector'
-
+import Pagination from './Pagination'
 
 const ProductsOptions = () =>{
+    const filterOptions = ['All Products', 'Gaming', 'Audio', 'Smart Home', 'Monitors & TV']
     return(
         <Flex
         mt='40px'
@@ -17,7 +17,8 @@ const ProductsOptions = () =>{
                 <Text>
                     Filter by: 
                 </Text>
-                <Selector/>
+                <Selector
+                options={filterOptions}/>
                 <Divider/>
                 <Text
                 mx='16px'>
@@ -43,36 +44,7 @@ const ProductsOptions = () =>{
                 h='43px'
                 m='0 12px'>Highest Price</GradientButton>
             </Flex>
-            <Flex
-            ml='140px'
-            w='250px'
-            h='59px'
-            p='16px'
-            justify='space-between'
-            align='center'
-            border='1px solid #DAE4F2'
-            borderRadius='16px'>
-                    <Flex
-                    boxSize='40px'
-                    background='#E6EDF7'
-                    borderRadius='8px'>
-                        <Image
-                        img='./assets/icons/chevron-default.svg'
-                        transform='rotate(-180deg)'
-                        boxSize='15px'/>
-                    </Flex>
-                    <Text
-                    background='-webkit-linear-gradient(left,#176FEB, #FF80FF)'>
-                        Page 1 of 2</Text>
-                    <Flex
-                    boxSize='40px'
-                    background='#E5F0FF'
-                    borderRadius='8px'>
-                        <Image
-                        img='./assets/icons/chevron-active.svg'
-                        boxSize='15px'/>
-                    </Flex>
-            </Flex>
+            <Pagination/>
         </Flex>
     )
 }
