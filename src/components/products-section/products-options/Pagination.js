@@ -3,7 +3,7 @@ import Text from '../../Text/Text'
 import Image from '../../Image/Image'
 
 
-const Pagination = () =>{
+const Pagination = ({position, left}) =>{
     return(
         <Flex
         ml='140px'
@@ -13,7 +13,9 @@ const Pagination = () =>{
         justify='space-between'
         align='center'
         border='1px solid #DAE4F2'
-        borderRadius='16px'>
+        borderRadius='16px'
+        position={position}
+        left={left}>
                 <Flex
                 boxSize='40px'
                 background='#E6EDF7'
@@ -25,9 +27,13 @@ const Pagination = () =>{
                     boxSize='15px'/>
                 </Flex>
                 <Text
-                background='-webkit-linear-gradient(left,#176FEB, #FF80FF)'
                 userSelect='none'>
-                    Page 1 of 2</Text>
+                Page
+                </Text>
+                <Text
+                background=' linear-gradient(102.47deg, #176FEB -150.34%, #FF80FF 106.58%)'
+                userSelect='none'>
+                     1 of 2</Text>
                 <Flex
                 boxSize='40px'
                 background='#E5F0FF'

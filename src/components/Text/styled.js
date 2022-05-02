@@ -21,4 +21,9 @@ letter-spacing: ${props => props.spacing ? props.spacing : '0%'};
 text-style: none;
 text-align: ${props => props.textAlign ? props.textAlign : 'center'};
 user-select:  ${props => props.userSelect ? props.userSelect : '' };
+position: ${props => props.position ? props.position : ''};
+left: ${props => props.left ? props.left : ''};
+right: ${props => props.right ? props.right : ''};
+top: ${props => props.top ? props.top : ''};
+bottom: ${props => props.bottom ? props.bottom : ''};
 `

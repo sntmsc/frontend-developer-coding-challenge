@@ -19,6 +19,7 @@ margin-left: ${props => props.ml ? props.ml : props.mx ? props.mx : '0'};
 margin-bottom: ${props => props.mb ? props.mb : props.my ? props.my : '0'};
 margin-right: ${props => props.mr ? props.mr : props.mx ? props.mx : '0'};
 width: ${props => props.boxSize ? props.boxSize : props.w ? props.w : ''};
+max-width: ${props => props.maxW ? props.maxW  : ''};
 height: ${props => props.boxSize ? props.boxSize : props.h ? props.h : ''};
 grid-gap: ${props => props.gap ? props.gap : ''};
 column-gap: ${props => props.columnGap ? props.columnGap : ''};
