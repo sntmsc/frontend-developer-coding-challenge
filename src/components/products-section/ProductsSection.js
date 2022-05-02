@@ -2,6 +2,8 @@ import { Flex } from '../Flex/styled'
 import ProductsTitle from './ProductsTitle'
 import ProductsOptions from './products-options/ProductsOptions'
 import CardWithButton from './products/CardWithButton'
+import Text from '../Text/Text'
+import Pagination from './products-options/Pagination'
 
 const ProductsSection = () =>{
     return(
@@ -26,6 +28,17 @@ const ProductsSection = () =>{
         <CardWithButton/>
         <CardWithButton/>
         <CardWithButton/>
+    </Flex>
+    <Flex
+    w='100%'>
+        <Flex
+        flexGrow='1'
+        justify='center'>
+            <Text>
+                prueba
+            </Text>
+        </Flex>
+        <Pagination/>
     </Flex>
         </Flex>
     )

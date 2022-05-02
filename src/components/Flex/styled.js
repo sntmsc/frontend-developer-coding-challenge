@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const Flex = styled.div`
 flex-wrap: ${props => props.wrap ? props.wrap : 'no-wrap'};
+flex-grow: ${props => props.flexGrow ? props.flexGrow : ''};
 display: flex;
 justify-content: ${props => props.justify ? props.justify : 'center'};
 align-items: ${props => props.align ? props.align : 'center'};
