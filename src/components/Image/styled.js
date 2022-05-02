@@ -4,6 +4,7 @@ export const Image = styled.img`
 object-fit: ${props => props.objectFit ? props.objectFit : ''};
 width: ${props => props.boxSize ? props.boxSize : props.w ? props.w : '3em'};
 height: ${props => props.boxSize ? props.boxSize : props.h ? props.h : '3em'};
+cursor: ${props => props.cursor ? props.cursor : ''};
 margin: ${props => props.m ? props.m : '0'};
 transform: ${props => props.transform ? props.transform : ''};
 position: ${props => props.position ? props.position : ''};

@@ -17,7 +17,8 @@ const Pagination = () =>{
                 <Flex
                 boxSize='40px'
                 background='#E6EDF7'
-                borderRadius='8px'>
+                borderRadius='8px'
+                cursor='pointer'>
                     <Image
                     img='./assets/icons/chevron-default.svg'
                     transform='rotate(-180deg)'
@@ -30,7 +31,8 @@ const Pagination = () =>{
                 <Flex
                 boxSize='40px'
                 background='#E5F0FF'
-                borderRadius='8px'>
+                borderRadius='8px'
+                cursor='pointer'>
                     <Image
                     img='./assets/icons/chevron-active.svg'
                     boxSize='15px'/>

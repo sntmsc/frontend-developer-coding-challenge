@@ -26,7 +26,9 @@ const Selector = ({options}) =>{
             align='center'
             border='1px solid #DAE4F2'
             borderRadius='16px'
-            onClick={()=>setIsVisible(!isVisible)}>
+            onClick={()=>setIsVisible(!isVisible)}
+            cursor='pointer'
+            >
                 <Text
                 userSelect='none'>
                     {currentOption}
@@ -55,6 +57,7 @@ const Selector = ({options}) =>{
                         justify='flex-start'
                         p='12px 24px'
                         hoverBackground='#F5F9FF'
+                        cursor='pointer'
                         onClick={()=>handleClickOption(x)}>
                             <Text
                             userSelect='none'>
