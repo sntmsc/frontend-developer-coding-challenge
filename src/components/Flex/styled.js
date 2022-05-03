@@ -27,6 +27,7 @@ background: ${props => props.background ? props.background : ''};
 background-image: ${props => props.backgroundImage ? props.backgroundImage : ''};
 background-repeat: repeat;
 border-top: ${props => props.borderTop ? props.borderTop : ''};
+border-bottom: ${props => props.borderBottom ? props.borderBottom : ''};
 border: ${props => props.border ? props.border : ''};
 border-radius: ${props => props.borderRadius ? props.borderRadius : ''};
 box-shadow: ${props => props.boxShadow ? props.boxShadow : ''};

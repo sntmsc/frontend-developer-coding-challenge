@@ -17,8 +17,8 @@ export default function Home() {
       w='100%'
       direction='column'>
         <Flex
-        w='100%'
-        justify='center'
+        maxW='1464px'
+        justify='space-around'
         columnGap='6rem'
         mb='20rem'>
           <MainDescription/>
