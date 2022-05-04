@@ -35,14 +35,44 @@ const Aeropay = () =>{
                 <Flex
                 h='148px'
                 w='100%'
+                p='16px'
                 boxShadow='0px 2px 8px rgba(0, 0, 0, 0.05)'
                 background='#252F3D'
-                borderRadius='8px'>
+                borderRadius='8px'
+                direction='column'
+                justify='space-between'
+                backgroundImage='url(/assets/illustrations/single-wave-pattern.svg)'
+                backgroundSize='350px 80px'>
+                    <Flex
+                    w='100%'
+                    justify='space-between'>
+                          <Text
+                        background='#F5F9FF'>
+                            Aerocard
+                        </Text>
+                        <Image
+                        img='./assets/icons/aeropay-2.svg'
+                        boxSize='24px'/>
+                    </Flex>
+                    <Flex
+                    w='100%'
+                    justify='space-between'>
+                        <Text
+                        background='#F5F9FF'
+                        fontSize='14px'>
+                            John Kite
+                        </Text>
+                        <Text
+                        background='#F5F9FF'
+                        fontSize='14px'>
+                            07/23
+                        </Text>
+                    </Flex>
                 </Flex>
                 <Flex
                 w='100%'
                 mt='44px'
-                justify='space-around'>
+                justify='space-between'>
                     <GradientButton
                     w='85.33px'
                     h='35px'
