@@ -42,7 +42,7 @@ const Aeropay = () =>{
                 direction='column'
                 justify='space-between'
                 backgroundImage='url(/assets/illustrations/single-wave-pattern.svg)'
-                backgroundSize='350px 80px'>
+                backgroundSize='250px'>
                     <Flex
                     w='100%'
                     justify='space-between'>

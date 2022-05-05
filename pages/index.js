@@ -14,6 +14,7 @@ export default function Home() {
       <Header/>
       <Flex
       backgroundImage='url(/assets/illustrations/single-wave-pattern.svg)'
+      backgroundSize='300px 18px'
       w='100%'
       direction='column'>
         <Flex
