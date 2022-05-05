@@ -10,7 +10,8 @@ const MainDescription = () =>{
       align='flex-start'
       mt='3em'
       p='0'
-      w='602px'>
+      w='602px'
+      zIndex='2'>
         <Text
         userSelect='none'
         spacing='2px'>

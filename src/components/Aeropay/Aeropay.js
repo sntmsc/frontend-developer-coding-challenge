@@ -40,9 +40,7 @@ const Aeropay = () =>{
                 background='#252F3D'
                 borderRadius='8px'
                 direction='column'
-                justify='space-between'
-                backgroundImage='url(/assets/illustrations/single-wave-pattern.svg)'
-                backgroundSize='250px'>
+                justify='space-between'>
                     <Flex
                     w='100%'
                     justify='space-between'>
@@ -67,6 +65,25 @@ const Aeropay = () =>{
                         fontSize='14px'>
                             07/23
                         </Text>
+                    </Flex>
+                    <Flex
+                    position='absolute'
+                    w='100%'
+                    direction='column'
+                    h='150px'
+                    overflow='hidden'
+                    bottom='120px'>
+                       {[...Array(11)].map((x,i) =>
+                        <Image
+                        key={i}
+                        img='./assets/illustrations/single-wave-pattern.svg'
+                        opacity='0.07'
+                        w='800px'
+                        h='33px'
+                        m='-11px'
+                        p='3px'
+                        objectFit='contain'/>)}
+
                     </Flex>
                 </Flex>
                 <Flex
