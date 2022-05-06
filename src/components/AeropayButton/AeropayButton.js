@@ -2,9 +2,10 @@ import * as S from  "./styled"
 import Image from "../Image/Image"
 import Text from "../Text/Text"
 
-const AeropayButton = () =>{
+const AeropayButton = ({handleClick}) =>{
     return(
-        <S.AeropayButtonContainer>
+        <S.AeropayButtonContainer
+            onClick={handleClick}>
             <Image
             img='./assets/icons/favicon.svg'
             boxSize='28px'

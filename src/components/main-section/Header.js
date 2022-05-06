@@ -1,9 +1,14 @@
+import {useState} from 'react'
 import { Flex } from '../Flex/styled'
 import Image from '../Image/Image'
 import AeropayButton from '../AeropayButton/AeropayButton'
 import Aeropay from '../Aeropay/Aeropay'
 
 const Header = () => {
+  const [ isVisible, setIsVisible ] = useState(false);
+  const handleClick = () =>{
+    setIsVisible(!isVisible);
+  }
   return(
     <Flex
     justify='space-between'
@@ -16,7 +21,9 @@ const Header = () => {
           w='150px'
           margin='0 0 0 10px'/>
       <AeropayButton/>
-      <Aeropay/>
+      { isVisible && 
+          <Aeropay/>
+      }
     </Flex>
   )
 }
