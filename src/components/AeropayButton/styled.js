@@ -4,7 +4,7 @@ export const AeropayButtonContainer = styled.div`
 display: flex;
 align-items: center;
 justify-content: center;
-border: solid #dae4f2;
+border: 1px solid #DAE4F2;
 border-radius: 15px;
 box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.08);
 grid-column-gap: 5px;

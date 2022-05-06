@@ -21,7 +21,8 @@ const WalkthroughCard = ({title, description, img, icon, transform, zIndex, righ
         left={left}
         bottom={bottom}>
             <Flex
-            background='linear-gradient(to left,rgba(255, 128, 255, .9),rgba(23, 111, 235, .4))'
+            background='linear-gradient(102.47deg, rgba(23, 111, 235, .7) -5.34%,
+            rgba(255, 128, 255, .5) 106.58%)'
             w='508px'
             h='498px'
             borderRadius='32px'
@@ -55,7 +56,8 @@ const WalkthroughCard = ({title, description, img, icon, transform, zIndex, righ
                     <Text
                     background='gradient'
                     fontSize='32px'
-                    userSelect='none'>
+                    userSelect='none'
+                    weight='900'>
                         {title}
                     </Text>
                 </Flex>
@@ -73,12 +75,13 @@ const MainCards = () =>{
         <Flex
         w='100%'
         h='528px'
-        background='-webkit-linear-gradient(left,#176FEB, #FF80FF)'
+        background='linear-gradient(102.47deg, rgba(23, 111, 235, .5) -5.34%,
+         rgba(255, 128, 255, .5) 106.58%)'
         position='relative'>
             <WalkthroughCard
             img='./assets/illustrations/walkthroug-1-desktop.png'
             icon='./assets/icons/walkthrough-1.svg'
-            title='1---BROWSE'
+            title='1—BROWSE'
             description="Browse our tech catalog with more than 20 bottom tech products"
             transform='rotate(-3deg)'
             zIndex='1'
@@ -88,7 +91,7 @@ const MainCards = () =>{
             <WalkthroughCard
             img='./assets/illustrations/walkthroug-2-desktop.png'
             icon='./assets/icons/walkthrough-3.svg'
-            title='2---CHOOSE'
+            title='23—CHOOSE'
             description="Exchange your hard earned AeroPoints for the item you want"
             transform=''
             zIndex='2'
@@ -98,7 +101,7 @@ const MainCards = () =>{
             <WalkthroughCard
             img='./assets/illustrations/walkthroug-3-desktop.png'
             icon='./assets/icons/walkthrough-2.svg'
-            title='3---ENJOY!'
+            title='3—ENJOY!'
             description="All done, you can relax! We'll take care of delivery of your tech item!"
             transform='rotate(3deg)'
             zIndex='3'

@@ -14,14 +14,15 @@ const ProductsOptions = () =>{
         justify='flex-start'>
             <Flex
             justify='flex-start'>
-                <Text>
+                <Text
+                w='81px'>
                     Filter by: 
                 </Text>
                 <Selector
                 options={filterOptions}/>
                 <Divider/>
                 <Text
-                mx='16px'>
+                w='81px'>
                     Sort by: 
                 </Text>
                 <GradientButton

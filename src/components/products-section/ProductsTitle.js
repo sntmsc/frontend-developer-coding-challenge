@@ -11,11 +11,13 @@ const ProductsTitle = () =>{
             <Text
             background='#4573ef'
             fontSize='48px'
+            weight='900'
             mr='15px'
             >TECH</Text>
             <Text
             background='black'
-            fontSize='48px'>PRODUCTS</Text>
+            fontSize='48px'
+            weight='900'>PRODUCTS</Text>
         </Flex>
     )
 }

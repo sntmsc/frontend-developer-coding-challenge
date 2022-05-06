@@ -9,8 +9,9 @@ margin-right: ${props => props.mr ? props.mr : props.mx ? props.mx : '0'};
 padding:0;
 width: ${props => props.w ? props.w : ''};
 background: ${props => props.background === 'gradient' ?
-            '-webkit-linear-gradient(left,#176FEB, #FF80FF)' : props.background ?
-             props.background : ' #7C899C'};
+            'linear-gradient(102.47deg, #176FEB -5.34%, #FF80FF 106.58%);' : 
+            props.background ?
+            props.background : ' #7C899C'};
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
 font-family: 'Montserrat', sans-serif;

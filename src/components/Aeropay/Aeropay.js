@@ -25,7 +25,7 @@ const Aeropay = () =>{
             justify='flex-start'>
                 <Text
                 background='black'>
-                    Add balance
+                    Add Balance
                 </Text>
             </Flex>
             <Flex
