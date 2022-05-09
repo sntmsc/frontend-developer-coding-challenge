@@ -3,9 +3,10 @@ import Image from "../Image/Image"
 import Text from "../Text/Text"
 
 const AeropayButton = ({handleClick}) =>{
+
     return(
         <S.AeropayButtonContainer
-            onClick={handleClick}>
+            onClick={()=>{console.log('prueba')}}>
             <Image
             img='./assets/icons/favicon.svg'
             boxSize='28px'

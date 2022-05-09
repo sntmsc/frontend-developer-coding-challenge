@@ -8,6 +8,7 @@ const Header = () => {
   const [ isVisible, setIsVisible ] = useState(false);
   const handleClick = () =>{
     setIsVisible(!isVisible);
+    console.log('prueba')
   }
   return(
     <Flex
@@ -20,7 +21,8 @@ const Header = () => {
           img='./assets/icons/aerolab-logo-1.svg'
           w='150px'
           margin='0 0 0 10px'/>
-      <AeropayButton/>
+      <AeropayButton
+      handleClick={handleClick}/>
       { isVisible && 
           <Aeropay/>
       }
