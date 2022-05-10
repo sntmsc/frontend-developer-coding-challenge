@@ -1,7 +1,7 @@
-import Image from "../Image/Image"
-import Text from "../Text/Text"
-import { Flex } from "../Flex/styled"
-import GradientButton from "../GradientButton/GradientButton"
+import Image from "./../../../Image/Image"
+import Text from "./../../../Text/Text"
+import { Flex } from "./../../../Flex/styled"
+import GradientButton from "./../../../GradientButton/GradientButton"
 const Aeropay = () =>{
     return(
         <Flex

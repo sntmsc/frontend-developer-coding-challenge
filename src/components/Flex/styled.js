@@ -26,6 +26,7 @@ column-gap: ${props => props.columnGap ? props.columnGap : ''};
 background: ${props => props.background ? props.background : ''};
 background-image: ${props => props.backgroundImage ? props.backgroundImage : ''};
 background-size: ${props => props.backgroundSize ? props.backgroundSize : ''};
+background-position: ${props => props.backgroundPosition ? props.backgroundPosition : ''};
 background-repeat: repeat;
 border-top: ${props => props.borderTop ? props.borderTop : ''};
 border-bottom: ${props => props.borderBottom ? props.borderBottom : ''};

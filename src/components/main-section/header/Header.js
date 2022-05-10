@@ -1,14 +1,13 @@
 import {useState} from 'react'
-import { Flex } from '../Flex/styled'
-import Image from '../Image/Image'
-import AeropayButton from '../AeropayButton/AeropayButton'
-import Aeropay from '../Aeropay/Aeropay'
+import { Flex } from './../../Flex/styled'
+import Image from './../../Image/Image'
+import AeropayButton from './AeropayButton/AeropayButton'
+import Aeropay from './Aeropay/Aeropay'
 
 const Header = () => {
   const [ isVisible, setIsVisible ] = useState(false);
   const handleClick = () =>{
     setIsVisible(!isVisible);
-    console.log('prueba')
   }
   return(
     <Flex
@@ -23,9 +22,9 @@ const Header = () => {
           margin='0 0 0 10px'/>
       <AeropayButton
       handleClick={handleClick}/>
-      { isVisible && 
-          <Aeropay/>
-      }
+        { isVisible && 
+            <Aeropay/>
+        }
     </Flex>
   )
 }
