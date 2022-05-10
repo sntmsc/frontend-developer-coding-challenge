@@ -5,7 +5,9 @@ import MainDescription from './MainDescription'
 import MainCards from './MainCards.js'
 
 const MainSection = () =>{
-    <Flex>
+  return(
+    <Flex
+    direction='column'>
       <Header/>
       <Flex
       backgroundImage='url(/assets/illustrations/single-wave-pattern.svg)'
@@ -23,6 +25,7 @@ const MainSection = () =>{
           <MainCards/>
        </Flex>
     </Flex>
+  )
 }
 
 export default MainSection
