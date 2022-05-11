@@ -2,7 +2,7 @@ import { Flex } from "../../Flex/styled"
 import Image from "../../Image/Image"
 import Text from "../../Text/Text"
 import GradientButton from "../../GradientButton/GradientButton"
-export const Card = () =>{
+export const Card = ({name, category, img}) =>{
     return(
         <Flex
         background='white'
@@ -18,7 +18,7 @@ export const Card = () =>{
             w='100%'
             h='344.92px'>
             <Image
-            img='./assets/Chromecast-x2.png'
+            img={img}
             w='280px'
             h='204px'/>
             </Flex>
@@ -33,18 +33,18 @@ export const Card = () =>{
             p='16px 24px 24px'>
                 <Text
                 background='#252F3D'>
-                    Chromecast 3 
+                    {name}
                 </Text>
                 <Text
                 boxSize='14px'>
-                    SMART HOME
+                    {category}
                 </Text>
             </Flex>
         </Flex>
     )
 }
 
-export const RedeemerButton = () =>{
+export const RedeemerButton = ({cost}) =>{
     return(
         <GradientButton
         borderRadius='16px'
@@ -57,18 +57,21 @@ export const RedeemerButton = () =>{
             boxSize='24px'
             m='0 8px'/>
             <Text
-            background='white'>12.050</Text>
+            background='white'>{cost}</Text>
         </GradientButton>
     )
 }
 
-const CardWithButton = () =>{
+const CardWithButton = ({name, category, img, cost}) =>{
     return(
         <Flex
         mt='80px'
         direction='column'>
-            <Card/>
-            <RedeemerButton/>
+            <Card
+            name={name}
+            category={category}
+            img={img}/>
+            <RedeemerButton cost={cost}/>
         </Flex>
     )
 }

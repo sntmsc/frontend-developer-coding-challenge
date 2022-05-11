@@ -4,31 +4,43 @@ import ProductsOptions from './products-options/ProductsOptions'
 import CardWithButton from './products/CardWithButton'
 import Text from '../Text/Text'
 import Pagination from './products-options/Pagination'
-import Image from '../Image/Image'
+import { useState, useEffect } from 'react' 
 
-const ProductsSection = () =>{
+const ProductsSection = ({products}) =>{
+    const [dataProducts, setDataProducts] = useState();
+
+    useEffect(()=>{
+        setDataProducts(products);
+    },[products]);
+
+    const lowestPriceOrder = () =>{
+        setDataProducts([...dataProducts].sort((a,b) => a.cost - b.cost));
+    } 
+
+    const highestPriceOrder = () =>{
+        setDataProducts([...dataProducts].sort((a,b) => b.cost - a.cost));
+    }
+
     return(
         <Flex
         maxW='1464px'
         mt='250px'
         direction='column'>
     <ProductsTitle/>
-    <ProductsOptions/>
+    <ProductsOptions
+    lowestPriceOrder = {lowestPriceOrder}
+    highestPriceOrder = {highestPriceOrder}/>
             <Flex
             wrap='wrap'
             columnGap='24px'>
-                <CardWithButton/>
-                <CardWithButton/>
-                <CardWithButton/>
-                <CardWithButton/>
-                <CardWithButton/>
-                <CardWithButton/>
-                <CardWithButton/>
-                <CardWithButton/>
-                <CardWithButton/>
-                <CardWithButton/>
-                <CardWithButton/>
-                <CardWithButton/>
+                {dataProducts ? dataProducts.map(x=>
+                        <CardWithButton
+                        key={x._id}
+                        name={x.name}
+                        category={x.category}
+                        cost={x.cost}
+                        img={x.img.url}/>
+                ) : <p>loading</p>}
             </Flex>
             <Flex
             w='100%'
@@ -46,18 +58,6 @@ const ProductsSection = () =>{
                 <Pagination
                 position='absolute'
                 left='1075px'/>
-            </Flex>
-            <Flex
-            mt='260px'
-            mb='80px'>
-                <Image
-                w='27.97px'
-                h='27.23px'
-                img='./assets/icons/github-default.svg'/>
-                <Text
-                mx='8px'>
-                    View this repository
-                </Text>
             </Flex>
         </Flex>
     )

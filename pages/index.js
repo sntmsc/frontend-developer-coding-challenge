@@ -2,6 +2,7 @@ import { Flex } from './../src/components/Flex/styled'
 import ProductsSection from '../src/components/products-section/ProductsSection'
 import MainSection from '../src/components/main-section/MainSection'
 import fetchHeaders from '../utils/api/fetchHeaders';
+import Footer from '../src/components/Footer';
 
 export async function getStaticProps() {
   const headers = fetchHeaders(process.env.TOKEN);
@@ -18,13 +19,13 @@ export async function getStaticProps() {
 }
 
 export default function Home({products}) {
-  console.log(products);
   return(
     <Flex
     justify='center'
     direction='column'>
       <MainSection/>
-      <ProductsSection/>
+      <ProductsSection products={products}/>
+      <Footer/>
    </Flex>
   )
 }
