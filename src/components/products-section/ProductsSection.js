@@ -13,12 +13,11 @@ const ProductsSection = ({products}) =>{
         setDataProducts(products);
     },[products]);
 
-    const lowestPriceOrder = () =>{
-        setDataProducts([...dataProducts].sort((a,b) => a.cost - b.cost));
-    } 
 
-    const highestPriceOrder = () =>{
-        setDataProducts([...dataProducts].sort((a,b) => b.cost - a.cost));
+    const sortFunctions = {
+        lowest: ()=>{setDataProducts([...dataProducts].sort((a,b) => a.cost - b.cost))},
+        highest: ()=>{setDataProducts([...dataProducts].sort((a,b) => b.cost - a.cost))},
+        recent: ()=> {setDataProducts(products)}
     }
 
     return(
@@ -28,8 +27,7 @@ const ProductsSection = ({products}) =>{
         direction='column'>
     <ProductsTitle/>
     <ProductsOptions
-    lowestPriceOrder = {lowestPriceOrder}
-    highestPriceOrder = {highestPriceOrder}/>
+    sortFunctions={sortFunctions}/>
             <Flex
             wrap='wrap'
             columnGap='24px'>

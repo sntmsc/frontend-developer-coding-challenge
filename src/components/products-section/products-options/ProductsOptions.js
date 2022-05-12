@@ -6,16 +6,20 @@ import Selector from './Selector'
 import Pagination from './Pagination'
 import { useState } from 'react'
 
-const SortGradientButton = ({children, sortSelected, setSortSelected, lowestPriceOrder, highestPriceOrder}) =>{
+const SortGradientButton = ({children, sortSelected, setSortSelected, sortFunctions}) =>{
 
     const handleClick = () => {
         setSortSelected(children);
-
-        if(children === 'Lowest Price'){
-            lowestPriceOrder();
-        } 
-        else if(children === 'Highest Price') {
-            highestPriceOrder();
+        switch(children) {
+            case 'Lowest Price':
+                sortFunctions.lowest();
+                break;
+            case 'Highest Price':
+                sortFunctions.highest();
+                break;
+            case 'Most Recent':
+                sortFunctions.recent();
+                break;
         }
     }
 
@@ -34,7 +38,7 @@ const SortGradientButton = ({children, sortSelected, setSortSelected, lowestPric
     )
 }
 
-const ProductsOptions = ({lowestPriceOrder, highestPriceOrder}) =>{
+const ProductsOptions = ({sortFunctions}) =>{
 
     const filterOptions = ['All Products', 'Gaming', 'Audio', 'Smart Home', 'Monitors & TV'];
     const [sortSelected, setSortSelected] = useState('Most Recent');
@@ -60,22 +64,19 @@ const ProductsOptions = ({lowestPriceOrder, highestPriceOrder}) =>{
                 <SortGradientButton
                 sortSelected={sortSelected}
                 setSortSelected={(value)=> setSortSelected(value)}
-                lowestPriceOrder={lowestPriceOrder}
-                highestPriceOrder={highestPriceOrder}>
+                sortFunctions={sortFunctions}>
                     Most Recent
                 </SortGradientButton>
                 <SortGradientButton
                 sortSelected={sortSelected}
                 setSortSelected={(value)=> setSortSelected(value)}
-                lowestPriceOrder={lowestPriceOrder}
-                highestPriceOrder={highestPriceOrder}>
+                sortFunctions={sortFunctions}>
                     Lowest Price
                 </SortGradientButton>
                 <SortGradientButton
                 sortSelected={sortSelected}
                 setSortSelected={(value)=> setSortSelected(value)}
-                lowestPriceOrder={lowestPriceOrder}
-                highestPriceOrder={highestPriceOrder}>
+                sortFunctions={sortFunctions}>
                     Highest Price
                 </SortGradientButton>
             </Flex>
