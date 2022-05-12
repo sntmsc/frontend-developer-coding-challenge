@@ -5,8 +5,6 @@ import { useState, useEffect } from 'react'
 import fetchHeaders from "../../../../../utils/api/fetchHeaders"
 
 const AeropayButton = ({handleClick}) =>{
-    const [userPoints, setUserPoints] = useState('');
-    const headers = fetchHeaders(process.env.TOKEN);
 
     useEffect( ()=>{
         fetch(process.env.API_GET_USER, {
@@ -17,7 +15,7 @@ const AeropayButton = ({handleClick}) =>{
                 'Authorization': `Bearer ${process.env.TOKEN}`
             },
         })
-        .then(response => response.json())
+        .then(response => response)
         .then(data => console.log(data))
         .catch(err => console.log(err));
     },[])
@@ -33,7 +31,7 @@ const AeropayButton = ({handleClick}) =>{
             w='60px'
             weight='600'
             background='gradient'
-            userSelect='none'>{userPoints}</Text>
+            userSelect='none'>10000</Text>
             <Image
             img='./assets/icons/chevron-default.svg'
             boxSize='24px'
