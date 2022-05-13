@@ -49,15 +49,17 @@ export const RedeemerButton = ({cost}) =>{
         <GradientButton
         borderRadius='16px'
         w='348px'
-        h='59px'>
+        h='59px'
+        background={cost > 2000 ? '#E6EDF7' : ''}
+        cursor={cost > 2000 ? '' : 'pointer'}>
             <Text
-            background='white'>Redeem for</Text>
+            background={cost > 2000 ? '#7C899C' : 'white'}>{cost > 2000 ? 'You need' : 'Redeem for'}</Text>
             <Image
-            img='./assets/icons/aeropay-3.svg'
-            boxSize='24px'
+            img={cost > 2000 ? './assets/icons/aeropay-disabled.svg' : './assets/icons/aeropay-3.svg'}
+            boxSize={cost > 2000 ? '25px' : '24px'}
             m='0 8px'/>
             <Text
-            background='white'>{cost}</Text>
+            background={cost > 2000 ? '#7C899C' : 'white'}>{cost}</Text>
         </GradientButton>
     )
 }

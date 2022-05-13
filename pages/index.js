@@ -5,7 +5,7 @@ import fetchHeaders from '../utils/api/fetchHeaders';
 import Footer from '../src/components/Footer';
 
 export async function getStaticProps() {
-  const headers = fetchHeaders(process.env.TOKEN);
+  const headers = fetchHeaders(process.env.NEXT_PUBLIC_TOKEN);
   const res = await fetch(process.env.API_GET_PRODUCTS, {headers});
   const products = await res.json();
 

@@ -1,24 +1,9 @@
 import * as S from  "./styled"
 import Image from "./../../../Image/Image"
 import Text from "./../../../Text/Text"
-import { useState, useEffect } from 'react'
-import fetchHeaders from "../../../../../utils/api/fetchHeaders"
 
-const AeropayButton = ({handleClick}) =>{
+const AeropayButton = ({handleClick, userPoints}) =>{
 
-    useEffect( ()=>{
-        fetch(process.env.API_GET_USER, {
-            method: "GET",
-            headers:{
-                'Content-Type': 'application/json',
-                'Accept': 'application/json',
-                'Authorization': `Bearer ${process.env.TOKEN}`
-            },
-        })
-        .then(response => response)
-        .then(data => console.log(data))
-        .catch(err => console.log(err));
-    },[])
 
     return(
         <S.AeropayButtonContainer
@@ -31,7 +16,7 @@ const AeropayButton = ({handleClick}) =>{
             w='60px'
             weight='600'
             background='gradient'
-            userSelect='none'>10000</Text>
+            userSelect='none'>{userPoints}</Text>
             <Image
             img='./assets/icons/chevron-default.svg'
             boxSize='24px'

@@ -18,5 +18,5 @@ column-gap: ${props => props.columnGap ? props.columnGap : ''};
 background: ${props => props.background ? props.background : '-webkit-linear-gradient(left,#176FEB, #FF80FF)'};
 border: none;
 border-radius: ${props => props.borderRadius ? props.borderRadius : '20px'};
-cursor: pointer;
+cursor: ${props => props.cursor ? props.cursor : ''};
 `

@@ -2,7 +2,7 @@ import Image from "./../../../Image/Image"
 import Text from "./../../../Text/Text"
 import { Flex } from "./../../../Flex/styled"
 import GradientButton from "./../../../GradientButton/GradientButton"
-const Aeropay = () =>{
+const Aeropay = ({userName}) =>{
     return(
         <Flex
         w='312px'
@@ -58,7 +58,7 @@ const Aeropay = () =>{
                         <Text
                         background='#F5F9FF'
                         fontSize='14px'>
-                            John Kite
+                            {userName}
                         </Text>
                         <Text
                         background='#F5F9FF'
