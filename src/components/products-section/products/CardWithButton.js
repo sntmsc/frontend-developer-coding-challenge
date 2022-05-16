@@ -1,8 +1,12 @@
+import { useContext } from 'react'
 import { Flex } from "../../Flex/styled"
 import Image from "../../Image/Image"
 import Text from "../../Text/Text"
 import GradientButton from "../../GradientButton/GradientButton"
+import { ContextAeropoints } from '../../../../context/ContextAeropoints'
+
 export const Card = ({name, category, img}) =>{
+
     return(
         <Flex
         background='white'
@@ -45,21 +49,22 @@ export const Card = ({name, category, img}) =>{
 }
 
 export const RedeemerButton = ({cost}) =>{
+    const {aeropoints} = useContext(ContextAeropoints);
     return(
         <GradientButton
         borderRadius='16px'
         w='348px'
         h='59px'
-        background={cost > 2000 ? '#E6EDF7' : ''}
-        cursor={cost > 2000 ? '' : 'pointer'}>
+        background={cost > aeropoints ? '#E6EDF7' : ''}
+        cursor={cost > aeropoints ? '' : 'pointer'}>
             <Text
-            background={cost > 2000 ? '#7C899C' : 'white'}>{cost > 2000 ? 'You need' : 'Redeem for'}</Text>
+            background={cost > aeropoints ? '#7C899C' : 'white'}>{cost > aeropoints ? 'You need' : 'Redeem for'}</Text>
             <Image
-            img={cost > 2000 ? './assets/icons/aeropay-disabled.svg' : './assets/icons/aeropay-3.svg'}
-            boxSize={cost > 2000 ? '25px' : '24px'}
+            img={cost > aeropoints ? './assets/icons/aeropay-disabled.svg' : './assets/icons/aeropay-3.svg'}
+            boxSize={cost > aeropoints ? '25px' : '24px'}
             m='0 8px'/>
             <Text
-            background={cost > 2000 ? '#7C899C' : 'white'}>{cost}</Text>
+            background={cost > aeropoints ? '#7C899C' : 'white'}>{cost}</Text>
         </GradientButton>
     )
 }

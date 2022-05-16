@@ -30,6 +30,7 @@ const SortGradientButton = ({children, sortSelected, setSortSelected, sortFuncti
         w='165px'
         h='43px'
         m='0 12px'
+        cursor='pointer'
         background={sortSelected === children ? '' : '#E6F0FF'}
         textColor={sortSelected === children ? '' : 
         '-webkit-linear-gradient(left,#176FEB, #FF80FF)'}>

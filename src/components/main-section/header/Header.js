@@ -1,14 +1,17 @@
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useContext} from 'react'
 import { Flex } from './../../Flex/styled'
 import Image from './../../Image/Image'
 import AeropayButton from './AeropayButton/AeropayButton'
 import Aeropay from './Aeropay/Aeropay'
 import fetchHeaders from '../../../../utils/api/fetchHeaders'
+import { ContextAeropoints } from '../../../../context/ContextAeropoints'
 
 const Header = () => {
 
   const [ isVisible, setIsVisible ] = useState(false);
   const [ userData, setUserData] = useState({});
+  const {aeropoints, setAeropoints} = useContext(ContextAeropoints);
+
   const handleClick = () =>{
     setIsVisible(!isVisible);
   }
@@ -21,7 +24,7 @@ const Header = () => {
           headers,
       })
       .then(response => response.json())
-      .then(data => setUserData(data))
+      .then(data => {setUserData(data); setAeropoints(data.points)})
       .catch(err => console.log(err));
   },[])
 
@@ -38,7 +41,7 @@ const Header = () => {
           margin='0 0 0 10px'/>
       <AeropayButton
       handleClick={handleClick}
-      userPoints={userData.points}/>
+      aeropoints={aeropoints}/>
         { isVisible && 
             <Aeropay
             userName={userData.name}/>

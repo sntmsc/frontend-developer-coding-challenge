@@ -2,7 +2,17 @@ import Image from "./../../../Image/Image"
 import Text from "./../../../Text/Text"
 import { Flex } from "./../../../Flex/styled"
 import GradientButton from "./../../../GradientButton/GradientButton"
+import { useContext } from "react"
+import { ContextAeropoints } from "../../../../../context/ContextAeropoints"
+
 const Aeropay = ({userName}) =>{
+
+    const {aeropoints, setAeropoints} = useContext(ContextAeropoints);
+
+    const handleClick = (newPoints) =>{
+        setAeropoints(aeropoints + newPoints);
+    }
+
     return(
         <Flex
         w='312px'
@@ -95,13 +105,15 @@ const Aeropay = ({userName}) =>{
                     h='35px'
                      background='#E6F0FF'
                      textColor='-webkit-linear-gradient(left,#176FEB, #FF80FF)'
-                     borderRadius='12px'>
+                     borderRadius='12px'
+                     onClick={()=>handleClick(1000)}>
                          1000
                      </GradientButton>
                     <GradientButton
                     w='85.33px'
                     h='35px'
-                    borderRadius='12px'>
+                    borderRadius='12px'
+                    onClick={()=>handleClick(5000)}>
                         5000
                     </GradientButton>
                     <GradientButton
@@ -109,7 +121,8 @@ const Aeropay = ({userName}) =>{
                     h='35px'
                      background='#E6F0FF'
                      textColor='-webkit-linear-gradient(left,#176FEB, #FF80FF)'
-                     borderRadius='12px'>
+                     borderRadius='12px'
+                     onClick={()=>handleClick(7500)}>
                          7500
                      </GradientButton>
                 </Flex>
