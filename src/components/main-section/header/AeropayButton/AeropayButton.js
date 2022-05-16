@@ -15,6 +15,7 @@ const AeropayButton = ({handleClick, aeropoints}) =>{
             w='60px'
             weight='600'
             background='gradient'
+            fontSize={aeropoints === 0 ? '11px' : ''}
             userSelect='none'>
                 {aeropoints === 0 ? 'loading..' : aeropoints}
             </Text>

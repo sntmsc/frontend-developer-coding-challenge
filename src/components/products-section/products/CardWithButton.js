@@ -3,7 +3,7 @@ import { Flex } from "../../Flex/styled"
 import Image from "../../Image/Image"
 import Text from "../../Text/Text"
 import GradientButton from "../../GradientButton/GradientButton"
-import { ContextAeropoints } from '../../../../context/ContextAeropoints'
+import { ContextAeropoints } from '../../../../context/Aeropoints'
 
 export const Card = ({name, category, img}) =>{
 

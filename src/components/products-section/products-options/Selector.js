@@ -5,13 +5,14 @@ import Image from '../../Image/Image'
 
 
 
-const Selector = ({options}) =>{
+const Selector = ({options, filterFunction}) =>{
     const [isVisible, setIsVisible] = useState(false);
     const [currentOption, setCurrentOption] = useState('All Products');
 
     const handleClickOption = (x) =>{
         setCurrentOption(x); 
-        setIsVisible(false)
+        setIsVisible(false);
+        filterFunction(x);
     };
 
     return(

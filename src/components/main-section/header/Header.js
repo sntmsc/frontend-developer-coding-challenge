@@ -4,7 +4,7 @@ import Image from './../../Image/Image'
 import AeropayButton from './AeropayButton/AeropayButton'
 import Aeropay from './Aeropay/Aeropay'
 import fetchHeaders from '../../../../utils/api/fetchHeaders'
-import { ContextAeropoints } from '../../../../context/ContextAeropoints'
+import { ContextAeropoints } from '../../../../context/Aeropoints'
 
 const Header = () => {
 

@@ -2,16 +2,27 @@ import Image from "./../../../Image/Image"
 import Text from "./../../../Text/Text"
 import { Flex } from "./../../../Flex/styled"
 import GradientButton from "./../../../GradientButton/GradientButton"
-import { useContext } from "react"
-import { ContextAeropoints } from "../../../../../context/ContextAeropoints"
+import { useState , useContext } from "react"
+import { ContextAeropoints } from "../../../../../context/Aeropoints"
 
+
+const PointsOption = ({children, pointSelected, handleClick}) =>{
+    return(
+        <GradientButton
+        w='85.33px'
+        h='35px'
+        borderRadius='12px'
+        cursor='pointer'
+         background={pointSelected !== children ? '#E6F0FF' : ''}
+         textColor={pointSelected !== children ? '-webkit-linear-gradient(left,#176FEB, #FF80FF)' : ''}
+         onClick={()=>handleClick(children)}>
+             {children}
+         </GradientButton>
+    )
+}
 const Aeropay = ({userName}) =>{
-
+    const [pointSelected, setPointSelected] = useState(0);
     const {aeropoints, setAeropoints} = useContext(ContextAeropoints);
-
-    const handleClick = (newPoints) =>{
-        setAeropoints(aeropoints + newPoints);
-    }
 
     return(
         <Flex
@@ -100,37 +111,29 @@ const Aeropay = ({userName}) =>{
                 w='100%'
                 mt='44px'
                 justify='space-between'>
-                    <GradientButton
-                    w='85.33px'
-                    h='35px'
-                     background='#E6F0FF'
-                     textColor='-webkit-linear-gradient(left,#176FEB, #FF80FF)'
-                     borderRadius='12px'
-                     onClick={()=>handleClick(1000)}>
+                    <PointsOption
+                    pointSelected={pointSelected}
+                    handleClick={(value)=>setPointSelected(value)}>
                          1000
-                     </GradientButton>
-                    <GradientButton
-                    w='85.33px'
-                    h='35px'
-                    borderRadius='12px'
-                    onClick={()=>handleClick(5000)}>
-                        5000
-                    </GradientButton>
-                    <GradientButton
-                    w='85.33px'
-                    h='35px'
-                     background='#E6F0FF'
-                     textColor='-webkit-linear-gradient(left,#176FEB, #FF80FF)'
-                     borderRadius='12px'
-                     onClick={()=>handleClick(7500)}>
-                         7500
-                     </GradientButton>
+                     </PointsOption>
+                     <PointsOption
+                    pointSelected={pointSelected}
+                    handleClick={(value)=>setPointSelected(value)}>
+                         5000
+                     </PointsOption>
+                     <PointsOption
+                    pointSelected={pointSelected}
+                    handleClick={(value)=>setPointSelected(value)}>
+                         7000
+                     </PointsOption>
                 </Flex>
                 <GradientButton
                     borderRadius='16px'
+                    cursor='pointer'
                     w='100%'
                     h='51px'
-                    m='24px 0 0 0'>
+                    m='24px 0 0 0'
+                    onClick={()=>setAeropoints(aeropoints + parseInt(pointSelected))}>
                         <Image
                         img='./assets/icons/aeropay-3.svg'
                         boxSize='24px'

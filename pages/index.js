@@ -3,7 +3,7 @@ import ProductsSection from '../src/components/products-section/ProductsSection'
 import MainSection from '../src/components/main-section/MainSection'
 import fetchHeaders from '../utils/api/fetchHeaders';
 import Footer from '../src/components/Footer';
-import { Aeropoints } from '../context/ContextAeropoints';
+import { Aeropoints } from '../context/Aeropoints';
 export async function getStaticProps() {
   const headers = fetchHeaders(process.env.NEXT_PUBLIC_TOKEN);
   const res = await fetch(process.env.API_GET_PRODUCTS, {headers});
@@ -25,7 +25,7 @@ export default function Home({products}) {
     direction='column'>
       <Aeropoints>
         <MainSection/>
-        <ProductsSection products={products}/>
+          <ProductsSection products={products}/>
         <Footer/>
       </Aeropoints>
    </Flex>

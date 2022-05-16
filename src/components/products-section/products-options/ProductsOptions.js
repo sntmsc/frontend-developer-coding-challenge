@@ -39,7 +39,7 @@ const SortGradientButton = ({children, sortSelected, setSortSelected, sortFuncti
     )
 }
 
-const ProductsOptions = ({sortFunctions}) =>{
+const ProductsOptions = ({sortFunctions, filterFunction}) =>{
 
     const filterOptions = ['All Products', 'Gaming', 'Audio', 'Smart Home', 'Monitors & TV'];
     const [sortSelected, setSortSelected] = useState('Most Recent');
@@ -56,7 +56,8 @@ const ProductsOptions = ({sortFunctions}) =>{
                     Filter by: 
                 </Text>
                 <Selector
-                options={filterOptions}/>
+                options={filterOptions}
+                filterFunction={filterFunction}/>
                 <Divider/>
                 <Text
                 w='81px'>
