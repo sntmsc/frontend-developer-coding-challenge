@@ -4,7 +4,7 @@ import { Flex } from "./../../../Flex/styled"
 import GradientButton from "./../../../GradientButton/GradientButton"
 import { useState , useContext } from "react"
 import { ContextAeropoints } from "../../../../../context/Aeropoints"
-
+import fetchPostAddPoints from "../../../../../utils/api/fetchPostAddPoints"
 
 const PointsOption = ({children, pointSelected, handleClick}) =>{
     return(
@@ -23,6 +23,14 @@ const PointsOption = ({children, pointSelected, handleClick}) =>{
 const Aeropay = ({userName}) =>{
     const [pointSelected, setPointSelected] = useState(0);
     const {aeropoints, setAeropoints} = useContext(ContextAeropoints);
+
+    const addPoints = (points) =>{
+        const post =fetchPostAddPoints(points);
+        fetch(process.env.NEXT_PUBLIC_POST_POINTS,post)
+        .then(response => response.json())
+        .then(data => {console.log(data)})
+        .catch(err => console.log(err))
+    }
 
     return(
         <Flex
@@ -133,7 +141,7 @@ const Aeropay = ({userName}) =>{
                     w='100%'
                     h='51px'
                     m='24px 0 0 0'
-                    onClick={()=>setAeropoints(aeropoints + parseInt(pointSelected))}>
+                    onClick={()=>{setAeropoints(aeropoints + parseInt(pointSelected)); addPoints(parseInt(pointSelected))}}>
                         <Image
                         img='./assets/icons/aeropay-3.svg'
                         boxSize='24px'

@@ -13,6 +13,7 @@ const ProductsSection = ({products}) =>{
 
     useEffect(()=>{
         setDataProducts(products);
+        setCurrentSort(products);
     },[products]);
 
     const sortFunctions = {
