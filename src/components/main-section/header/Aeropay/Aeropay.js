@@ -2,9 +2,11 @@ import Image from "./../../../Image/Image"
 import Text from "./../../../Text/Text"
 import { Flex } from "./../../../Flex/styled"
 import GradientButton from "./../../../GradientButton/GradientButton"
-import { useState , useContext } from "react"
+import { useState , useContext, useRef } from "react"
 import { ContextAeropoints } from "../../../../../context/Aeropoints"
 import fetchPostAddPoints from "../../../../../utils/api/fetchPostAddPoints"
+import fetchHeaders from "../../../../../utils/api/fetchHeaders"
+import useClickOutside from "../../../../../utils/useClickOutside"
 
 const PointsOption = ({children, pointSelected, handleClick}) =>{
     return(
@@ -20,20 +22,34 @@ const PointsOption = ({children, pointSelected, handleClick}) =>{
          </GradientButton>
     )
 }
-const Aeropay = ({userName}) =>{
+const Aeropay = ({userName, closeComponent}) =>{
     const [pointSelected, setPointSelected] = useState(0);
-    const {aeropoints, setAeropoints} = useContext(ContextAeropoints);
+    const {setAeropoints} = useContext(ContextAeropoints);
+    const ref = useRef(null);
 
+    useClickOutside(ref, closeComponent);
+    
     const addPoints = (points) =>{
         const post =fetchPostAddPoints(points);
+        const headers = fetchHeaders(process.env.NEXT_PUBLIC_TOKEN)
         fetch(process.env.NEXT_PUBLIC_POST_POINTS,post)
         .then(response => response.json())
-        .then(data => {console.log(data)})
+        .then(data => {
+            console.log(data);
+            return fetch(process.env.NEXT_PUBLIC_GET_USER, {
+                method: "GET",
+                headers,
+            })
+            .then(response => response.json())
+            .then(data => {console.log(data); setAeropoints(data.points)})
+            .catch(err => console.log(err));
+        })
         .catch(err => console.log(err))
     }
 
     return(
         <Flex
+        ref={ref}
         w='312px'
         h='404px'
         border='1px solid #DAE4F2'
@@ -141,7 +157,7 @@ const Aeropay = ({userName}) =>{
                     w='100%'
                     h='51px'
                     m='24px 0 0 0'
-                    onClick={()=>{setAeropoints(aeropoints + parseInt(pointSelected)); addPoints(parseInt(pointSelected))}}>
+                    onClick={()=> addPoints(parseInt(pointSelected))}>
                         <Image
                         img='./assets/icons/aeropay-3.svg'
                         boxSize='24px'

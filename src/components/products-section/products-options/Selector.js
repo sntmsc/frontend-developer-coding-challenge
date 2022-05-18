@@ -1,13 +1,20 @@
-import {useState} from 'react'
+import {useState, useRef} from 'react'
 import { Flex } from '../../Flex/styled' 
 import Text from '../../Text/Text'
 import Image from '../../Image/Image'
+import useClickOutside from '../../../../utils/useClickOutside'
 
 
-
-const Selector = ({options, filterFunction}) =>{
+const Selector = ({filterFunction}) =>{
     const [isVisible, setIsVisible] = useState(false);
     const [currentOption, setCurrentOption] = useState('All Products');
+    const ref = useRef(null);
+
+    const filterOptions = ['All Products', 'Gaming', 'Audio', 'Smart Home', 'Monitors & TV'];
+
+    const closeComponent = () => setIsVisible(false);
+
+    useClickOutside(ref, closeComponent);
 
     const handleClickOption = (x) =>{
         setCurrentOption(x); 
@@ -40,6 +47,7 @@ const Selector = ({options, filterFunction}) =>{
             </Flex>
             {isVisible && 
                 <Flex
+                ref={ref}
                 position='absolute'
                 direction='column'
                 top='63px'
@@ -50,7 +58,7 @@ const Selector = ({options, filterFunction}) =>{
                 borderRadius='8px'
                 align='flex-start'
                 justify='center'>
-                    {options.map((x,i) => 
+                    {filterOptions.map((x,i) => 
                         <Flex
                         key={i}
                         w='100%'

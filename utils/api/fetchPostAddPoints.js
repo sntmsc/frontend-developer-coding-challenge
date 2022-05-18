@@ -5,8 +5,7 @@ const fetchPostAddPoints = (points) =>{
     const post = {
         method: "POST",
         body: JSON.stringify({
-            'message': 'Points Updated',
-            'new Points': points
+            'amount': points
         }),
         headers
     }

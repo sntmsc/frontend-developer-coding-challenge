@@ -44,7 +44,8 @@ const Header = () => {
       aeropoints={aeropoints}/>
         { isVisible && 
             <Aeropay
-            userName={userData.name}/>
+            userName={userData.name}
+            closeComponent={()=>setIsVisible(false)}/>
         }
     </Flex>
   )
