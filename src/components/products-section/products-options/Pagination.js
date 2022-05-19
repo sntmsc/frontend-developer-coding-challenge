@@ -1,9 +1,31 @@
+import { useState } from 'react'
 import { Flex } from '../../Flex/styled' 
 import Text from '../../Text/Text'
 import Image from '../../Image/Image'
 
 
-const Pagination = ({position, left}) =>{
+const Pagination = ({position, left, setItems, itemsPerPage, totalItems}) =>{
+    const [ currentPage, setCurrentPage ] = useState(0);
+    const [firstIndex, setFirstIndex] = useState(0);
+    const totalPages = Math.ceil(totalItems/itemsPerPage);
+console.log(firstIndex)
+    const handleNext = () =>{
+        const nextPage = currentPage + 1;
+        if(firstIndex + itemsPerPage >= totalItems) return;
+        setFirstIndex(nextPage * itemsPerPage);
+        setCurrentPage(nextPage);
+        setItems(firstIndex);
+    }
+
+    const handlePrev = () =>{
+        const prevPage = currentPage - 1;
+        if(prevPage < 0) return;
+
+         setFirstIndex(prevPage * itemsPerPage);
+        setCurrentPage(prevPage);
+        setItems(firstIndex);
+    }
+
     return(
         <Flex
         ml='140px'
@@ -18,11 +40,12 @@ const Pagination = ({position, left}) =>{
         left={left}>
                 <Flex
                 boxSize='40px'
-                background='#E6EDF7'
+                background={currentPage === 0 ? '#E6EDF7' : '#E5F0FF'}
                 borderRadius='8px'
-                cursor='pointer'>
+                cursor='pointer'
+                onClick={handlePrev}>
                     <Image
-                    img='./assets/icons/chevron-default.svg'
+                    img={`./assets/icons/chevron-${currentPage === 0 ? 'default' : 'active'}.svg`}
                     transform='rotate(-180deg)'
                     boxSize='15px'/>
                 </Flex>
@@ -33,14 +56,15 @@ const Pagination = ({position, left}) =>{
                 <Text
                 background=' linear-gradient(102.47deg, #176FEB -150.34%, #FF80FF 106.58%)'
                 userSelect='none'>
-                     1 of 2</Text>
+                     {currentPage + 1} of {totalPages}</Text>
                 <Flex
                 boxSize='40px'
-                background='#E5F0FF'
+                background={firstIndex + itemsPerPage >= totalItems ? '#E6EDF7' : '#E5F0FF'}
                 borderRadius='8px'
-                cursor='pointer'>
+                cursor='pointer'
+                onClick={handleNext}>
                     <Image
-                    img='./assets/icons/chevron-active.svg'
+                    img={`./assets/icons/chevron-${firstIndex + itemsPerPage >= totalItems ? 'default' : 'active'}.svg`}
                     boxSize='15px'/>
                 </Flex>
         </Flex>

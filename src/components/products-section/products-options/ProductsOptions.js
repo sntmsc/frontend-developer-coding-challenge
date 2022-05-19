@@ -39,7 +39,7 @@ const SortGradientButton = ({children, sortSelected, setSortSelected, sortFuncti
     )
 }
 
-const ProductsOptions = ({sortFunctions, filterFunction}) =>{
+const ProductsOptions = ({sortFunctions, filterFunction, setItems, itemsPerPage, totalItems}) =>{
 
 
     const [sortSelected, setSortSelected] = useState('Most Recent');
@@ -81,7 +81,10 @@ const ProductsOptions = ({sortFunctions, filterFunction}) =>{
                     Highest Price
                 </SortGradientButton>
             </Flex>
-            <Pagination/>
+            <Pagination
+            setItems={(firstIndex)=>setItems(firstIndex)}
+            itemsPerPage={itemsPerPage}
+            totalItems={totalItems}/>
         </Flex>
     )
 }

@@ -11,10 +11,21 @@ const ProductsSection = ({products}) =>{
     const [productsFiltered, setProductsFiltered] = useState([]);
     const [currentSort, setCurrentSort] = useState([]);
 
+    ////////////////////////// PAGINATION /////////////////////////
+
+    const itemsPerPage = 16;
+    const [visibleItems, setVisibleItems] = useState([...dataProducts].splice(0,itemsPerPage));
+    const setItems = (firstIndex)=> setVisibleItems([...dataProducts].splice(firstIndex,itemsPerPage));
+    const totalItems = dataProducts.length;
+    console.log(totalItems);
+    //////////////////////////////////////////////////////////////
+
+
     useEffect(()=>{
         setDataProducts(products);
         setCurrentSort(products);
         setDataProducts(products);
+        setVisibleItems([...dataProducts].splice(0,itemsPerPage));
     },[products]);
 
     const sortFunctions = {
@@ -41,12 +52,15 @@ const ProductsSection = ({products}) =>{
         direction='column'>
     <ProductsTitle/>
     <ProductsOptions
+    setItems={(firstIndex)=>setItems(firstIndex)}
+    itemsPerPage={itemsPerPage}
+    totalItems={totalItems}
     sortFunctions={sortFunctions}
     filterFunction={filterFunction}/>
             <Flex
             wrap='wrap'
             columnGap='24px'>
-                {dataProducts ? dataProducts.map(x=>
+                {visibleItems ? visibleItems.map(x=>
                         <CardWithButton
                         key={x._id}
                         name={x.name}
@@ -63,14 +77,17 @@ const ProductsSection = ({products}) =>{
                     <Text
                     background='linear-gradient(102.47deg, #176FEB -7.34%, #FF80FF 180.58%) '
                     mr='5px'>
-                        16 of 32
+                        16 of {totalItems}
                     </Text>
                     <Text>
                         products
                     </Text>
-                <Pagination
+                    <Pagination
                 position='absolute'
-                left='1075px'/>
+                left='1075px'
+                setItems={(firstIndex)=>setItems(firstIndex)}
+                itemsPerPage={itemsPerPage}
+                totalItems={totalItems}/>
             </Flex>
         </Flex>
     )
