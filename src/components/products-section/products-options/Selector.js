@@ -5,9 +5,8 @@ import Image from '../../Image/Image'
 import useClickOutside from '../../../../utils/useClickOutside'
 
 
-const Selector = ({filterFunction}) =>{
+const Selector = ({filterSelected, setFilterSelected}) =>{
     const [isVisible, setIsVisible] = useState(false);
-    const [currentOption, setCurrentOption] = useState('All Products');
     const ref = useRef(null);
 
     const filterOptions = ['All Products', 'Gaming', 'Audio', 'Smart Home', 'Monitors & TV'];
@@ -16,10 +15,9 @@ const Selector = ({filterFunction}) =>{
 
     useClickOutside(ref, closeComponent);
 
-    const handleClickOption = (x) =>{
-        setCurrentOption(x); 
+    const handleClickOption = (x) =>{ 
         setIsVisible(false);
-        filterFunction(x);
+        setFilterSelected(x);
     };
 
     return(
@@ -39,7 +37,7 @@ const Selector = ({filterFunction}) =>{
             >
                 <Text
                 userSelect='none'>
-                    {currentOption}
+                    {filterSelected}
                 </Text>
                 <Image
                 img='./assets/icons/black-arrow.png'

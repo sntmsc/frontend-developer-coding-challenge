@@ -6,21 +6,10 @@ import Selector from './Selector'
 import Pagination from './Pagination'
 import { useState } from 'react'
 
-const SortGradientButton = ({children, sortSelected, setSortSelected, sortFunctions}) =>{
+const SortGradientButton = ({children, sortSelected, setSortSelected}) =>{
 
     const handleClick = () => {
         setSortSelected(children);
-        switch(children) {
-            case 'Lowest Price':
-                sortFunctions.lowest();
-                break;
-            case 'Highest Price':
-                sortFunctions.highest();
-                break;
-            case 'Most Recent':
-                sortFunctions.recent();
-                break;
-        }
     }
 
     return(
@@ -39,10 +28,8 @@ const SortGradientButton = ({children, sortSelected, setSortSelected, sortFuncti
     )
 }
 
-const ProductsOptions = ({sortFunctions, filterFunction, setItems, itemsPerPage, totalItems}) =>{
+const ProductsOptions = ({ filterSelected, setFilterSelected, setItems, itemsPerPage, totalItems, sortSelected, setSortSelected}) =>{
 
-
-    const [sortSelected, setSortSelected] = useState('Most Recent');
 
     return(
         <Flex
@@ -56,7 +43,8 @@ const ProductsOptions = ({sortFunctions, filterFunction, setItems, itemsPerPage,
                     Filter by: 
                 </Text>
                 <Selector
-                filterFunction={filterFunction}/>
+                filterSelected={filterSelected}
+                setFilterSelected={setFilterSelected}/>
                 <Divider/>
                 <Text
                 w='81px'>
@@ -64,20 +52,17 @@ const ProductsOptions = ({sortFunctions, filterFunction, setItems, itemsPerPage,
                 </Text>
                 <SortGradientButton
                 sortSelected={sortSelected}
-                setSortSelected={(value)=> setSortSelected(value)}
-                sortFunctions={sortFunctions}>
+                setSortSelected={(value)=> setSortSelected(value)}>
                     Most Recent
                 </SortGradientButton>
                 <SortGradientButton
                 sortSelected={sortSelected}
-                setSortSelected={(value)=> setSortSelected(value)}
-                sortFunctions={sortFunctions}>
+                setSortSelected={(value)=> setSortSelected(value)}>
                     Lowest Price
                 </SortGradientButton>
                 <SortGradientButton
                 sortSelected={sortSelected}
-                setSortSelected={(value)=> setSortSelected(value)}
-                sortFunctions={sortFunctions}>
+                setSortSelected={(value)=> setSortSelected(value)}>
                     Highest Price
                 </SortGradientButton>
             </Flex>

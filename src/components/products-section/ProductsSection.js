@@ -5,45 +5,35 @@ import ProductsOptions from './products-options/ProductsOptions'
 import CardWithButton from './products/CardWithButton'
 import Text from '../Text/Text'
 import Pagination from './products-options/Pagination'
+import handleOptions from './products-options/handleOptions'
 
 const ProductsSection = ({products}) =>{
     const [dataProducts, setDataProducts] = useState([]);
-    const [productsFiltered, setProductsFiltered] = useState([]);
-    const [currentSort, setCurrentSort] = useState([]);
+    const [objOptions, setObjOptions] = useState({
+        filter: 'All Products',
+        sort: 'Most Recent'
+    });
+
+    useEffect(()=>{
+        setDataProducts(products);
+    },[products]);
+
+    useEffect(()=>{
+        const reorderedProducts = handleOptions(objOptions,products);
+        setDataProducts(reorderedProducts);
+    },[objOptions]);
 
     ////////////////////////// PAGINATION /////////////////////////
 
     const itemsPerPage = 16;
-    const [visibleItems, setVisibleItems] = useState([...dataProducts].splice(0,itemsPerPage));
+    const [visibleItems, setVisibleItems] = useState([]);
     const setItems = (firstIndex)=> setVisibleItems([...dataProducts].splice(firstIndex,itemsPerPage));
     const totalItems = dataProducts.length;
-    console.log(totalItems);
+
     //////////////////////////////////////////////////////////////
 
 
-    useEffect(()=>{
-        setDataProducts(products);
-        setCurrentSort(products);
-        setDataProducts(products);
-        setVisibleItems([...dataProducts].splice(0,itemsPerPage));
-    },[products]);
-
-    const sortFunctions = {
-        lowest: ()=>{setCurrentSort([...products].sort((a,b) => a.cost - b.cost)); setDataProducts([...dataProducts].sort((a,b) => a.cost - b.cost))},
-        highest: ()=>{setCurrentSort([...products].sort((a,b) => b.cost - a.cost)); setDataProducts([...dataProducts].sort((a,b) => b.cost - a.cost))},
-        recent: ()=> {setCurrentSort(products); setDataProducts(productsFiltered)}
-    }
-
-    const filterFunction = (category)=> {
-        if(category === 'All Products'){
-            setProductsFiltered(products);
-            setDataProducts(currentSort);
-        }
-        else{
-            setProductsFiltered(products.filter(x => x.category === category));
-            setDataProducts(currentSort.filter(x => x.category === category));
-        }
-    }
+  console.log(objOptions)
 
     return(
         <Flex
@@ -55,12 +45,14 @@ const ProductsSection = ({products}) =>{
     setItems={(firstIndex)=>setItems(firstIndex)}
     itemsPerPage={itemsPerPage}
     totalItems={totalItems}
-    sortFunctions={sortFunctions}
-    filterFunction={filterFunction}/>
+    filterSelected={objOptions.filter}
+    setFilterSelected={(filter)=>setObjOptions({...objOptions,filter})}
+    sortSelected={objOptions.sort}
+    setSortSelected={(sort)=>setObjOptions({...objOptions,sort})}/>
             <Flex
             wrap='wrap'
             columnGap='24px'>
-                {visibleItems ? visibleItems.map(x=>
+                {dataProducts ? dataProducts.map(x=>
                         <CardWithButton
                         key={x._id}
                         name={x.name}
