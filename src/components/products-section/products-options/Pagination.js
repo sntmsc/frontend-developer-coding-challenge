@@ -1,29 +1,25 @@
-import { useState } from 'react'
-import { Flex } from '../../Flex/styled' 
+import { Flex } from '../../Flex/styled'
 import Text from '../../Text/Text'
 import Image from '../../Image/Image'
 
 
-const Pagination = ({position, left, setItems, itemsPerPage, totalItems}) =>{
-    const [ currentPage, setCurrentPage ] = useState(0);
-    const [firstIndex, setFirstIndex] = useState(0);
+const Pagination = ({position, left, setItems, itemsPerPage, totalItems, currentPage, setCurrentPage}) =>{
+
     const totalPages = Math.ceil(totalItems/itemsPerPage);
-console.log(firstIndex)
+    const firstIndexOfPage = currentPage * itemsPerPage;
+
     const handleNext = () =>{
         const nextPage = currentPage + 1;
-        if(firstIndex + itemsPerPage >= totalItems) return;
-        setFirstIndex(nextPage * itemsPerPage);
+        if(firstIndexOfPage + itemsPerPage >= totalItems) return;
         setCurrentPage(nextPage);
-        setItems(firstIndex);
+        setItems(firstIndexOfPage);
     }
 
     const handlePrev = () =>{
         const prevPage = currentPage - 1;
         if(prevPage < 0) return;
-
-         setFirstIndex(prevPage * itemsPerPage);
         setCurrentPage(prevPage);
-        setItems(firstIndex);
+        setItems(firstIndexOfPage);
     }
 
     return(
@@ -59,12 +55,12 @@ console.log(firstIndex)
                      {currentPage + 1} of {totalPages}</Text>
                 <Flex
                 boxSize='40px'
-                background={firstIndex + itemsPerPage >= totalItems ? '#E6EDF7' : '#E5F0FF'}
+                background={firstIndexOfPage + itemsPerPage >= totalItems ? '#E6EDF7' : '#E5F0FF'}
                 borderRadius='8px'
                 cursor='pointer'
                 onClick={handleNext}>
                     <Image
-                    img={`./assets/icons/chevron-${firstIndex + itemsPerPage >= totalItems ? 'default' : 'active'}.svg`}
+                    img={`./assets/icons/chevron-${firstIndexOfPage + itemsPerPage >= totalItems ? 'default' : 'active'}.svg`}
                     boxSize='15px'/>
                 </Flex>
         </Flex>

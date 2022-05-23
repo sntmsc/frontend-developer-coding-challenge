@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { Flex } from '../Flex/styled' 
 import ProductsTitle from './ProductsTitle'
 import ProductsOptions from './products-options/ProductsOptions'
@@ -7,25 +7,23 @@ import Text from '../Text/Text'
 import Pagination from './products-options/Pagination'
 import handleOptions from './products-options/handleOptions'
 
+const itemsPerPage = 16;
+const defaultOptions = {
+    filter: 'All Products',
+    sort: 'Most Recent'
+}
 const ProductsSection = ({products}) =>{
-    const [dataProducts, setDataProducts] = useState([]);
-    const [objOptions, setObjOptions] = useState({
-        filter: 'All Products',
-        sort: 'Most Recent'
-    });
+    const [objOptions, setObjOptions] = useState(defaultOptions);
 
-    useEffect(()=>{
-        setDataProducts(products);
-    },[products]);
-
-    useEffect(()=>{
+    const dataProducts = useMemo(()=>{
+        if(!products) return [];
         const reorderedProducts = handleOptions(objOptions,products);
-        setDataProducts(reorderedProducts);
+        return reorderedProducts;
     },[objOptions]);
 
     ////////////////////////// PAGINATION /////////////////////////
 
-    const itemsPerPage = 16;
+    const [ currentPage, setCurrentPage ] = useState(0);
     const [visibleItems, setVisibleItems] = useState([]);
     const setItems = (firstIndex)=> setVisibleItems([...dataProducts].splice(firstIndex,itemsPerPage));
     const totalItems = dataProducts.length;
@@ -48,11 +46,13 @@ const ProductsSection = ({products}) =>{
     filterSelected={objOptions.filter}
     setFilterSelected={(filter)=>setObjOptions({...objOptions,filter})}
     sortSelected={objOptions.sort}
-    setSortSelected={(sort)=>setObjOptions({...objOptions,sort})}/>
+    setSortSelected={(sort)=>setObjOptions({...objOptions,sort})}
+    currentPage={currentPage}
+    setCurrentPage={(value)=>setCurrentPage(value)}/>
             <Flex
             wrap='wrap'
             columnGap='24px'>
-                {dataProducts ? dataProducts.map(x=>
+                {products ? dataProducts.map(x=>
                         <CardWithButton
                         key={x._id}
                         name={x.name}
@@ -69,7 +69,7 @@ const ProductsSection = ({products}) =>{
                     <Text
                     background='linear-gradient(102.47deg, #176FEB -7.34%, #FF80FF 180.58%) '
                     mr='5px'>
-                        16 of {totalItems}
+                        {(currentPage + 1)*itemsPerPage} of {totalItems}
                     </Text>
                     <Text>
                         products
@@ -79,7 +79,9 @@ const ProductsSection = ({products}) =>{
                 left='1075px'
                 setItems={(firstIndex)=>setItems(firstIndex)}
                 itemsPerPage={itemsPerPage}
-                totalItems={totalItems}/>
+                totalItems={totalItems}
+                currentPage={currentPage}
+                setCurrentPage={(value)=>setCurrentPage(value)}/>
             </Flex>
         </Flex>
     )

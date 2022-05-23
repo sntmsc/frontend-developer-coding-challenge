@@ -1,40 +1,42 @@
-const handleOptions = ({objOptions, products}) =>{
-    console.log(products)
-    let reorderedProducts;
-
-    const handleFilter = (category, products) =>{
-        if(category !== 'All Products'){
-        
-            reorderedProducts = products.filter(x => x.category === category);
-        }
-        else {
-            reorderedProducts = [...products];
-        }
+const handleFilter = (category, products) =>{
+    if(category !== 'All Products'){
+    
+        return products.filter(x => x.category === category);
     }
-
-    handleFilter(objOptions.filter, products);
-
-    const sortFunctions = {
-        lowest: ()=>{reorderedProducts.sort((a,b) => a.cost - b.cost)},
-        highest: ()=>{reorderedProducts.sort((a,b) => b.cost - a.cost)},
-        recent: ()=> {reorderedProducts = handleFilter()}
+    else {
+        return [...products];
     }
+}
 
-    switch(objOptions.sort) {
+
+const sortFunctions = {
+    lowest: (filteredProducts)=>[...filteredProducts].sort((a,b) => a.cost - b.cost),
+    highest: (filteredProducts)=>[...filteredProducts].sort((a,b) => b.cost - a.cost),
+    recent: (filteredProducts)=> filteredProducts 
+}
+
+const handleSort = (sort,filteredProducts) =>{
+    switch(sort) {
         case 'Lowest Price':
-            sortFunctions.lowest();
+            return sortFunctions.lowest(filteredProducts);
             break;
         case 'Highest Price':
-            sortFunctions.highest();
+            return sortFunctions.highest(filteredProducts);
             break;
         case 'Most Recent':
-            sortFunctions.recent();
+            return sortFunctions.recent(filteredProducts);
             break;
     }
+}
+const handleOptions = (objOptions, products) =>{
 
-    return reorderedProducts;
+    const filteredProducts = handleFilter(objOptions.filter, products);
+
+
+    return handleSort(objOptions.sort, filteredProducts);
 
 }
+
 
 
 export default handleOptions

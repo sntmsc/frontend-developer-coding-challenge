@@ -28,7 +28,9 @@ const SortGradientButton = ({children, sortSelected, setSortSelected}) =>{
     )
 }
 
-const ProductsOptions = ({ filterSelected, setFilterSelected, setItems, itemsPerPage, totalItems, sortSelected, setSortSelected}) =>{
+const ProductsOptions = ({ filterSelected,
+     setFilterSelected, setItems, itemsPerPage, totalItems, sortSelected,
+      setSortSelected, currentPage, setCurrentPage}) =>{
 
 
     return(
@@ -69,7 +71,9 @@ const ProductsOptions = ({ filterSelected, setFilterSelected, setItems, itemsPer
             <Pagination
             setItems={(firstIndex)=>setItems(firstIndex)}
             itemsPerPage={itemsPerPage}
-            totalItems={totalItems}/>
+            totalItems={totalItems}
+            currentPage={currentPage}
+            setCurrentPage={(value)=>setCurrentPage(value)}/>
         </Flex>
     )
 }
