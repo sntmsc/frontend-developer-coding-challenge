@@ -10,20 +10,21 @@ import handleOptions from './products-options/handleOptions'
 const itemsPerPage = 16;
 const defaultOptions = {
     filter: 'All Products',
-    sort: 'Most Recent'
+    sort: 'Most Recent',
+    firstIndexOfPage: 0
 }
 const ProductsSection = ({products}) =>{
     const [objOptions, setObjOptions] = useState(defaultOptions);
 
     const dataProducts = useMemo(()=>{
         if(!products) return [];
-        const reorderedProducts = handleOptions(objOptions,products);
+        const reorderedProducts = handleOptions(objOptions,itemsPerPage, products);
         return reorderedProducts;
     },[objOptions]);
 
     ////////////////////////// PAGINATION /////////////////////////
 
-    const [ currentPage, setCurrentPage ] = useState(0);
+    const [ currentPage, setCurrentPage ] = useState(1);
     const [visibleItems, setVisibleItems] = useState([]);
     const setItems = (firstIndex)=> setVisibleItems([...dataProducts].splice(firstIndex,itemsPerPage));
     const totalItems = dataProducts.length;
@@ -40,7 +41,7 @@ const ProductsSection = ({products}) =>{
         direction='column'>
     <ProductsTitle/>
     <ProductsOptions
-    setItems={(firstIndex)=>setItems(firstIndex)}
+    setFirstIndex={(firstIndexOfPage)=>setObjOptions({...objOptions,firstIndexOfPage})}
     itemsPerPage={itemsPerPage}
     totalItems={totalItems}
     filterSelected={objOptions.filter}
@@ -52,7 +53,7 @@ const ProductsSection = ({products}) =>{
             <Flex
             wrap='wrap'
             columnGap='24px'>
-                {products ? dataProducts.map(x=>
+                {products ? visibleItems.map(x=>
                         <CardWithButton
                         key={x._id}
                         name={x.name}
@@ -69,7 +70,7 @@ const ProductsSection = ({products}) =>{
                     <Text
                     background='linear-gradient(102.47deg, #176FEB -7.34%, #FF80FF 180.58%) '
                     mr='5px'>
-                        {(currentPage + 1)*itemsPerPage} of {totalItems}
+                        {currentPage*itemsPerPage} of {totalItems}
                     </Text>
                     <Text>
                         products
@@ -77,7 +78,7 @@ const ProductsSection = ({products}) =>{
                     <Pagination
                 position='absolute'
                 left='1075px'
-                setItems={(firstIndex)=>setItems(firstIndex)}
+                setFirstIndex={(firstIndexOfPage)=>setObjOptions({...objOptions,firstIndexOfPage})}
                 itemsPerPage={itemsPerPage}
                 totalItems={totalItems}
                 currentPage={currentPage}

@@ -28,13 +28,17 @@ const handleSort = (sort,filteredProducts) =>{
             break;
     }
 }
-const handleOptions = (objOptions, products) =>{
+
+const handlePagination = (firstIndexOfPage, itemsPerPage, sortedProducts) => [...sortedProducts].splice(firstIndexOfPage,itemsPerPage);
+
+const handleOptions = (objOptions, itemsPerPage, products) =>{
 
     const filteredProducts = handleFilter(objOptions.filter, products);
 
 
-    return handleSort(objOptions.sort, filteredProducts);
+    const sortedProducts = handleSort(objOptions.sort, filteredProducts);
 
+    return handlePagination(objOptions.firstIndexOfPage, itemsPerPage, sortedProducts);
 }
 
 

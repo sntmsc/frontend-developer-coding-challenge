@@ -3,23 +3,23 @@ import Text from '../../Text/Text'
 import Image from '../../Image/Image'
 
 
-const Pagination = ({position, left, setItems, itemsPerPage, totalItems, currentPage, setCurrentPage}) =>{
+const Pagination = ({position, left, setFirstIndex, itemsPerPage, totalItems, currentPage, setCurrentPage}) =>{
 
     const totalPages = Math.ceil(totalItems/itemsPerPage);
-    const firstIndexOfPage = currentPage * itemsPerPage;
+    const firstIndexOfPage = (currentPage - 1) * itemsPerPage;
 
     const handleNext = () =>{
         const nextPage = currentPage + 1;
         if(firstIndexOfPage + itemsPerPage >= totalItems) return;
         setCurrentPage(nextPage);
-        setItems(firstIndexOfPage);
+        setFirstIndex(firstIndexOfPage);
     }
 
     const handlePrev = () =>{
         const prevPage = currentPage - 1;
-        if(prevPage < 0) return;
+        if(prevPage < 1) return;
         setCurrentPage(prevPage);
-        setItems(firstIndexOfPage);
+        setFirstIndex(firstIndexOfPage);
     }
 
     return(
@@ -36,12 +36,12 @@ const Pagination = ({position, left, setItems, itemsPerPage, totalItems, current
         left={left}>
                 <Flex
                 boxSize='40px'
-                background={currentPage === 0 ? '#E6EDF7' : '#E5F0FF'}
+                background={currentPage === 1 ? '#E6EDF7' : '#E5F0FF'}
                 borderRadius='8px'
                 cursor='pointer'
                 onClick={handlePrev}>
                     <Image
-                    img={`./assets/icons/chevron-${currentPage === 0 ? 'default' : 'active'}.svg`}
+                    img={`./assets/icons/chevron-${currentPage === 1 ? 'default' : 'active'}.svg`}
                     transform='rotate(-180deg)'
                     boxSize='15px'/>
                 </Flex>
@@ -52,7 +52,7 @@ const Pagination = ({position, left, setItems, itemsPerPage, totalItems, current
                 <Text
                 background=' linear-gradient(102.47deg, #176FEB -150.34%, #FF80FF 106.58%)'
                 userSelect='none'>
-                     {currentPage + 1} of {totalPages}</Text>
+                     {currentPage } of {totalPages}</Text>
                 <Flex
                 boxSize='40px'
                 background={firstIndexOfPage + itemsPerPage >= totalItems ? '#E6EDF7' : '#E5F0FF'}
