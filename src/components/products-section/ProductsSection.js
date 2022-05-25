@@ -58,6 +58,7 @@ const ProductsSection = ({products}) =>{
                 {products ? visibleItems.map(x=>
                         <CardWithButton
                         key={x._id}
+                        id={x._id}
                         name={x.name}
                         category={x.category}
                         cost={x.cost}

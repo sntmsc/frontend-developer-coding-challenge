@@ -4,7 +4,7 @@ import Image from "../../Image/Image"
 import Text from "../../Text/Text"
 import GradientButton from "../../GradientButton/GradientButton"
 import { ContextAeropoints } from '../../../../context/Aeropoints'
-
+import fetchPost from '../../../../utils/api/fetchPost'
 export const Card = ({name, category, img}) =>{
 
     return(
@@ -48,15 +48,27 @@ export const Card = ({name, category, img}) =>{
     )
 }
 
-export const RedeemerButton = ({cost}) =>{
+export const RedeemerButton = ({cost, id}) =>{
     const {aeropoints} = useContext(ContextAeropoints);
+
+const handleClick = () =>{
+    const post =fetchPost({'productId': id});
+    fetch(process.env.NEXT_PUBLIC_POST_REDEEM,post)
+    .then(response => response.json())
+    .then(data => {
+        console.log(data)
+    }).catch(err => console.log(err))
+}
+
+
     return(
         <GradientButton
         borderRadius='16px'
         w='348px'
         h='59px'
         background={cost > aeropoints ? '#E6EDF7' : ''}
-        cursor={cost > aeropoints ? '' : 'pointer'}>
+        cursor={cost > aeropoints ? '' : 'pointer'}
+        onClick={handleClick}>
             <Text
             background={cost > aeropoints ? '#7C899C' : 'white'}>{cost > aeropoints ? 'You need' : 'Redeem for'}</Text>
             <Image
@@ -69,7 +81,7 @@ export const RedeemerButton = ({cost}) =>{
     )
 }
 
-const CardWithButton = ({name, category, img, cost}) =>{
+const CardWithButton = ({name, category, img, cost, id}) =>{
     return(
         <Flex
         mt='80px'
@@ -78,7 +90,7 @@ const CardWithButton = ({name, category, img, cost}) =>{
             name={name}
             category={category}
             img={img}/>
-            <RedeemerButton cost={cost}/>
+            <RedeemerButton cost={cost} id={id}/>
         </Flex>
     )
 }

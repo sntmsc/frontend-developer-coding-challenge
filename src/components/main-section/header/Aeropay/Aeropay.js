@@ -4,7 +4,7 @@ import { Flex } from "./../../../Flex/styled"
 import GradientButton from "./../../../GradientButton/GradientButton"
 import { useState , useContext, useRef } from "react"
 import { ContextAeropoints } from "../../../../../context/Aeropoints"
-import fetchPostAddPoints from "../../../../../utils/api/fetchPostAddPoints"
+import fetchPost from "../../../../../utils/api/fetchPost"
 import fetchHeaders from "../../../../../utils/api/fetchHeaders"
 import useClickOutside from "../../../../../utils/useClickOutside"
 
@@ -30,7 +30,7 @@ const Aeropay = ({userName, closeComponent}) =>{
     useClickOutside(ref, closeComponent);
     
     const addPoints = (points) =>{
-        const post =fetchPostAddPoints(points);
+        const post =fetchPost({'amount': points});
         const headers = fetchHeaders(process.env.NEXT_PUBLIC_TOKEN)
         fetch(process.env.NEXT_PUBLIC_POST_POINTS,post)
         .then(response => response.json())
