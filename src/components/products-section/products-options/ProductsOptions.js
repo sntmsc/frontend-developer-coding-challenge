@@ -46,7 +46,8 @@ const ProductsOptions = ({ filterSelected,
                 </Text>
                 <Selector
                 filterSelected={filterSelected}
-                setFilterSelected={setFilterSelected}/>
+                setFilterSelected={setFilterSelected}
+                setCurrentPage={setCurrentPage}/>
                 <Divider/>
                 <Text
                 w='81px'>

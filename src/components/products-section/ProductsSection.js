@@ -27,6 +27,7 @@ const ProductsSection = ({products}) =>{
     const [visibleItems, setVisibleItems] = useState([]);
 
     const totalItems = dataProducts.length;
+    const numberCurrentProducts = totalItems >= (currentPage*itemsPerPage) ? (currentPage*itemsPerPage) :totalItems;
 
     useEffect(()=>{
         const firstIndexOfPage = (currentPage - 1) * itemsPerPage
@@ -71,7 +72,7 @@ const ProductsSection = ({products}) =>{
                     <Text
                     background='linear-gradient(102.47deg, #176FEB -7.34%, #FF80FF 180.58%) '
                     mr='5px'>
-                        {currentPage*itemsPerPage} of {totalItems}
+                        {numberCurrentProducts} of {totalItems}
                     </Text>
                     <Text>
                         products

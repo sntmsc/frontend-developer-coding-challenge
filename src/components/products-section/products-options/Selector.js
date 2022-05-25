@@ -5,7 +5,7 @@ import Image from '../../Image/Image'
 import useClickOutside from '../../../../utils/useClickOutside'
 
 
-const Selector = ({filterSelected, setFilterSelected}) =>{
+const Selector = ({filterSelected, setFilterSelected, setCurrentPage}) =>{
     const [isVisible, setIsVisible] = useState(false);
     const ref = useRef(null);
 
@@ -18,6 +18,7 @@ const Selector = ({filterSelected, setFilterSelected}) =>{
     const handleClickOption = (x) =>{ 
         setIsVisible(false);
         setFilterSelected(x);
+        setCurrentPage(1);
     };
 
     return(
