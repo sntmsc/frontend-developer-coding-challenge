@@ -4,7 +4,7 @@ import { Divider } from '../../Divider/styled'
 import GradientButton from '../../GradientButton/GradientButton'
 import Selector from './Selector'
 import Pagination from './Pagination'
-import { useState } from 'react'
+
 
 const SortGradientButton = ({children, sortSelected, setSortSelected}) =>{
 
@@ -29,7 +29,7 @@ const SortGradientButton = ({children, sortSelected, setSortSelected}) =>{
 }
 
 const ProductsOptions = ({ filterSelected,
-     setFilterSelected, setItems, itemsPerPage, totalItems, sortSelected,
+     setFilterSelected, totalItems, sortSelected,
       setSortSelected, currentPage, setCurrentPage}) =>{
 
 
@@ -69,8 +69,6 @@ const ProductsOptions = ({ filterSelected,
                 </SortGradientButton>
             </Flex>
             <Pagination
-            setItems={(firstIndex)=>setItems(firstIndex)}
-            itemsPerPage={itemsPerPage}
             totalItems={totalItems}
             currentPage={currentPage}
             setCurrentPage={(value)=>setCurrentPage(value)}/>

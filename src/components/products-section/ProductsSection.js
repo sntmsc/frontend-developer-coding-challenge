@@ -6,19 +6,18 @@ import CardWithButton from './products/CardWithButton'
 import Text from '../Text/Text'
 import Pagination from './products-options/Pagination'
 import handleOptions from './products-options/handleOptions'
+import { itemsPerPage } from '../../../utils/config'
 
-const itemsPerPage = 16;
 const defaultOptions = {
     filter: 'All Products',
     sort: 'Most Recent',
-    firstIndexOfPage: 0
 }
 const ProductsSection = ({products}) =>{
     const [objOptions, setObjOptions] = useState(defaultOptions);
 
     const dataProducts = useMemo(()=>{
         if(!products) return [];
-        const reorderedProducts = handleOptions(objOptions,itemsPerPage, products);
+        const reorderedProducts = handleOptions(objOptions, products);
         return reorderedProducts;
     },[objOptions]);
 
@@ -26,9 +25,13 @@ const ProductsSection = ({products}) =>{
 
     const [ currentPage, setCurrentPage ] = useState(1);
     const [visibleItems, setVisibleItems] = useState([]);
-    const setItems = (firstIndex)=> setVisibleItems([...dataProducts].splice(firstIndex,itemsPerPage));
+
     const totalItems = dataProducts.length;
 
+    useEffect(()=>{
+        const firstIndexOfPage = (currentPage - 1) * itemsPerPage
+        setVisibleItems([...dataProducts].splice(firstIndexOfPage,itemsPerPage));
+        },[objOptions,currentPage]);
     //////////////////////////////////////////////////////////////
 
 
@@ -41,8 +44,6 @@ const ProductsSection = ({products}) =>{
         direction='column'>
     <ProductsTitle/>
     <ProductsOptions
-    setFirstIndex={(firstIndexOfPage)=>setObjOptions({...objOptions,firstIndexOfPage})}
-    itemsPerPage={itemsPerPage}
     totalItems={totalItems}
     filterSelected={objOptions.filter}
     setFilterSelected={(filter)=>setObjOptions({...objOptions,filter})}
@@ -78,7 +79,6 @@ const ProductsSection = ({products}) =>{
                     <Pagination
                 position='absolute'
                 left='1075px'
-                setFirstIndex={(firstIndexOfPage)=>setObjOptions({...objOptions,firstIndexOfPage})}
                 itemsPerPage={itemsPerPage}
                 totalItems={totalItems}
                 currentPage={currentPage}

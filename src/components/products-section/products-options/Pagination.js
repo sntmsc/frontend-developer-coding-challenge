@@ -1,25 +1,22 @@
 import { Flex } from '../../Flex/styled'
 import Text from '../../Text/Text'
 import Image from '../../Image/Image'
+import { itemsPerPage } from '../../../../utils/config'
 
-
-const Pagination = ({position, left, setFirstIndex, itemsPerPage, totalItems, currentPage, setCurrentPage}) =>{
+const Pagination = ({position, left, totalItems, currentPage, setCurrentPage}) =>{
 
     const totalPages = Math.ceil(totalItems/itemsPerPage);
-    const firstIndexOfPage = (currentPage - 1) * itemsPerPage;
 
     const handleNext = () =>{
         const nextPage = currentPage + 1;
-        if(firstIndexOfPage + itemsPerPage >= totalItems) return;
+        if(currentPage === totalPages) return;
         setCurrentPage(nextPage);
-        setFirstIndex(firstIndexOfPage);
     }
 
     const handlePrev = () =>{
         const prevPage = currentPage - 1;
         if(prevPage < 1) return;
         setCurrentPage(prevPage);
-        setFirstIndex(firstIndexOfPage);
     }
 
     return(
@@ -55,12 +52,12 @@ const Pagination = ({position, left, setFirstIndex, itemsPerPage, totalItems, cu
                      {currentPage } of {totalPages}</Text>
                 <Flex
                 boxSize='40px'
-                background={firstIndexOfPage + itemsPerPage >= totalItems ? '#E6EDF7' : '#E5F0FF'}
+                background={currentPage === totalPages ? '#E6EDF7' : '#E5F0FF'}
                 borderRadius='8px'
                 cursor='pointer'
                 onClick={handleNext}>
                     <Image
-                    img={`./assets/icons/chevron-${firstIndexOfPage + itemsPerPage >= totalItems ? 'default' : 'active'}.svg`}
+                    img={`./assets/icons/chevron-${currentPage === totalPages ? 'default' : 'active'}.svg`}
                     boxSize='15px'/>
                 </Flex>
         </Flex>

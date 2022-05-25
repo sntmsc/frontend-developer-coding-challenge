@@ -1,6 +1,6 @@
 const handleFilter = (category, products) =>{
     if(category !== 'All Products'){
-    
+
         return products.filter(x => x.category === category);
     }
     else {
@@ -29,16 +29,13 @@ const handleSort = (sort,filteredProducts) =>{
     }
 }
 
-const handlePagination = (firstIndexOfPage, itemsPerPage, sortedProducts) => [...sortedProducts].splice(firstIndexOfPage,itemsPerPage);
-
-const handleOptions = (objOptions, itemsPerPage, products) =>{
+const handleOptions = (objOptions, products) =>{
 
     const filteredProducts = handleFilter(objOptions.filter, products);
 
 
-    const sortedProducts = handleSort(objOptions.sort, filteredProducts);
+    return  handleSort(objOptions.sort, filteredProducts);
 
-    return handlePagination(objOptions.firstIndexOfPage, itemsPerPage, sortedProducts);
 }
 
 
