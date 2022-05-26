@@ -4,8 +4,7 @@ import { Flex } from "./../../../Flex/styled"
 import GradientButton from "./../../../GradientButton/GradientButton"
 import { useState , useContext, useRef } from "react"
 import { ContextAeropoints } from "../../../../../context/Aeropoints"
-import fetchPost from "../../../../../utils/api/fetchPost"
-import fetchHeaders from "../../../../../utils/api/fetchHeaders"
+import fetchPostAndGet from "../../../../../utils/api/fetchPostAndGet"
 import useClickOutside from "../../../../../utils/useClickOutside"
 
 const PointsOption = ({children, pointSelected, handleClick}) =>{
@@ -30,21 +29,12 @@ const Aeropay = ({userName, closeComponent}) =>{
     useClickOutside(ref, closeComponent);
     
     const addPoints = (points) =>{
-        const post =fetchPost({'amount': points});
-        const headers = fetchHeaders(process.env.NEXT_PUBLIC_TOKEN)
-        fetch(process.env.NEXT_PUBLIC_POST_POINTS,post)
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-            return fetch(process.env.NEXT_PUBLIC_GET_USER, {
-                method: "GET",
-                headers,
-            })
-            .then(response => response.json())
-            .then(data => {console.log(data); setAeropoints(data.points)})
-            .catch(err => console.log(err));
-        })
-        .catch(err => console.log(err))
+        const postObject = {'amount': points};
+    
+        fetchPostAndGet(postObject,
+             process.env.NEXT_PUBLIC_POST_POINTS,
+            (value)=>setAeropoints(value))
+        
     }
 
     return(

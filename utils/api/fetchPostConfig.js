@@ -1,6 +1,6 @@
 import fetchHeaders from "./fetchHeaders";
 
-const fetchPost = (bodyObject) =>{
+const fetchPostConfig = (bodyObject) =>{
     const headers= fetchHeaders(process.env.NEXT_PUBLIC_TOKEN);
     const post = {
         method: "POST",
@@ -11,4 +11,4 @@ const fetchPost = (bodyObject) =>{
     return post;
 }
 
-export default fetchPost
+export default fetchPostConfig

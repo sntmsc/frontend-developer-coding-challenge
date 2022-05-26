@@ -4,7 +4,7 @@ import Image from "../../Image/Image"
 import Text from "../../Text/Text"
 import GradientButton from "../../GradientButton/GradientButton"
 import { ContextAeropoints } from '../../../../context/Aeropoints'
-import fetchPost from '../../../../utils/api/fetchPost'
+import fetchPostAndGet from '../../../../utils/api/fetchPostAndGet'
 export const Card = ({name, category, img}) =>{
 
     return(
@@ -49,15 +49,13 @@ export const Card = ({name, category, img}) =>{
 }
 
 export const RedeemerButton = ({cost, id}) =>{
-    const {aeropoints} = useContext(ContextAeropoints);
+    const {aeropoints, setAeropoints} = useContext(ContextAeropoints);
 
 const handleClick = () =>{
-    const post =fetchPost({'productId': id});
-    fetch(process.env.NEXT_PUBLIC_POST_REDEEM,post)
-    .then(response => response.json())
-    .then(data => {
-        console.log(data)
-    }).catch(err => console.log(err))
+    const postObject ={'productId': id};
+    fetchPostAndGet(postObject,
+        process.env.NEXT_PUBLIC_POST_REDEEM,
+        (value)=> setAeropoints(value))
 }
 
 
