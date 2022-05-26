@@ -7,6 +7,7 @@ import Text from '../Text/Text'
 import Pagination from './products-options/Pagination'
 import handleOptions from './products-options/handleOptions'
 import { itemsPerPage } from '../../../utils/config'
+import Toast from '../Toast/Toast'
 
 const defaultOptions = {
     filter: 'All Products',
@@ -40,9 +41,11 @@ const ProductsSection = ({products}) =>{
 
     return(
         <Flex
+        id='products-section'
         maxW='1464px'
         mt='250px'
         direction='column'>
+            <Toast/>
     <ProductsTitle/>
     <ProductsOptions
     totalItems={totalItems}

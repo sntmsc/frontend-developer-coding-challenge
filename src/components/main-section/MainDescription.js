@@ -2,6 +2,7 @@ import { Flex } from './../Flex/styled'
 import Text from '../Text/Text'
 import GradientButton from '../GradientButton/GradientButton'
 import Image from '../Image/Image'
+import Link from 'next/link'
 
 const MainDescription = () =>{
     return(
@@ -42,20 +43,24 @@ const MainDescription = () =>{
         </Text>
         <Flex
         position='relative'>
-        <GradientButton
-        m='30px 0 0 0'
-        w='318px'
-        h='80px'>
-          VIEW ALL PRODUCTS
-        </GradientButton>
-        <Image
-          img='./assets/icons/Icons.svg'
-          boxSize='23px'
-          position='relative'
-          top='15px'
-          right='35px'
-          cursor='pointer'
-          />
+          <Link
+          href='#products-section'>
+          <GradientButton
+          m='30px 0 0 0'
+          w='318px'
+          h='80px'
+          cursor='pointer'>
+              <Text
+              background='white'>
+              VIEW ALL PRODUCTS 
+              </Text>
+              <Image
+              img='./assets/icons/Icons.svg'
+              boxSize='23px'
+              />
+          </GradientButton>
+        </Link>
+
 
         </Flex>
       </Flex>
