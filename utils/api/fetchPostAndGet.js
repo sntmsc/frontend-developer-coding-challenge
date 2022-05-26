@@ -13,7 +13,7 @@ const fetchPostAndGet = (postObject, postURL, setState) =>{
             headers,
         })
         .then(response => response.json())
-        .then(data => {console.log(data); setState(data.points)})
+        .then(data =>  {setState(data.points)})
         .catch(err => console.log(err));
     })
     .catch(err => console.log(err))

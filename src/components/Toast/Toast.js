@@ -3,9 +3,9 @@ import Text from "../Text/Text";
 import Image from "../Image/Image";
 import { Flex } from "../Flex/styled";
 
-const Toast = () =>{
+const Toast = (props) =>{
     return(
-<S.Toast>
+<S.Toast {...props}>
 <Flex
 justify='flex-start'>
 <Image

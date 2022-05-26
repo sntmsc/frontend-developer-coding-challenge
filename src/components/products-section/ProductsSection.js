@@ -35,17 +35,15 @@ const ProductsSection = ({products}) =>{
         setVisibleItems([...dataProducts].splice(firstIndexOfPage,itemsPerPage));
         },[objOptions,currentPage]);
     //////////////////////////////////////////////////////////////
-
-
-  console.log(objOptions)
-
+console.log(currentPage)
     return(
         <Flex
         id='products-section'
         maxW='1464px'
         mt='250px'
         direction='column'>
-            <Toast/>
+             <Toast
+             fade='in'/>
     <ProductsTitle/>
     <ProductsOptions
     totalItems={totalItems}
