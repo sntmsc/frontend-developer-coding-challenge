@@ -45,20 +45,22 @@ const MainDescription = () =>{
         position='relative'>
           <Link
           href='#products-section'>
-          <GradientButton
-          m='30px 0 0 0'
-          w='318px'
-          h='80px'
-          cursor='pointer'>
-              <Text
-              background='white'>
-              VIEW ALL PRODUCTS 
-              </Text>
-              <Image
-              img='./assets/icons/Icons.svg'
-              boxSize='23px'
-              />
-          </GradientButton>
+            <a>
+              <GradientButton
+              m='30px 0 0 0'
+              w='318px'
+              h='80px'
+              cursor='pointer'>
+                  <Text
+                  background='white'>
+                  VIEW ALL PRODUCTS 
+                  </Text>
+                  <Image
+                  img='./assets/icons/Icons.svg'
+                  boxSize='23px'
+                  />
+              </GradientButton>
+            </a>
         </Link>
 
 

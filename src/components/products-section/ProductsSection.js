@@ -26,7 +26,7 @@ const ProductsSection = ({products}) =>{
 
     const [ currentPage, setCurrentPage ] = useState(1);
     const [visibleItems, setVisibleItems] = useState([]);
-
+    const [toastStatus, setToastStatus] = useState('in');
     const totalItems = dataProducts.length;
     const numberCurrentProducts = totalItems >= (currentPage*itemsPerPage) ? (currentPage*itemsPerPage) :totalItems;
 
@@ -43,7 +43,8 @@ console.log(currentPage)
         mt='250px'
         direction='column'>
              <Toast
-             fade='in'/>
+             type='success'
+             fade={currentPage === 2 ? 'out' : 'in'}/>
     <ProductsTitle/>
     <ProductsOptions
     totalItems={totalItems}
