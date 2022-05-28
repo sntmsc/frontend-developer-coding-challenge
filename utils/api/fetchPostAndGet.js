@@ -1,22 +1,32 @@
 import fetchPostConfig from './fetchPostConfig'
 import fetchHeaders from './fetchHeaders'
 
-const fetchPostAndGet = (postObject, postURL, setState) =>{
-    const post =fetchPostConfig(postObject);
+const fetchGet = (setAeropoints) =>{
+
     const headers = fetchHeaders(process.env.NEXT_PUBLIC_TOKEN);
+
+    fetch(process.env.NEXT_PUBLIC_GET_USER, {
+        method: "GET",
+        headers,
+    })
+    .then(response => response.json())
+    .then(data =>  {setAeropoints(data.points)})
+}
+
+
+const fetchPostAndGet = (postObject, postURL, setAeropoints, toast, setToast, event, product) =>{
+    const post =fetchPostConfig(postObject);
+    const verifiedProduct =  product ? product : ''
+    
     fetch(postURL,post)
     .then(response => response.json())
-    .then(data => {
-        console.log(data);
-        return fetch(process.env.NEXT_PUBLIC_GET_USER, {
-            method: "GET",
-            headers,
-        })
-        .then(response => response.json())
-        .then(data =>  {setState(data.points)})
-        .catch(err => console.log(err));
+    .then(() => {
+        setToast([...toast].concat({status: 'success', fade:'in', event, product: verifiedProduct}));
+        return fetchGet(setAeropoints);
     })
-    .catch(err => console.log(err))
+    .catch(() => {
+        setToast([...toast].concat({status: 'error', fade:'in', event}))
+    });
 }
 
 export default fetchPostAndGet

@@ -5,7 +5,6 @@ export default function useClickOutside (ref,closeComponent){
   useEffect(() => {
     const handleClickOutside =(event) => {
       if (ref.current && !ref.current.contains(event.target)) {
-        console.log('close');
         closeComponent();
       }
     }

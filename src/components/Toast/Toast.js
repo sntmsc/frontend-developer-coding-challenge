@@ -1,38 +1,63 @@
+import { useContext } from 'react'
 import * as S from "./styled";
 import Text from "../Text/Text";
 import Image from "../Image/Image";
 import { Flex } from "../Flex/styled";
+import { ToastContext } from '../../../context/ToastContext';
 
 const Toast = (props) =>{
 
-    const typeControl = (success, error) => 
-        props.type === 'success' ? success : 
-        props.type === 'error' ? error : ''
+    const {toast,setToast} = useContext(ToastContext);
+
+    const toastHandleClose = () => {
+        setToast(toast.map((x,i)=>i === props.index ? {...x,fade:'out'} : x));
+        setTimeout(()=>{setToast(toast.filter((x,i)=> i !== props.index))},1000);
+    };
+
+    const statusControl = (success, error) =>
+        props.status === 'success' ? success : 
+        props.status === 'error' ? error : ''
+    
+    const eventControl = (text) => {
+        if(text === 'black'){
+        return props.event === 'product' ?
+        statusControl(props.product,'') : 
+        'aeropoints added successfully'
+        }
+        else{
+        return props.event === 'product' ?
+        statusControl('redeemed successfully',
+        'There was a problem with the transaction') : 
+        ''
+        }
+    }
 
     return(
 <S.Toast {...props}
-border={typeControl('2px solid #29CC74','2px solid #E07F4F')}>
+border={statusControl('2px solid #29CC74','2px solid #E07F4F')}>
 <Flex
 justify='flex-start'>
 <Image
 boxSize='26px'
-img={`./assets/icons/system-${typeControl('success', 'error')}.svg`}/>
+img={`./assets/icons/system-${statusControl('success', 'error')}.svg`}/>
 
     <Text
     background='#252F3D'
     userSelect='none'
-    ml='15px'>{typeControl('Product name','')}</Text>
+    ml='15px'>
+        {eventControl('black')}
+    </Text>
+
     <Text
     background='#7C899C'
     ml='8px'
-    userSelect='none'>{typeControl('redeemed successfully',
-     'There was a problem with the transaction')}</Text>
+    userSelect='none'>{eventControl('gray')}</Text>
 </Flex>
 <Image
 boxSize='20px'
 img='./assets/icons/cross-default.svg'
 cursor='pointer'
-onClick={props.handleClose}/>
+onClick={toastHandleClose}/>
 </S.Toast>
     )
 }

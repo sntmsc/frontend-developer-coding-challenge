@@ -26,7 +26,6 @@ const ProductsSection = ({products}) =>{
 
     const [ currentPage, setCurrentPage ] = useState(1);
     const [visibleItems, setVisibleItems] = useState([]);
-    const [toastStatus, setToastStatus] = useState('in');
     const totalItems = dataProducts.length;
     const numberCurrentProducts = totalItems >= (currentPage*itemsPerPage) ? (currentPage*itemsPerPage) :totalItems;
 
@@ -35,25 +34,22 @@ const ProductsSection = ({products}) =>{
         setVisibleItems([...dataProducts].splice(firstIndexOfPage,itemsPerPage));
         },[objOptions,currentPage]);
     //////////////////////////////////////////////////////////////
-console.log(currentPage)
+
     return(
         <Flex
         id='products-section'
         maxW='1464px'
         mt='250px'
         direction='column'>
-             <Toast
-             type='success'
-             fade={currentPage === 2 ? 'out' : 'in'}/>
-    <ProductsTitle/>
-    <ProductsOptions
-    totalItems={totalItems}
-    filterSelected={objOptions.filter}
-    setFilterSelected={(filter)=>setObjOptions({...objOptions,filter})}
-    sortSelected={objOptions.sort}
-    setSortSelected={(sort)=>setObjOptions({...objOptions,sort})}
-    currentPage={currentPage}
-    setCurrentPage={(value)=>setCurrentPage(value)}/>
+            <ProductsTitle/>
+            <ProductsOptions
+            totalItems={totalItems}
+            filterSelected={objOptions.filter}
+            setFilterSelected={(filter)=>setObjOptions({...objOptions,filter})}
+            sortSelected={objOptions.sort}
+            setSortSelected={(sort)=>setObjOptions({...objOptions,sort})}
+            currentPage={currentPage}
+            setCurrentPage={(value)=>setCurrentPage(value)}/>
             <Flex
             wrap='wrap'
             columnGap='24px'>

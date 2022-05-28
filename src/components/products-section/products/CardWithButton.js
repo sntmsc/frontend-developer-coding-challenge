@@ -4,7 +4,10 @@ import Image from "../../Image/Image"
 import Text from "../../Text/Text"
 import GradientButton from "../../GradientButton/GradientButton"
 import { ContextAeropoints } from '../../../../context/Aeropoints'
+import { ToastContext } from '../../../../context/ToastContext'
 import fetchPostAndGet from '../../../../utils/api/fetchPostAndGet'
+
+
 export const Card = ({name, category, img}) =>{
 
     return(
@@ -48,14 +51,21 @@ export const Card = ({name, category, img}) =>{
     )
 }
 
-export const RedeemerButton = ({cost, id}) =>{
+export const RedeemerButton = ({cost, id, name}) =>{
     const {aeropoints, setAeropoints} = useContext(ContextAeropoints);
+    const {toast,setToast} = useContext(ToastContext);
 
 const handleClick = () =>{
     const postObject ={'productId': id};
-    fetchPostAndGet(postObject,
+    fetchPostAndGet(
+        postObject,
         process.env.NEXT_PUBLIC_POST_REDEEM,
-        (value)=> setAeropoints(value))
+        (value)=> setAeropoints(value),
+        toast,
+        (value)=> setToast(value),
+        'product',
+        name
+    )
 }
 
 
@@ -88,7 +98,7 @@ const CardWithButton = ({name, category, img, cost, id}) =>{
             name={name}
             category={category}
             img={img}/>
-            <RedeemerButton cost={cost} id={id}/>
+            <RedeemerButton cost={cost} id={id} name={name}/>
         </Flex>
     )
 }

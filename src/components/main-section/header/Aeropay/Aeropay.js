@@ -4,6 +4,7 @@ import { Flex } from "./../../../Flex/styled"
 import GradientButton from "./../../../GradientButton/GradientButton"
 import { useState , useContext, useRef } from "react"
 import { ContextAeropoints } from "../../../../../context/Aeropoints"
+import { ToastContext } from "../../../../../context/ToastContext"
 import fetchPostAndGet from "../../../../../utils/api/fetchPostAndGet"
 import useClickOutside from "../../../../../utils/useClickOutside"
 
@@ -24,6 +25,8 @@ const PointsOption = ({children, pointSelected, handleClick}) =>{
 const Aeropay = ({userName, closeComponent}) =>{
     const [pointSelected, setPointSelected] = useState(0);
     const {setAeropoints} = useContext(ContextAeropoints);
+    const {toast,setToast} = useContext(ToastContext);
+
     const ref = useRef(null);
 
     useClickOutside(ref, closeComponent);
@@ -31,10 +34,15 @@ const Aeropay = ({userName, closeComponent}) =>{
     const addPoints = (points) =>{
         const postObject = {'amount': points};
     
-        fetchPostAndGet(postObject,
-             process.env.NEXT_PUBLIC_POST_POINTS,
-            (value)=>setAeropoints(value))
-        
+        fetchPostAndGet(
+            postObject,
+            process.env.NEXT_PUBLIC_POST_POINTS,
+            (value)=>setAeropoints(value),
+            toast,
+            (value)=> setToast(value),
+            'aeropay'
+        );
+
     }
 
     return(

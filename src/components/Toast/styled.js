@@ -8,7 +8,7 @@ const fadeIn = keyframes`
 
 const fadeOut = keyframes`
     from { opacity: 1}
-    to { opacity: 1}
+    to { opacity: 0}
     `
 
 export const Toast = styled.div`
@@ -16,8 +16,9 @@ position: fixed;
 bottom: 20px;
 left: 9px;
 z-index: 9;
-visibility: ${props => props.fade === 'out' ? 'hidden' : 'visible'};
 animation: ${props => props.fade === 'out' ? fadeOut : fadeIn} .3s linear;
+visibility: ${props => props.fade === 'out' ? 'hidden' : 'visible'};
+transition: visibility linear .3s;
 width: ${props => props.width ? props.width : '532px'};
 height: ${props => props.height ? props.height : '80px'};
 background: white;

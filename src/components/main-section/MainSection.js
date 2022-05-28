@@ -4,7 +4,11 @@ import MainImage from './MainImage'
 import MainDescription from './MainDescription'
 import MainCards from './MainCards.js'
 
+
 const MainSection = () =>{
+
+
+  
   return(
     <Flex
     direction='column'>
