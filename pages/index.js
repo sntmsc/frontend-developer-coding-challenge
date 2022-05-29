@@ -33,7 +33,8 @@ export default function Home({products}) {
         <Toast 
         key={i}
         status={x.status}
-        fade={x.fade} index={i}
+        fade={x.fade} 
+        index={i}
         event={x.event}
         product={x.product}/>)}
         <MainSection/>

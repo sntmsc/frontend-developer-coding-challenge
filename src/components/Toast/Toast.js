@@ -1,9 +1,9 @@
 import { useContext } from 'react'
-import * as S from "./styled";
-import Text from "../Text/Text";
-import Image from "../Image/Image";
-import { Flex } from "../Flex/styled";
-import { ToastContext } from '../../../context/ToastContext';
+import * as S from "./styled"
+import Text from "../Text/Text"
+import Image from "../Image/Image"
+import { Flex } from "../Flex/styled"
+import { ToastContext } from '../../../context/ToastContext'
 
 const Toast = (props) =>{
 
@@ -11,7 +11,7 @@ const Toast = (props) =>{
 
     const toastHandleClose = () => {
         setToast(toast.map((x,i)=>i === props.index ? {...x,fade:'out'} : x));
-        setTimeout(()=>{setToast(toast.filter((x,i)=> i !== props.index))},1000);
+        setTimeout(()=>{setToast(toast.filter((x,i)=> i !== props.index))},500);
     };
 
     const statusControl = (success, error) =>
@@ -22,19 +22,22 @@ const Toast = (props) =>{
         if(text === 'black'){
         return props.event === 'product' ?
         statusControl(props.product,'') : 
-        'aeropoints added successfully'
+        statusControl('aeropoints added successfully',
+        '')
         }
         else{
         return props.event === 'product' ?
         statusControl('redeemed successfully',
         'There was a problem with the transaction') : 
-        ''
+        statusControl('',
+        'There was a problem with the transaction')
         }
     }
 
     return(
 <S.Toast {...props}
-border={statusControl('2px solid #29CC74','2px solid #E07F4F')}>
+border={statusControl('2px solid #29CC74','2px solid #E07F4F')}
+bottom={`${(props.index * 90 ) + 20}px`}>
 <Flex
 justify='flex-start'>
 <Image

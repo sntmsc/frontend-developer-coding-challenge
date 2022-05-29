@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { Flex } from "../../Flex/styled"
 import Image from "../../Image/Image"
 import Text from "../../Text/Text"
@@ -52,10 +52,12 @@ export const Card = ({name, category, img}) =>{
 }
 
 export const RedeemerButton = ({cost, id, name}) =>{
+    const [isLoading, setIsLoading] = useState(false);
     const {aeropoints, setAeropoints} = useContext(ContextAeropoints);
     const {toast,setToast} = useContext(ToastContext);
 
 const handleClick = () =>{
+    setIsLoading(true);
     const postObject ={'productId': id};
     fetchPostAndGet(
         postObject,
@@ -64,7 +66,8 @@ const handleClick = () =>{
         toast,
         (value)=> setToast(value),
         'product',
-        name
+        name,
+        (value)=> setIsLoading(value)
     )
 }
 
@@ -76,15 +79,24 @@ const handleClick = () =>{
         h='59px'
         background={cost > aeropoints ? '#E6EDF7' : ''}
         cursor={cost > aeropoints ? '' : 'pointer'}
-        onClick={handleClick}>
+        opacity={isLoading ? '0.7' : ''}
+        onClick={handleClick}> 
             <Text
-            background={cost > aeropoints ? '#7C899C' : 'white'}>{cost > aeropoints ? 'You need' : 'Redeem for'}</Text>
-            <Image
-            img={cost > aeropoints ? './assets/icons/aeropay-disabled.svg' : './assets/icons/aeropay-3.svg'}
-            boxSize={cost > aeropoints ? '25px' : '24px'}
-            m='0 8px'/>
-            <Text
-            background={cost > aeropoints ? '#7C899C' : 'white'}>{cost}</Text>
+            background={cost > aeropoints ? '#7C899C' : 'white'}>
+                {isLoading ? 'Processing...' : cost > aeropoints ? 'You need' : 'Redeem for'}
+            </Text>
+            { !isLoading && 
+                <> 
+                    <Image
+                    img={cost > aeropoints ? './assets/icons/aeropay-disabled.svg' : './assets/icons/aeropay-3.svg'}
+                    boxSize={cost > aeropoints ? '25px' : '24px'}
+                    m='0 8px'/>
+                    <Text
+                    background={cost > aeropoints ? '#7C899C' : 'white'}>
+                        {cost}
+                    </Text>
+                </> 
+            }
         </GradientButton>
     )
 }

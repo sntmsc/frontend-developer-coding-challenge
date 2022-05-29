@@ -19,4 +19,5 @@ background: ${props => props.background ? props.background : '-webkit-linear-gra
 border: none;
 border-radius: ${props => props.borderRadius ? props.borderRadius : '20px'};
 cursor: ${props => props.cursor ? props.cursor : ''};
+opacity: ${props => props.opacity ? props.opacity : ''};
 `

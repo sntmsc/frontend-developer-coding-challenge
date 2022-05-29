@@ -14,18 +14,19 @@ const fetchGet = (setAeropoints) =>{
 }
 
 
-const fetchPostAndGet = (postObject, postURL, setAeropoints, toast, setToast, event, product) =>{
+const fetchPostAndGet = (postObject, postURL, setAeropoints, toast, setToast, event, product, setIsLoading) =>{
     const post =fetchPostConfig(postObject);
     const verifiedProduct =  product ? product : ''
-    
     fetch(postURL,post)
     .then(response => response.json())
     .then(() => {
         setToast([...toast].concat({status: 'success', fade:'in', event, product: verifiedProduct}));
+        setIsLoading(false);
         return fetchGet(setAeropoints);
     })
     .catch(() => {
-        setToast([...toast].concat({status: 'error', fade:'in', event}))
+        setToast([...toast].concat({status: 'error', fade:'in', event}));
+        setIsLoading(false);
     });
 }
 

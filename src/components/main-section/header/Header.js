@@ -9,6 +9,7 @@ import { ContextAeropoints } from '../../../../context/Aeropoints'
 const Header = () => {
 
   const [ isVisible, setIsVisible ] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [ userData, setUserData] = useState({});
   const {aeropoints, setAeropoints} = useContext(ContextAeropoints);
 
@@ -41,9 +42,11 @@ const Header = () => {
           margin='0 0 0 10px'/>
       <AeropayButton
       handleClick={handleClick}
-      aeropoints={aeropoints}/>
+      aeropoints={aeropoints}
+      isLoading={isLoading}/>
         { isVisible && 
             <Aeropay
+            setIsLoading={(value)=>setIsLoading(value)}
             userName={userData.name}
             closeComponent={()=>setIsVisible(false)}/>
         }

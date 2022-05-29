@@ -22,7 +22,7 @@ const PointsOption = ({children, pointSelected, handleClick}) =>{
          </GradientButton>
     )
 }
-const Aeropay = ({userName, closeComponent}) =>{
+const Aeropay = ({setIsLoading, userName, closeComponent}) =>{
     const [pointSelected, setPointSelected] = useState(0);
     const {setAeropoints} = useContext(ContextAeropoints);
     const {toast,setToast} = useContext(ToastContext);
@@ -33,14 +33,17 @@ const Aeropay = ({userName, closeComponent}) =>{
     
     const addPoints = (points) =>{
         const postObject = {'amount': points};
-    
+        setIsLoading(true);
+
         fetchPostAndGet(
             postObject,
             process.env.NEXT_PUBLIC_POST_POINTS,
             (value)=>setAeropoints(value),
             toast,
             (value)=> setToast(value),
-            'aeropay'
+            'aeropay',
+            '',
+            (value)=>setIsLoading(value)
         );
 
     }

@@ -2,7 +2,7 @@ import * as S from  "./styled"
 import Image from "./../../../Image/Image"
 import Text from "./../../../Text/Text"
 
-const AeropayButton = ({handleClick, aeropoints}) =>{
+const AeropayButton = ({handleClick, aeropoints, isLoading}) =>{
 
     return(
         <S.AeropayButtonContainer
@@ -15,9 +15,9 @@ const AeropayButton = ({handleClick, aeropoints}) =>{
             w='60px'
             weight='600'
             background='gradient'
-            fontSize={aeropoints === 0 ? '11px' : ''}
+            fontSize={aeropoints === 0 || isLoading ? '14px' : ''}
             userSelect='none'>
-                {aeropoints === 0 ? 'loading..' : aeropoints}
+                {aeropoints === 0  || isLoading ? 'loading..' : aeropoints}
             </Text>
             <Image
             img='./assets/icons/chevron-default.svg'

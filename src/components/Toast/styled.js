@@ -13,7 +13,7 @@ const fadeOut = keyframes`
 
 export const Toast = styled.div`
 position: fixed;
-bottom: 20px;
+bottom: ${props => props.bottom ? props.bottom : '20px'};
 left: 9px;
 z-index: 9;
 animation: ${props => props.fade === 'out' ? fadeOut : fadeIn} .3s linear;
