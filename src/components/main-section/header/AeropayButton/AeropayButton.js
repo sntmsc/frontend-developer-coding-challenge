@@ -2,7 +2,7 @@ import * as S from  "./styled"
 import Image from "./../../../Image/Image"
 import Text from "./../../../Text/Text"
 
-const AeropayButton = ({handleClick, aeropoints, isLoading}) =>{
+const AeropayButton = ({handleClick, aeropoints, isLoading, isVisible}) =>{
 
     return(
         <S.AeropayButtonContainer
@@ -20,9 +20,9 @@ const AeropayButton = ({handleClick, aeropoints, isLoading}) =>{
                 {aeropoints === 0  || isLoading ? 'loading..' : aeropoints}
             </Text>
             <Image
-            img='./assets/icons/chevron-default.svg'
+            img={`./assets/icons/chevron-${isVisible ? 'active' : 'default'}.svg`}
             boxSize='24px'
-            transform='rotate(90deg)'
+            transform={`rotate(${isVisible ? 270 : 90}deg)`}
             margin='0 0 0 10px'/>
         </S.AeropayButtonContainer>
     )

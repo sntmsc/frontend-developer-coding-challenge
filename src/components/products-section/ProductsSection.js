@@ -53,15 +53,23 @@ const ProductsSection = ({products}) =>{
             <Flex
             wrap='wrap'
             columnGap='24px'>
-                {products ? visibleItems.map(x=>
+                {products        ? 
+                    visibleItems.map(x=>
                         <CardWithButton
                         key={x._id}
                         id={x._id}
                         name={x.name}
                         category={x.category}
                         cost={x.cost}
-                        img={x.img.url}/>
-                ) : <p>loading</p>}
+                        img={x.img.url}/>)   : 
+                    [...Array(16)].map((x,i) =>
+                        <CardWithButton
+                        key={i}
+                        id={i}
+                        name={'N/A'}
+                        category={''}
+                        cost={0}
+                        img={'./assets/icons/logo.png'}/>)}
             </Flex>
             <Flex
             w='100%'

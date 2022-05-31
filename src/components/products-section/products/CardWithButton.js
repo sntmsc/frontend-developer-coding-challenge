@@ -26,8 +26,8 @@ export const Card = ({name, category, img}) =>{
             h='344.92px'>
             <Image
             img={img}
-            w='280px'
-            h='204px'/>
+            w={name === 'N/A' ? '77.5px' : '280px'}
+            h={name === 'N/A' ? '72px' : '204px'}/>
             </Flex>
             <Flex
             h='80px'
@@ -78,12 +78,12 @@ const handleClick = () =>{
         w='348px'
         h='59px'
         background={cost > aeropoints ? '#E6EDF7' : ''}
-        cursor={cost > aeropoints ? '' : 'pointer'}
-        opacity={isLoading ? '0.7' : ''}
-        onClick={handleClick}> 
+        cursor={cost > aeropoints || name === 'N/A' ? ''  : 'pointer'}
+        opacity={isLoading || name === 'N/A' ? '0.7' : ''}
+        onClick={name === 'N/A' ? ()=>{return false} : handleClick}> 
             <Text
             background={cost > aeropoints ? '#7C899C' : 'white'}>
-                {isLoading ? 'Processing...' : cost > aeropoints ? 'You need' : 'Redeem for'}
+                {name === 'N/A' ? '' : isLoading ? 'Processing...' : cost > aeropoints ? 'You need' : 'Redeem for'}
             </Text>
             { !isLoading && 
                 <> 

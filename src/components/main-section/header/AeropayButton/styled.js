@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
 export const AeropayButtonContainer = styled.div`
+width: 172px;
+height: 48px;
 display: flex;
 align-items: center;
 justify-content: center;

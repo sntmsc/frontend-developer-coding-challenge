@@ -43,7 +43,8 @@ const Header = () => {
       <AeropayButton
       handleClick={handleClick}
       aeropoints={aeropoints}
-      isLoading={isLoading}/>
+      isLoading={isLoading}
+      isVisible={isVisible}/>
         { isVisible && 
             <Aeropay
             setIsLoading={(value)=>setIsLoading(value)}
