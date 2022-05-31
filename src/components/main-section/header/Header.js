@@ -35,7 +35,6 @@ const Header = () => {
     justify='space-between'
     w='1464px'
     p='3em'
-    mb='3em'
     position='relative'>
           <S.Logo/>
       <AeropayButton
