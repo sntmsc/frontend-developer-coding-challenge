@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { device } from '../../../../../styles/deviceMediaQuery'
 
 export const AeropayButtonContainer = styled.div`
 width: 172px;
@@ -13,5 +14,10 @@ box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.08);
 grid-column-gap: 5px;
 padding: 7px 15px;
 z-index:15;
+
+@media not all and ${device.desktop}{
+    width: 143px;
+    height: 40px;
+}
 `
 

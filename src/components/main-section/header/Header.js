@@ -1,6 +1,7 @@
 import {useState, useEffect, useContext} from 'react'
 import { Flex } from './../../Flex/styled'
 import Image from './../../Image/Image'
+import * as S from './Logo/styled'
 import AeropayButton from './AeropayButton/AeropayButton'
 import Aeropay from './Aeropay/Aeropay'
 import fetchHeaders from '../../../../utils/api/fetchHeaders'
@@ -36,10 +37,7 @@ const Header = () => {
     p='3em'
     mb='3em'
     position='relative'>
-      <Image
-          img='./assets/icons/aerolab-logo-1.svg'
-          w='150px'
-          margin='0 0 0 10px'/>
+          <S.Logo/>
       <AeropayButton
       handleClick={handleClick}
       aeropoints={aeropoints}
@@ -49,7 +47,7 @@ const Header = () => {
             <Aeropay
             setIsLoading={(value)=>setIsLoading(value)}
             userName={userData.name}
-            closeComponent={()=>setIsVisible(false)}/>
+            closeComponent={()=>setIsVisible(false)}/> 
         }
     </Flex>
   )

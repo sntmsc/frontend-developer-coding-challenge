@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { device } from '../../../styles/deviceMediaQuery'
 
 export const Text = styled.p`
 margin:${props => props.m ? props.m : '0'};
@@ -27,4 +28,8 @@ left: ${props => props.left ? props.left : ''};
 right: ${props => props.right ? props.right : ''};
 top: ${props => props.top ? props.top : ''};
 bottom: ${props => props.bottom ? props.bottom : ''};
+
+@media not all and ${device.desktop}{
+    font-size: ${props => props.fontSize ? props.fontSize : '16px'};
+}
 `
