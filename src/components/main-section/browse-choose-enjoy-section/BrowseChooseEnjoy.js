@@ -1,46 +1,27 @@
 import { Flex } from '../../Flex/styled'
-import Image from '../../Image/Image'
 import Text from '../../Text/Text'
 import * as S from './styled'
 
 const WalkthroughCard = ({title, description, img, icon, transform, zIndex, right, left, bottom})=>{
     return(
-        <Flex
-        background='white'
-        h='676px'
-        w='532px'
-        p='12px'
-        border='1px solid #DAE4F2'
-        borderRadius='32px'
-        boxShadow='0px 2px 40px rgba(0, 0, 0, 0.05)'
+        <S.WalkthroughContainer
         transform={transform}
-        align='flex-start'
-        direction='column'
         zIndex={zIndex}
-        position='relative'
         right={right}
         left={left}
         bottom={bottom}>
-            <Flex
-            background='linear-gradient(102.47deg, rgba(23, 111, 235, .7) -5.34%,
-            rgba(255, 128, 255, .5) 106.58%)'
-            w='508px'
-            h='498px'
-            borderRadius='32px'
-            overflow='hidden'
-            justify='flex-start'>
-                <Image
-                img={img}
-                boxSize='498px'/>
-            </Flex>
+            <S.WalkthroughImage
+            img={img}/>
             <Flex
             h='154px'
-            w='508px'
             p='16px 24px 24px 24px'
             gap='12px'
             direction='column'
             justify='flex-start'
-            align='flex-start'>
+            align='flex-start'
+            background='white'
+            border='1px solid #DAE4F2'
+            borderRadius='0px 0px 24px 24px'>
                 <Flex
                 justify='flex-start'>
                     <Flex
@@ -50,25 +31,23 @@ const WalkthroughCard = ({title, description, img, icon, transform, zIndex, righ
                     align='flex-start'
                     justify='flex-start'
                     mr='16px'>
-                        <Image
-                        img={icon}
-                        boxSize='36.38px'/>
+                        <S.WalkthroughIcon
+                        img={icon}/>
                     </Flex>
-                    <Text
+                    <S.WalkthroughTitle
                     background='gradient'
                     fontSize='32px'
                     userSelect='none'
                     weight='900'>
                         {title}
-                    </Text>
+                    </S.WalkthroughTitle>
                 </Flex>
                 <Text
-                textAlign='left'
-                w='372px'>
+                textAlign='left'>
                     {description}
                 </Text>
             </Flex>
-        </Flex>
+        </S.WalkthroughContainer>
     )
 }
 const BrowseChooseEnjoy = () =>{
