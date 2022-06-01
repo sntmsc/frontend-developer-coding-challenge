@@ -13,5 +13,7 @@ margin-bottom: 230px;
 @media not all and ${device.desktop}{
     flex-direction: column;
     margin-top:1em;
+    margin-bottom: 0;
+    z-index: 3
 }
 `

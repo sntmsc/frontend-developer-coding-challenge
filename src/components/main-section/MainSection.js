@@ -3,7 +3,7 @@ import Header from './header/Header'
 import MainImage from './hero-header/main-image/MainImage'
 import MainDescription from './hero-header/main-description/MainDescription'
 import * as S from './hero-header/HeroContainer/styled'
-import MainCards from './MainCards.js'
+import BrowseChooseEnjoy from './browse-choose-enjoy-section/BrowseChooseEnjoy.js'
 
 
 const MainSection = () =>{
@@ -24,7 +24,7 @@ const MainSection = () =>{
           <MainDescription/>
           <MainImage/>
         </S.HeroContainer>
-          <MainCards/>
+          <BrowseChooseEnjoy/>
        </Flex>
     </Flex>
   )

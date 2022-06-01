@@ -1,6 +1,7 @@
-import { Flex } from '../Flex/styled'
-import Image from '../Image/Image'
-import Text from '../Text/Text'
+import { Flex } from '../../Flex/styled'
+import Image from '../../Image/Image'
+import Text from '../../Text/Text'
+import * as S from './styled'
 
 const WalkthroughCard = ({title, description, img, icon, transform, zIndex, right, left, bottom})=>{
     return(
@@ -16,7 +17,7 @@ const WalkthroughCard = ({title, description, img, icon, transform, zIndex, righ
         align='flex-start'
         direction='column'
         zIndex={zIndex}
-        position='absolute'
+        position='relative'
         right={right}
         left={left}
         bottom={bottom}>
@@ -70,14 +71,9 @@ const WalkthroughCard = ({title, description, img, icon, transform, zIndex, righ
         </Flex>
     )
 }
-const MainCards = () =>{
+const BrowseChooseEnjoy = () =>{
     return(
-        <Flex
-        w='100%'
-        h='528px'
-        background='linear-gradient(102.47deg, rgba(23, 111, 235, .5) -5.34%,
-         rgba(255, 128, 255, .5) 106.58%)'
-        position='relative'>
+        <S.CardsContainer>
             <WalkthroughCard
             img='./assets/illustrations/walkthroug-1-desktop.png'
             icon='./assets/icons/walkthrough-1.svg'
@@ -108,8 +104,8 @@ const MainCards = () =>{
             right='185px'
             left=''
             bottom='-80px'/>
-        </Flex>
+        </S.CardsContainer>
     )
 }
 
-export default MainCards
+export default BrowseChooseEnjoy
