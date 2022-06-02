@@ -34,10 +34,7 @@ const ProductsOptions = ({ filterSelected,
 
 
     return(
-        <Flex
-        mt='40px'
-        w='100%'
-        justify='flex-start'>
+        <S.OptionsContainer>
             <Flex
             justify='flex-start'>
                 <S.ConditionalContainer>
@@ -81,7 +78,7 @@ const ProductsOptions = ({ filterSelected,
             totalItems={totalItems}
             currentPage={currentPage}
             setCurrentPage={(value)=>setCurrentPage(value)}/>
-        </Flex>
+        </S.OptionsContainer>
     )
 }
 
