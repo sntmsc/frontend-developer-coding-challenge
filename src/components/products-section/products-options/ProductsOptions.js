@@ -1,6 +1,6 @@
 import { Flex } from '../../Flex/styled'
 import Text from '../../Text/Text'
-import { Divider } from '../../Divider/styled'
+import * as S from './styled'
 import GradientButton from '../../GradientButton/GradientButton'
 import Selector from './Selector'
 import Pagination from './Pagination'
@@ -40,34 +40,42 @@ const ProductsOptions = ({ filterSelected,
         justify='flex-start'>
             <Flex
             justify='flex-start'>
-                <Text
-                w='81px'>
-                    Filter by: 
-                </Text>
-                <Selector
-                filterSelected={filterSelected}
-                setFilterSelected={setFilterSelected}
-                setCurrentPage={setCurrentPage}/>
-                <Divider/>
-                <Text
-                w='81px'>
-                    Sort by: 
-                </Text>
-                <SortGradientButton
-                sortSelected={sortSelected}
-                setSortSelected={(value)=> setSortSelected(value)}>
-                    Most Recent
-                </SortGradientButton>
-                <SortGradientButton
-                sortSelected={sortSelected}
-                setSortSelected={(value)=> setSortSelected(value)}>
-                    Lowest Price
-                </SortGradientButton>
-                <SortGradientButton
-                sortSelected={sortSelected}
-                setSortSelected={(value)=> setSortSelected(value)}>
-                    Highest Price
-                </SortGradientButton>
+                <S.ConditionalContainer>
+                    <Text
+                    w='81px'>
+                        Filter by: 
+                    </Text>
+                </S.ConditionalContainer>
+                <S.ConditionalDirection>
+                    <Selector
+                    filterSelected={filterSelected}
+                    setFilterSelected={setFilterSelected}
+                    setCurrentPage={setCurrentPage}/>
+                    <S.ConditionalContainer>
+                        <S.Divider/>
+                        <Text
+                        w='81px'>
+                            Sort by: 
+                        </Text>
+                    </S.ConditionalContainer>
+                    <Flex>
+                        <SortGradientButton
+                        sortSelected={sortSelected}
+                        setSortSelected={(value)=> setSortSelected(value)}>
+                            Most Recent
+                        </SortGradientButton>
+                        <SortGradientButton
+                        sortSelected={sortSelected}
+                        setSortSelected={(value)=> setSortSelected(value)}>
+                            Lowest Price
+                        </SortGradientButton>
+                        <SortGradientButton
+                        sortSelected={sortSelected}
+                        setSortSelected={(value)=> setSortSelected(value)}>
+                            Highest Price
+                        </SortGradientButton>
+                    </Flex>
+                </S.ConditionalDirection>
             </Flex>
             <Pagination
             totalItems={totalItems}
