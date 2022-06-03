@@ -6,21 +6,12 @@ import GradientButton from "../../GradientButton/GradientButton"
 import { ContextAeropoints } from '../../../../context/Aeropoints'
 import { ToastContext } from '../../../../context/ToastContext'
 import fetchPostAndGet from '../../../../utils/api/fetchPostAndGet'
-
+import * as S from './styled'
 
 export const Card = ({name, category, img}) =>{
 
     return(
-        <Flex
-        background='white'
-        border='1px solid #DAE4F2'
-        w='348px'
-        h='433px'
-        mb='16px'
-        borderRadius='16px'
-        direction='column'
-        justify='space-between'
-        boxShadow='0px 1px 5px rgba(0, 0, 0, 0.08)'>
+        <S.CardContainer>
             <Flex
             w='100%'
             h='344.92px'>
@@ -30,7 +21,7 @@ export const Card = ({name, category, img}) =>{
             h={name === 'N/A' ? '72px' : '204px'}/>
             </Flex>
             <Flex
-            h='80px'
+            h='88px'
             w='100%'
             background='white'
             borderRadius='0 0 16px 16px'
@@ -38,16 +29,16 @@ export const Card = ({name, category, img}) =>{
             align='flex-start'
             direction='column'
             p='16px 24px 24px'>
-                <Text
+                <S.ProductName
                 background='#252F3D'>
                     {name}
-                </Text>
-                <Text
+                </S.ProductName>
+                <S.ProductDescription
                 boxSize='14px'>
                     {category}
-                </Text>
+                </S.ProductDescription>
             </Flex>
-        </Flex>
+        </S.CardContainer>
     )
 }
 
