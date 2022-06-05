@@ -21,7 +21,6 @@ const Pagination = ({position, left, totalItems, currentPage, setCurrentPage}) =
 
     return(
         <Flex
-        ml='140px'
         w='250px'
         h='59px'
         p='16px'

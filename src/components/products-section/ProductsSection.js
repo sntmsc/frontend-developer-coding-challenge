@@ -7,7 +7,7 @@ import Text from '../Text/Text'
 import Pagination from './products-options/Pagination'
 import handleOptions from './products-options/handleOptions'
 import { itemsPerPage } from '../../../utils/config'
-import Toast from '../Toast/Toast'
+import * as S from './styled'
 
 const defaultOptions = {
     filter: 'All Products',
@@ -50,7 +50,7 @@ const ProductsSection = ({products}) =>{
             setSortSelected={(sort)=>setObjOptions({...objOptions,sort})}
             currentPage={currentPage}
             setCurrentPage={(value)=>setCurrentPage(value)}/>
-            <Flex
+            <S.CardsContainer
             wrap='wrap'
             columnGap='24px'>
                 {products        ? 
@@ -70,12 +70,18 @@ const ProductsSection = ({products}) =>{
                         category={''}
                         cost={0}
                         img={'./assets/icons/logo.png'}/>)}
-            </Flex>
-            <Flex
-            w='100%'
-            mt='82px'
-            justify='center'
-            position='relative'>
+            </S.CardsContainer>
+            <S.FooterProducts>
+                <S.PaginationContainer>
+                    <Pagination
+                    itemsPerPage={itemsPerPage}
+                    totalItems={totalItems}
+                    currentPage={currentPage}
+                    setCurrentPage={(value)=>setCurrentPage(value)}/>
+                </S.PaginationContainer>
+                <Flex
+                justify='center'
+                align='center'>    
                     <Text
                     background='linear-gradient(102.47deg, #176FEB -7.34%, #FF80FF 180.58%) '
                     mr='5px'>
@@ -84,14 +90,9 @@ const ProductsSection = ({products}) =>{
                     <Text>
                         products
                     </Text>
-                    <Pagination
-                position='absolute'
-                left='1075px'
-                itemsPerPage={itemsPerPage}
-                totalItems={totalItems}
-                currentPage={currentPage}
-                setCurrentPage={(value)=>setCurrentPage(value)}/>
-            </Flex>
+                </Flex>
+            </S.FooterProducts>
+            
         </Flex>
     )
 }

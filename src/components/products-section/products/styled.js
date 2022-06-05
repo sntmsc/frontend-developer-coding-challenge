@@ -1,21 +1,27 @@
 import styled from 'styled-components'
 import { device } from './../../../../styles/deviceMediaQuery'
 
+export const CardButtonContainer = styled.div`
+display: flex;
+flex-direction: column;
+width: 348px;
+margin-top: 80px;
+
+@media not all and ${device.desktop}{
+    width: 314.33px;
+}
+`
 export const CardContainer = styled.div`
 display: flex;
 flex-direction: column;
 justify-content: space-between;
 background: white;
 box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.08);
-width: 348px;
+width: 100%;
 height: 433px;
 border: 1px solid #DAE4F2;
 border-radius: 16px;
 margin-bottom: 16px;
-
-@media not all and ${device.desktop}{
-    width: 314.33px;
-}
 `
 const textProperties = `
 font-family: 'Montserrat', sans-serif;

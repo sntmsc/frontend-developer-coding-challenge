@@ -36,7 +36,8 @@ const ProductsOptions = ({ filterSelected,
     return(
         <S.OptionsContainer>
             <Flex
-            justify='flex-start'>
+            justify='flex-start'
+            mr='140px'>
                 <S.ConditionalContainer>
                     <Text
                     w='81px'>

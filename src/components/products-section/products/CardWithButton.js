@@ -66,7 +66,7 @@ const handleClick = () =>{
     return(
         <GradientButton
         borderRadius='16px'
-        w='348px'
+        w='100%'
         h='59px'
         background={cost > aeropoints ? '#E6EDF7' : ''}
         cursor={cost > aeropoints || name === 'N/A' ? ''  : 'pointer'}
@@ -94,15 +94,13 @@ const handleClick = () =>{
 
 const CardWithButton = ({name, category, img, cost, id}) =>{
     return(
-        <Flex
-        mt='80px'
-        direction='column'>
+        <S.CardButtonContainer>
             <Card
             name={name}
             category={category}
             img={img}/>
             <RedeemerButton cost={cost} id={id} name={name}/>
-        </Flex>
+        </S.CardButtonContainer>
     )
 }
 export default CardWithButton
