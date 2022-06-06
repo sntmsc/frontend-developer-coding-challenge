@@ -38,7 +38,8 @@ const ProductsSection = ({products}) =>{
     return(
         <Flex
         id='products-section'
-        maxW='1464px'
+        w='100%'
+        maxW='1500px'
         mt='250px'
         direction='column'>
             <ProductsTitle/>

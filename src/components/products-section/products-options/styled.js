@@ -10,16 +10,28 @@ margin: 0 40px;
 
 export const OptionsContainer = styled.div`
 display: flex;
+flex-wrap: wrap;
 margin-top: 40px;
 width: 100%;
-justify-content: center;
+max-width: 1500px;
+justify-content: flex-start;
 align-items: center;
-
+position: relative;
 @media not all and ${device.desktop}{
+    margin: 0;
     align-items: flex-start;
     justify-content: space-between;
 }
 `
+
+export const FilterSortContainer = styled.div`
+display: flex;
+justify-content: flex-start;
+margin-right: 140px;
+@media not all and ${device.desktop}{
+margin-right: 0;
+margin-bottom: 20px;
+}`
 
 export const ConditionalContainer = styled.div`
 display: flex;

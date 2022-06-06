@@ -3,7 +3,7 @@ import Text from '../../Text/Text'
 import Image from '../../Image/Image'
 import { itemsPerPage } from '../../../../utils/config'
 
-const Pagination = ({position, left, totalItems, currentPage, setCurrentPage}) =>{
+const Pagination = ({ totalItems, currentPage, setCurrentPage}) =>{
 
     const totalPages = Math.ceil(totalItems/itemsPerPage);
 
@@ -28,8 +28,7 @@ const Pagination = ({position, left, totalItems, currentPage, setCurrentPage}) =
         align='center'
         border='1px solid #DAE4F2'
         borderRadius='16px'
-        position={position}
-        left={left}>
+        mr= '20px'>
                 <Flex
                 boxSize='40px'
                 background={currentPage === 1 ? '#E6EDF7' : '#E5F0FF'}

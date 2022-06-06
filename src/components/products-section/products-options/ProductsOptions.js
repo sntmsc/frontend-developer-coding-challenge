@@ -35,9 +35,7 @@ const ProductsOptions = ({ filterSelected,
 
     return(
         <S.OptionsContainer>
-            <Flex
-            justify='flex-start'
-            mr='140px'>
+            <S.FilterSortContainer>
                 <S.ConditionalContainer>
                     <Text
                     w='81px'>
@@ -74,11 +72,11 @@ const ProductsOptions = ({ filterSelected,
                         </SortGradientButton>
                     </Flex>
                 </S.ConditionalDirection>
-            </Flex>
-            <Pagination
-            totalItems={totalItems}
-            currentPage={currentPage}
-            setCurrentPage={(value)=>setCurrentPage(value)}/>
+            </S.FilterSortContainer>
+                <Pagination
+                totalItems={totalItems}
+                currentPage={currentPage}
+                setCurrentPage={(value)=>setCurrentPage(value)}/>
         </S.OptionsContainer>
     )
 }

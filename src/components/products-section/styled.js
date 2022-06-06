@@ -9,7 +9,7 @@ grid-column-gap: 24px;
 
 @media not all and ${device.desktop}{
     grid-template-columns: repeat(auto-fill, minmax(314.33px, 1fr)); 
-    max-width: 1000px;
+    max-width: 100%;
 }
 `
 

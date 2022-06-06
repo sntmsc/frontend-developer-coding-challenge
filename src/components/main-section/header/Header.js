@@ -1,6 +1,6 @@
 import {useState, useEffect, useContext} from 'react'
 import { Flex } from './../../Flex/styled'
-import * as S from './Logo/styled'
+import * as S from './styled'
 import AeropayButton from './AeropayButton/AeropayButton'
 import Aeropay from './Aeropay/Aeropay'
 import fetchHeaders from '../../../../utils/api/fetchHeaders'
@@ -30,11 +30,7 @@ const Header = () => {
   },[])
 
   return(
-    <Flex
-    justify='space-between'
-    w='100%'
-    p='3em'
-    position='relative'>
+    <S.HeaderContainer>
           <S.Logo/>
       <AeropayButton
       handleClick={handleClick}
@@ -47,7 +43,7 @@ const Header = () => {
             userName={userData.name}
             closeComponent={()=>setIsVisible(false)}/> 
         }
-    </Flex>
+    </S.HeaderContainer>
   )
 }
 
