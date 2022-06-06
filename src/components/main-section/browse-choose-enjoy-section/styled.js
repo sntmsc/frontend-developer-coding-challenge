@@ -49,6 +49,7 @@ height: 676px;
 width: 532px;
 
 @media not all and ${device.desktop}{
+    margin-bottom: 24px;
     position: static;
     height: 477px;
     width: 323px;

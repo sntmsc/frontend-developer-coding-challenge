@@ -5,7 +5,7 @@ import Text from "./Text/Text"
 const Footer = () =>{
     return(
             <Flex
-            mt='260px'
+            mt='174px'
             mb='80px'>
                 <a href='https://github.com/sntmsc/frontend-developer-coding-challenge'>
                 <Flex>
