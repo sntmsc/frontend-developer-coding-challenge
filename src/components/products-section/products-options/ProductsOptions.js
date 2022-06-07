@@ -18,7 +18,7 @@ const SortGradientButton = ({children, sortSelected, setSortSelected}) =>{
         borderRadius='12px'
         w='165px'
         h='43px'
-        m='0 12px'
+        m='0 12px 0 0'
         cursor='pointer'
         background={sortSelected === children ? '' : '#E6F0FF'}
         textColor={sortSelected === children ? '' : 

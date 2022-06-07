@@ -27,8 +27,7 @@ const Pagination = ({ totalItems, currentPage, setCurrentPage}) =>{
         justify='space-between'
         align='center'
         border='1px solid #DAE4F2'
-        borderRadius='16px'
-        mr= '20px'>
+        borderRadius='16px'>
                 <Flex
                 boxSize='40px'
                 background={currentPage === 1 ? '#E6EDF7' : '#E5F0FF'}

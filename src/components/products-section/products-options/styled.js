@@ -10,11 +10,10 @@ margin: 0 40px;
 
 export const OptionsContainer = styled.div`
 display: flex;
-flex-wrap: wrap;
 margin-top: 40px;
 width: 100%;
-max-width: 1500px;
-justify-content: flex-start;
+max-width: 1460px;
+justify-content: space-between;
 align-items: center;
 position: relative;
 @media not all and ${device.desktop}{
@@ -22,16 +21,29 @@ position: relative;
     align-items: flex-start;
     justify-content: space-between;
 }
+@media ${device.mobile}{
+    justify-content:center;
+    align-items: center;
+    flex-direction: column-reverse;
+    grid-gap: 26px;
+}
 `
 
 export const FilterSortContainer = styled.div`
 display: flex;
 justify-content: flex-start;
 margin-right: 140px;
+
 @media not all and ${device.desktop}{
 margin-right: 0;
 margin-bottom: 20px;
-}`
+}
+
+@media ${device.mobile}{
+    justify-content: center;
+    align-items: center;
+}
+`
 
 export const ConditionalContainer = styled.div`
 display: flex;
@@ -50,8 +62,13 @@ align-items: center;
 margin: 0;
 
 @media not all and ${device.desktop}{
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-items: flex-start;
     grid-gap: 26.5px;
+}
+
+@media ${device.mobile}{
+    justify-content: center;
+    align-items: center;
 }
 `

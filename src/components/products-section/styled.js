@@ -1,10 +1,11 @@
 import styled from 'styled-components'
 import { device } from '../../../styles/deviceMediaQuery'
 
+
 export const CardsContainer = styled.div`
 display: grid;
 grid-template-columns: repeat(auto-fill, minmax(348px, 1fr)); 
-max-width: 1500px;
+max-width: 1470px;
 grid-column-gap: 24px;
 
 @media not all and ${device.desktop}{

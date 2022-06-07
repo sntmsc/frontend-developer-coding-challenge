@@ -25,7 +25,6 @@ const Selector = ({filterSelected, setFilterSelected, setCurrentPage}) =>{
         <Flex
         position='relative'>
             <Flex
-            ml='16px'
             w='256px'
             h='59px'
             p='16px 8px 16px 24px'

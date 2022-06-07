@@ -4,10 +4,7 @@ import * as S from './../Subtitle/styled'
 
 const ProductsTitle = () =>{
     return(
-        <Flex
-        w='100%'
-        justify='flex-start'
-        align='center'>
+        <S.ProductsTitleContainer>
             <S.Subtitle
             color='#4573ef'
             mr='11px'>
@@ -16,7 +13,7 @@ const ProductsTitle = () =>{
             <S.Subtitle>
                 products
             </S.Subtitle>
-        </Flex>
+        </S.ProductsTitleContainer>
     )
 }
 
