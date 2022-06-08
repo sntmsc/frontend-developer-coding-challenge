@@ -30,6 +30,12 @@ const Header = () => {
   },[])
 
   return(
+    <Flex
+    zIndex= '20'
+    background= 'rgba(255,255,255, 0.5)'
+    position='fixed'
+    top='0'
+    w='100%'>
     <S.HeaderContainer>
           <S.Logo/>
       <AeropayButton
@@ -44,6 +50,7 @@ const Header = () => {
             closeComponent={()=>setIsVisible(false)}/> 
         }
     </S.HeaderContainer>
+    </Flex>
   )
 }
 

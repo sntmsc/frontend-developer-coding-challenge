@@ -14,6 +14,7 @@ box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.08);
 grid-column-gap: 5px;
 padding: 7px 15px;
 z-index:15;
+background: white;
 
 @media not all and ${device.desktop}{
     width: 143px;

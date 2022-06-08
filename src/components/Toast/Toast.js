@@ -38,12 +38,11 @@ const Toast = (props) =>{
 <S.Toast {...props}
 border={statusControl('2px solid #29CC74','2px solid #E07F4F')}
 bottom={`${(props.index * 90 ) + 20}px`}>
-<Flex
-justify='flex-start'>
+
 <Image
 boxSize='26px'
 img={`./assets/icons/system-${statusControl('success', 'error')}.svg`}/>
-
+<S.TextContainer>
     <Text
     background='#252F3D'
     userSelect='none'
@@ -55,7 +54,7 @@ img={`./assets/icons/system-${statusControl('success', 'error')}.svg`}/>
     background='#7C899C'
     ml='8px'
     userSelect='none'>{eventControl('gray')}</Text>
-</Flex>
+</S.TextContainer>
 <Image
 boxSize='20px'
 img='./assets/icons/cross-default.svg'

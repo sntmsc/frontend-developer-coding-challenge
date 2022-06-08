@@ -17,6 +17,7 @@ grid-column-gap: 24px;
 export const FooterProducts = styled.div`
 position: relative;
 width: 100%;
+max-width: 1460px;
 display:flex;
 justify-content: center;
 align-items: center;

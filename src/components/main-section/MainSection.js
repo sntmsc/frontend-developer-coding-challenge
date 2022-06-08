@@ -13,7 +13,9 @@ const MainSection = () =>{
   return(
     <Flex
     direction='column'
-    w='100%'>
+    w='100%'
+    overflow='hidden'
+    mt='100px'>
       <Header/>
       <Flex
       backgroundImage='url(/assets/illustrations/single-wave-pattern.svg)'

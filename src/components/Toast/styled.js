@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { keyframes } from 'styled-components'
+import { device } from '../../../styles/deviceMediaQuery'
 
 const fadeIn = keyframes`
     from { opacity: 0}
@@ -30,4 +31,22 @@ flex-direction: row;
 justify-content: space-between;
 align-items: center;
 padding: 24px;
+
+@media not all and ${device.desktop}{
+    width: 360px;
+    height: 96px;
+    align-items: flex-start;
+}
+`
+
+export const TextContainer = styled.div`
+display: flex;
+margin: 0;
+padding: 0;
+
+@media not all and ${device.desktop}{
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
 `

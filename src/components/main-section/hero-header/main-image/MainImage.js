@@ -6,12 +6,10 @@ const MainImage = () => {
       <Flex
        justify='center'
        align='flex-end'
-       position='relative'
-        >
+       position='relative'>
         <S.ImageContainer>
           <S.Image
           img='./assets/illustrations/hero-desktop.png'
-          boxSize='800px'
           position='relative'
           bottom='5em'/>
         </S.ImageContainer>
