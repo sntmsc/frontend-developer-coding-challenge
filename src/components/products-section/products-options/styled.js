@@ -12,7 +12,6 @@ export const OptionsContainer = styled.div`
 display: flex;
 margin-top: 40px;
 width: 100%;
-max-width: 1460px;
 justify-content: space-between;
 align-items: center;
 position: relative;
@@ -62,12 +61,27 @@ align-items: center;
 margin: 0;
 
 @media not all and ${device.desktop}{
-    flex-direction: column-reverse;
     align-items: flex-start;
-    grid-gap: 26.5px;
+    flex-direction: column;
+    grid-row-gap: 26.5px;
 }
 
 @media ${device.mobile}{
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+}
+`
+
+export const SortContainer = styled.div`
+display: flex;
+justify-content: flex-start;
+align-items: center;
+margin: 0;
+
+@media ${device.mobile}{
+    flex-direction: column;
+    grid-gap: 26.5px;
     justify-content: center;
     align-items: center;
 }

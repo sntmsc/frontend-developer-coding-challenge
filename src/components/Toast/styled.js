@@ -43,10 +43,13 @@ export const TextContainer = styled.div`
 display: flex;
 margin: 0;
 padding: 0;
+width:100%;
+grid-column-gap: 5px;
 
 @media not all and ${device.desktop}{
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+    margin-left: 14.25px;
 }
 `

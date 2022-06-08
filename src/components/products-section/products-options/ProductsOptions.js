@@ -56,7 +56,7 @@ const ProductsOptions = ({ filterSelected,
                             Sort by: 
                         </Text>
                     </S.ConditionalContainer>
-                    <S.ConditionalDirection>
+                    <S.SortContainer>
                         <SortGradientButton
                         sortSelected={sortSelected}
                         setSortSelected={(value)=> setSortSelected(value)}>
@@ -72,7 +72,7 @@ const ProductsOptions = ({ filterSelected,
                         setSortSelected={(value)=> setSortSelected(value)}>
                             Highest Price
                         </SortGradientButton>
-                    </S.ConditionalDirection>
+                    </S.SortContainer>
                 </S.ConditionalDirection>
             </S.FilterSortContainer>
                 <Pagination

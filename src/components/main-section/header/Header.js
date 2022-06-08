@@ -32,8 +32,10 @@ const Header = () => {
   return(
     <Flex
     zIndex= '20'
-    background= 'rgba(255,255,255, 0.5)'
+    background= 'rgba(255,255,255, 1)'
+    boxShadow='0 2px 2px -2px rgba(0,0,0,.2)'
     position='fixed'
+    left='0'
     top='0'
     w='100%'>
     <S.HeaderContainer>

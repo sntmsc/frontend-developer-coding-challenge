@@ -7,7 +7,9 @@ const Footer = () =>{
             <Flex
             mt='174px'
             mb='80px'>
-                <a href='https://github.com/sntmsc/frontend-developer-coding-challenge'>
+                <a 
+                target='_blank'
+                href='https://github.com/sntmsc/frontend-developer-coding-challenge'>
                 <Flex>
                 <Image
                 w='27.97px'

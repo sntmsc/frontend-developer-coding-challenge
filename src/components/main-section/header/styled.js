@@ -11,7 +11,7 @@ width: 1464px;
 
 @media not all and ${device.desktop}{
     width: 100%;
-    padding: 50px 20px 0 20px;
+    padding: 20px 20px 0 20px;
 }
 `
 

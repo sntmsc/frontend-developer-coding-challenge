@@ -28,8 +28,7 @@ export default function Home({products}) {
   return(
     <Flex
     justify='center'
-    direction='column'
-    w='100vw'>
+    direction='column'>
         {toast.map((x,i) =>
         <Toast 
         key={i}

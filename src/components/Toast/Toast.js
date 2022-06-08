@@ -37,29 +37,25 @@ const Toast = (props) =>{
     return(
 <S.Toast {...props}
 border={statusControl('2px solid #29CC74','2px solid #E07F4F')}
-bottom={`${(props.index * 90 ) + 20}px`}>
-
-<Image
-boxSize='26px'
-img={`./assets/icons/system-${statusControl('success', 'error')}.svg`}/>
-<S.TextContainer>
-    <Text
-    background='#252F3D'
-    userSelect='none'
-    ml='15px'>
-        {eventControl('black')}
-    </Text>
-
-    <Text
-    background='#7C899C'
-    ml='8px'
-    userSelect='none'>{eventControl('gray')}</Text>
-</S.TextContainer>
-<Image
-boxSize='20px'
-img='./assets/icons/cross-default.svg'
-cursor='pointer'
-onClick={toastHandleClose}/>
+bottom={`${(props.index * 100 ) + 20}px`}>
+    <Image
+    boxSize='26px'
+    img={`./assets/icons/system-${statusControl('success', 'error')}.svg`}/>
+    <S.TextContainer>
+        <Text
+        background='#252F3D'
+        userSelect='none'>
+            {eventControl('black')}
+        </Text>
+        <Text
+        background='#7C899C'
+        userSelect='none'>{eventControl('gray')}</Text>
+    </S.TextContainer>
+    <Image
+    boxSize='20px'
+    img='./assets/icons/cross-default.svg'
+    cursor='pointer'
+    onClick={toastHandleClose}/>
 </S.Toast>
     )
 }
