@@ -29,7 +29,7 @@ const Header = () => {
       .then(response => response.json())
       .then(data => {setUserData(data); setAeropoints(data.points)})
       .catch(err => console.log(err));
-  },[])
+  },[headers])
 
   return(
     <Flex

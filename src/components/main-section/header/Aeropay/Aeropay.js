@@ -93,6 +93,7 @@ const Aeropay = ({setIsLoading, userName, closeComponent, refElement}) =>{
                         </Text>
                         <Image
                         img='./assets/icons/aeropay-2.svg'
+                        alt='aeropay icon'
                         boxSize='24px'/>
                     </Flex>
                     <Flex
@@ -120,6 +121,7 @@ const Aeropay = ({setIsLoading, userName, closeComponent, refElement}) =>{
                         <Image
                         key={i}
                         img='./assets/illustrations/single-wave-pattern.svg'
+                        alt='background waveform'
                         opacity='0.07'
                         w='800px'
                         h='33px'
@@ -158,6 +160,7 @@ const Aeropay = ({setIsLoading, userName, closeComponent, refElement}) =>{
                     onClick={()=> addPoints(parseInt(pointSelected))}>
                         <Image
                         img='./assets/icons/aeropay-3.svg'
+                        alt='aeropay icon'
                         boxSize='24px'
                         m='0 8px'/>
                         <Text

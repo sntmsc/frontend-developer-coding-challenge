@@ -25,7 +25,7 @@ const MainDescription = () =>{
         textAlign='left'
         fontSize='15px'
         m='1em 0'>
-          Here you'll be able to redeem all of your hard-earned Aeropoints and exchange them for cool tech.
+          Here you’ll be able to redeem all of your hard-earned Aeropoints and exchange them for cool tech.
         </S.DescriptionText>
         <Flex
         position='relative'>

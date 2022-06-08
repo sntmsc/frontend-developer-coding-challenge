@@ -40,7 +40,8 @@ border={statusControl('2px solid #29CC74','2px solid #E07F4F')}
 bottom={`${(props.index * 100 ) + 20}px`}>
     <Image
     boxSize='26px'
-    img={`./assets/icons/system-${statusControl('success', 'error')}.svg`}/>
+    img={`./assets/icons/system-${statusControl('success', 'error')}.svg`}
+    alt='status icon'/>
     <S.TextContainer>
         <Text
         background='#252F3D'
@@ -56,6 +57,7 @@ bottom={`${(props.index * 100 ) + 20}px`}>
     <Image
     boxSize='20px'
     img='./assets/icons/cross-default.svg'
+    alt='close icon'
     cursor='pointer'
     onClick={toastHandleClose}/>
 </S.Toast>

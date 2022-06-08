@@ -42,6 +42,7 @@ const Selector = ({filterSelected, setFilterSelected, setCurrentPage}) =>{
                 </Text>
                 <Image
                 img='./assets/icons/black-arrow.png'
+                alt='arrow visibility handler'
                 transform={isVisible ? 'rotate(180deg)' : ''}
                 boxSize='8px'/>
             </Flex>

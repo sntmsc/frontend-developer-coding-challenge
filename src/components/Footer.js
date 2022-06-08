@@ -9,12 +9,14 @@ const Footer = () =>{
             mb='80px'>
                 <a 
                 target='_blank'
+                rel="noreferrer"
                 href='https://github.com/sntmsc/frontend-developer-coding-challenge'>
                 <Flex>
                 <Image
                 w='27.97px'
                 h='27.23px'
-                img='./assets/icons/github-default.svg'/>
+                img='./assets/icons/github-default.svg'
+                alt='link for repository'/>
                 <Text
                 mx='8px'>
                     View this repository

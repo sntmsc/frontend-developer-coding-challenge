@@ -36,6 +36,7 @@ const Pagination = ({ totalItems, currentPage, setCurrentPage}) =>{
                 onClick={handlePrev}>
                     <Image
                     img={`./assets/icons/chevron-${currentPage === 1 ? 'default' : 'active'}.svg`}
+                    alt='previous page handler'
                     transform='rotate(-180deg)'
                     boxSize='15px'/>
                 </Flex>
@@ -55,6 +56,7 @@ const Pagination = ({ totalItems, currentPage, setCurrentPage}) =>{
                 onClick={handleNext}>
                     <Image
                     img={`./assets/icons/chevron-${currentPage === totalPages ? 'default' : 'active'}.svg`}
+                    alt='next page handler'
                     boxSize='15px'/>
                 </Flex>
         </Flex>

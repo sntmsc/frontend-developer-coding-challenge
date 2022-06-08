@@ -17,6 +17,7 @@ export const Card = ({name, category, img}) =>{
             h='344.92px'>
             <Image
             img={img}
+            alt='product image'
             w={name === 'N/A' ? '77.5px' : '280px'}
             h={name === 'N/A' ? '72px' : '204px'}/>
             </Flex>
@@ -93,17 +94,20 @@ const handleClick = () =>{
             background={ cost > aeropoints ? '#7C899C' : 'white'}>
                 {name === 'N/A' ? '' : isLoading ? 'Processing...' : cost > aeropoints ? 'You need' : 'Redeem for'}
             </Text>
-            { !isLoading || name === 'N/A' && 
+            {!isLoading || name !== 'N/A' ?
                 <> 
                     <Image
                     img={cost > aeropoints ? './assets/icons/aeropay-disabled.svg' : './assets/icons/aeropay-3.svg'}
+                    alt='aeropay'
                     boxSize={cost > aeropoints ? '25px' : '24px'}
                     m='0 8px'/>
                     <Text
                     background={cost > aeropoints ? '#7C899C' : 'white'}>
                         {cost}
                     </Text>
-                </> 
+                </> :
+                <>
+                </>
             }
         </GradientButton>
     )
