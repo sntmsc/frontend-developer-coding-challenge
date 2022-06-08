@@ -9,7 +9,7 @@ import Toast from '../src/components/Toast/Toast';
 
 export async function getStaticProps() {
   const headers = fetchHeaders(process.env.NEXT_PUBLIC_TOKEN);
-  const res = await fetch(process.env.API_GET_PRODUCTS, {headers});
+  const res = await fetch(process.env.NEXT_PUBLIC_API_GET_PRODUCTS, {headers});
   const products = await res.json();
 
   return {
