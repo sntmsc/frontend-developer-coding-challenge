@@ -23,7 +23,7 @@ position: relative;
 @media ${device.mobile}{
     justify-content:center;
     align-items: center;
-    flex-direction: column-reverse;
+    flex-direction: column;
     grid-gap: 26px;
 }
 `
@@ -67,7 +67,7 @@ margin: 0;
 }
 
 @media ${device.mobile}{
-    flex-direction: column-reverse;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }

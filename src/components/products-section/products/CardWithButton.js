@@ -29,14 +29,31 @@ export const Card = ({name, category, img}) =>{
             align='flex-start'
             direction='column'
             p='16px 24px 24px'>
-                <S.ProductName
-                background='#252F3D'>
-                    {name}
-                </S.ProductName>
-                <S.ProductDescription
-                boxSize='14px'>
-                    {category}
-                </S.ProductDescription>
+                { name === 'N/A' ? 
+                    <Flex
+                    gap='8px'
+                    direction='column'
+                    align='flex-start'>
+                        <S.SkeletonText
+                        w='208px'
+                        h='16px'
+                        borderRadius='12px'/>
+                        <S.SkeletonText
+                        w='104px'
+                        h='8px'
+                        borderRadius='4px'/>
+                    </Flex> :
+                    <>
+                        <S.ProductName
+                        background='#252F3D'>
+                            {name}
+                        </S.ProductName>
+                        <S.ProductDescription
+                        boxSize='14px'>
+                            {category}
+                        </S.ProductDescription>
+                    </>
+                }
             </Flex>
         </S.CardContainer>
     )
@@ -68,15 +85,15 @@ const handleClick = () =>{
         borderRadius='16px'
         w='100%'
         h='59px'
-        background={cost > aeropoints ? '#E6EDF7' : ''}
+        background={name === 'N/A' ? '#E6EDF7' : cost > aeropoints ? '#E6EDF7' : ''}
         cursor={cost > aeropoints || name === 'N/A' ? ''  : 'pointer'}
         opacity={isLoading || name === 'N/A' ? '0.7' : ''}
         onClick={name === 'N/A' ? ()=>{return false} : handleClick}> 
             <Text
-            background={cost > aeropoints ? '#7C899C' : 'white'}>
+            background={ cost > aeropoints ? '#7C899C' : 'white'}>
                 {name === 'N/A' ? '' : isLoading ? 'Processing...' : cost > aeropoints ? 'You need' : 'Redeem for'}
             </Text>
-            { !isLoading && 
+            { !isLoading || name === 'N/A' && 
                 <> 
                     <Image
                     img={cost > aeropoints ? './assets/icons/aeropay-disabled.svg' : './assets/icons/aeropay-3.svg'}

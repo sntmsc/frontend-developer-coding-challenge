@@ -56,3 +56,13 @@ color: #7C899C;
     font-size: 12px;
 }
 `
+
+export const SkeletonText = styled.div`
+display: flex;
+margin: 0;
+padding: 0;
+width: ${props => props.w ? props.w : ''};
+height: ${props => props.h ? props.h : ''};
+background: #E6EDF7;
+border-radius: ${props=> props.borderRadius ? props.borderRadius : ''};
+`

@@ -2,20 +2,14 @@ import { Flex } from './../Flex/styled'
 import Header from './header/Header'
 import MainImage from './hero-header/main-image/MainImage'
 import MainDescription from './hero-header/main-description/MainDescription'
-import * as S from './hero-header/HeroContainer/styled'
+import * as S from './style'
 import BrowseChooseEnjoy from './browse-choose-enjoy-section/BrowseChooseEnjoy.js'
 
 
 const MainSection = () =>{
-
-
   
   return(
-    <Flex
-    direction='column'
-    w='100%'
-    overflow='hidden'
-    mt='100px'>
+    <S.MainContainer>
       <Header/>
       <Flex
       backgroundImage='url(/assets/illustrations/single-wave-pattern.svg)'
@@ -29,7 +23,7 @@ const MainSection = () =>{
         </S.HeroContainer>
           <BrowseChooseEnjoy/>
        </Flex>
-    </Flex>
+    </S.MainContainer>
   )
 }
 

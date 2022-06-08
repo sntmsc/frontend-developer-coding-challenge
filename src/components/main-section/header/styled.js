@@ -6,7 +6,7 @@ position: relative;
 display: flex;
 justify-content: space-between;
 margin: 0;
-padding: 50px 0 10px 0;
+padding: 20px 0 10px 0;
 width: 1464px;
 
 @media not all and ${device.desktop}{
@@ -19,6 +19,7 @@ export const Logo = styled.img`
 width: 120px;
 height: 50px;
 content:url(./assets/icons/aerolab-logo-1.svg);
+cursor: pointer;
 
 @media not all and ${device.desktop}{
     width: 50px;

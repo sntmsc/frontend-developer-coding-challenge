@@ -38,6 +38,10 @@ overflow: ${props => props.overflow ? props.overflow : ''};
 cursor: ${props => props.cursor ? props.cursor : ''};
 clip-path: ${props => props.clipPath ? props.clipPath : ''};
 z-index: ${props => props.zIndex ? props.zIndex : ''};
+-webkit-tap-highlight-color: transparent;
+-webkit-user-select: none;
+user-select: none;
+
 &:hover,
 &:focus{
     background: ${props => props.hoverBackground ? props.hoverBackground : ''};

@@ -14,10 +14,12 @@ bottom: ${props => props.bottom ? props.bottom : ''};
 padding: 0;
 margin: 0;
 width: 100%;
+height: 528px;
 background: linear-gradient(102.47deg, rgba(23, 111, 235, .5) -5.34%,
             rgba(255, 128, 255, .5) 106.58%);
 
 @media not all and ${device.desktop}{
+    height: auto;
     bottom: 14.1rem;
     padding: 11em 0 2em 0;
     grid-gap: 8px;
@@ -68,13 +70,14 @@ content:url(${props => props.img});
 opacity: ${props => props.opacity ? props.opacity :  ''};
 border-top-left-radius: 32px;
 border-top-right-radius: 32px;
-width: 508px;
+width: 100%;
 height: 498px;
 background: linear-gradient(102.47deg, #7296EB -5.34%,
             #EAC0E9 106.58%, #EAC0E9 106.58%);
+-webkit-user-select: none;
+user-select: none;
 
 @media not all and ${device.desktop}{
-    width: 299px;
     height: 314px;
 }
 `
@@ -83,6 +86,8 @@ export const WalkthroughIcon = styled.img`
 content:url(${props => props.img});
 width: 48px;
 height: 48px;
+-webkit-user-select: none;
+user-select: none;
 
 @media not all and ${device.desktop}{
     width: 37px;
@@ -111,5 +116,26 @@ user-select:none;
 
 @media not all and ${device.desktop}{
     font-size: 24px;
+}
+`
+
+export const WalkthroughDescription = styled.p`
+padding: 0;
+margin: 0;
+width: 370px;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-color: #7C899C;
+font-family: 'Montserrat', sans-serif;
+font-size: ${props => props.fontSize ? props.fontSize : '18px'};
+font-weight: ${props => props.weight ? props.weight : '600'};
+line-height: ${props => props.lineHeight ? props.lineHeight : '150%'};
+letter-spacing: ${props => props.spacing ? props.spacing : '0%'};
+text-style: none;
+text-align: left;
+
+@media not all and ${device.desktop}{
+    width: auto;
+    font-size: 16px;
 }
 `

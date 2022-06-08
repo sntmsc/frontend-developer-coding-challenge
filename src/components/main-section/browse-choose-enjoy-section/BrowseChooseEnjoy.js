@@ -1,18 +1,19 @@
 import { Flex } from '../../Flex/styled'
-import Text from '../../Text/Text'
 import * as S from './styled'
 
-const WalkthroughCard = ({title, description, img, icon, transform, zIndex, right, left, bottom})=>{
+const WalkthroughCard = ({title, description, img, icon, transform, zIndex, right, left, bottom, top})=>{
     return(
         <S.WalkthroughContainer
         transform={transform}
         zIndex={zIndex}
         right={right}
         left={left}
-        bottom={bottom}>
+        bottom={bottom}
+        top={top}>
             <S.WalkthroughImage
             img={img}/>
             <Flex
+            w='100%'
             h='154px'
             p='16px 24px 24px 24px'
             gap='12px'
@@ -42,10 +43,11 @@ const WalkthroughCard = ({title, description, img, icon, transform, zIndex, righ
                         {title}
                     </S.WalkthroughTitle>
                 </Flex>
-                <Text
-                textAlign='left'>
+                <S.WalkthroughDescription
+                textAlign='left'
+                w='400px'>
                     {description}
-                </Text>
+                </S.WalkthroughDescription>
             </Flex>
         </S.WalkthroughContainer>
     )
@@ -60,9 +62,8 @@ const BrowseChooseEnjoy = () =>{
             description="Browse our tech catalog with more than 20 bottom tech products"
             transform='rotate(-3deg)'
             zIndex='1'
-            right=''
-            left='185px'
-            bottom='-80px'/>
+            left='85px'
+            bottom='10px'/>
             <WalkthroughCard
             img='./assets/illustrations/walkthroug-2-desktop.png'
             icon='./assets/icons/walkthrough-3.svg'
@@ -70,9 +71,7 @@ const BrowseChooseEnjoy = () =>{
             description="Exchange your hard earned AeroPoints for the item you want"
             transform=''
             zIndex='2'
-            right=''
-            left=''
-            bottom='-20px'/>
+            bottom='60px'/>
             <WalkthroughCard
             img='./assets/illustrations/walkthroug-3-desktop.png'
             icon='./assets/icons/walkthrough-2.svg'
@@ -80,9 +79,8 @@ const BrowseChooseEnjoy = () =>{
             description="All done, you can relax! We'll take care of delivery of your tech item!"
             transform='rotate(3deg)'
             zIndex='3'
-            right='185px'
-            left=''
-            bottom='-80px'/>
+            right='85px'
+            bottom='10px'/>
         </S.CardsContainer>
     )
 }

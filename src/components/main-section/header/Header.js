@@ -1,10 +1,11 @@
-import {useState, useEffect, useContext} from 'react'
+import {useState, useEffect, useContext, useRef } from 'react'
 import { Flex } from './../../Flex/styled'
 import * as S from './styled'
 import AeropayButton from './AeropayButton/AeropayButton'
 import Aeropay from './Aeropay/Aeropay'
 import fetchHeaders from '../../../../utils/api/fetchHeaders'
 import { ContextAeropoints } from '../../../../context/Aeropoints'
+import Link from 'next/dist/client/link'
 
 const Header = () => {
 
@@ -12,6 +13,7 @@ const Header = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [ userData, setUserData] = useState({});
   const {aeropoints, setAeropoints} = useContext(ContextAeropoints);
+  const ref = useRef(null);
 
   const handleClick = () =>{
     setIsVisible(!isVisible);
@@ -39,7 +41,15 @@ const Header = () => {
     top='0'
     w='100%'>
     <S.HeaderContainer>
+      <Link
+      href='#'>
+        <a>
           <S.Logo/>
+        </a>
+      </Link>
+      <Flex
+      ref={ref}
+      position='relative'>
       <AeropayButton
       handleClick={handleClick}
       aeropoints={aeropoints}
@@ -47,10 +57,12 @@ const Header = () => {
       isVisible={isVisible}/>
         { isVisible && 
             <Aeropay
+            refElement = {ref}
             setIsLoading={(value)=>setIsLoading(value)}
             userName={userData.name}
             closeComponent={()=>setIsVisible(false)}/> 
         }
+        </Flex>
     </S.HeaderContainer>
     </Flex>
   )

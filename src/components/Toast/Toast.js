@@ -44,11 +44,13 @@ bottom={`${(props.index * 100 ) + 20}px`}>
     <S.TextContainer>
         <Text
         background='#252F3D'
-        userSelect='none'>
+        userSelect='none'
+        textAlign='left'>
             {eventControl('black')}
         </Text>
         <Text
         background='#7C899C'
+        textAlign='left'
         userSelect='none'>{eventControl('gray')}</Text>
     </S.TextContainer>
     <Image

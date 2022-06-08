@@ -1,5 +1,16 @@
 import styled from 'styled-components'
-import { device } from '../../../../../styles/deviceMediaQuery'
+import { device } from '../../../styles/deviceMediaQuery'
+
+export const MainContainer = styled.div`
+display: flex;
+flex-direction: column;
+width: 100%;
+margin-top: 100px;
+
+@media not all and ${device.desktop}{
+    overflow: hidden;
+}
+`
 
 export const HeroContainer = styled.div`
 display: flex;

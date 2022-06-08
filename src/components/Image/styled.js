@@ -16,6 +16,8 @@ right: ${props => props.right ? props.right : ''};
 top: ${props => props.top ? props.top : ''};
 bottom: ${props => props.bottom ? props.bottom : ''};
 background: ${props => props.background ? props.background : ''}
+-webkit-user-select: none;
+user-select: none;
 
 @media not all and ${device.desktop}{
     width: ${props => props.boxSize ? props.boxSize : props.w ? props.w : '20px'};

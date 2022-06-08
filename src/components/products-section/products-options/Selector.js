@@ -23,7 +23,8 @@ const Selector = ({filterSelected, setFilterSelected, setCurrentPage}) =>{
 
     return(
         <Flex
-        position='relative'>
+        position='relative'
+        ref={ref}>
             <Flex
             w='256px'
             h='59px'
@@ -41,15 +42,14 @@ const Selector = ({filterSelected, setFilterSelected, setCurrentPage}) =>{
                 </Text>
                 <Image
                 img='./assets/icons/black-arrow.png'
+                transform={isVisible ? 'rotate(180deg)' : ''}
                 boxSize='8px'/>
             </Flex>
             {isVisible && 
                 <Flex
-                ref={ref}
                 position='absolute'
                 direction='column'
                 top='63px'
-                left='15px'
                 w='256px'
                 background='white'
                 border='1px solid #DAE4F2'

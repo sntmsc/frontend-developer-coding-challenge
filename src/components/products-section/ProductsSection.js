@@ -36,12 +36,8 @@ const ProductsSection = ({products}) =>{
     //////////////////////////////////////////////////////////////
 
     return(
-        <Flex
-        id='products-section'
-        w='100%'
-        maxW='1460px'
-        mt='250px'
-        direction='column'>
+        <S.SectionContainer
+        id='products-section'>
             <ProductsTitle/>
             <ProductsOptions
             totalItems={totalItems}
@@ -54,7 +50,7 @@ const ProductsSection = ({products}) =>{
             <S.CardsContainer
             wrap='wrap'
             columnGap='24px'>
-                {products        ? 
+                {products.length        ? 
                     visibleItems.map(x=>
                         <CardWithButton
                         key={x._id}
@@ -94,7 +90,7 @@ const ProductsSection = ({products}) =>{
                 </Flex>
             </S.FooterProducts>
             
-        </Flex>
+        </S.SectionContainer>
     )
 }
 

@@ -2,7 +2,7 @@ import Image from "./../../../Image/Image"
 import Text from "./../../../Text/Text"
 import { Flex } from "./../../../Flex/styled"
 import GradientButton from "./../../../GradientButton/GradientButton"
-import { useState , useContext, useRef } from "react"
+import { useState , useContext } from "react"
 import { ContextAeropoints } from "../../../../../context/Aeropoints"
 import { ToastContext } from "../../../../../context/ToastContext"
 import fetchPostAndGet from "../../../../../utils/api/fetchPostAndGet"
@@ -22,14 +22,12 @@ const PointsOption = ({children, pointSelected, handleClick}) =>{
          </GradientButton>
     )
 }
-const Aeropay = ({setIsLoading, userName, closeComponent}) =>{
+const Aeropay = ({setIsLoading, userName, closeComponent, refElement}) =>{
     const [pointSelected, setPointSelected] = useState(0);
     const {setAeropoints} = useContext(ContextAeropoints);
     const {toast,setToast} = useContext(ToastContext);
 
-    const ref = useRef(null);
-
-    useClickOutside(ref, closeComponent);
+    useClickOutside(refElement, closeComponent);
     
     const addPoints = (points) =>{
         const postObject = {'amount': points};
@@ -50,14 +48,13 @@ const Aeropay = ({setIsLoading, userName, closeComponent}) =>{
 
     return(
         <Flex
-        ref={ref}
         w='312px'
         h='404px'
         border='1px solid #DAE4F2'
         borderRadius='16px'
         boxShadow='0px 2px 12px rgba(0, 0, 0, 0.08)'
         position='absolute'
-        top='103px'
+        top='99%'
         right='0'
         zIndex='8'
         background='white'
