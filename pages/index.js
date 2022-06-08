@@ -8,8 +8,8 @@ import { ToastContext } from '../context/ToastContext';
 import Toast from '../src/components/Toast/Toast';
 
 export async function getStaticProps() {
-  const headers = fetchHeaders(process.env.NEXT_PUBLIC_TOKEN);
-  const res = await fetch(process.env.NEXT_PUBLIC_API_GET_PRODUCTS, {headers});
+  const headers = fetchHeaders(process.env.TOKEN);
+  const res = await fetch(process.env.API_GET_PRODUCTS, {headers});
   const products = await res.json();
 
   return {
