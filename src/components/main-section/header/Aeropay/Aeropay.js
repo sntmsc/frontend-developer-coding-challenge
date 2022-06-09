@@ -46,6 +46,12 @@ const Aeropay = ({setIsLoading, userName, closeComponent, refElement}) =>{
 
     }
 
+    const handleAddPoints = () =>{
+        if(pointSelected !== 0){
+            addPoints(parseInt(pointSelected))
+        }
+    }
+
     return(
         <Flex
         w='312px'
@@ -153,11 +159,11 @@ const Aeropay = ({setIsLoading, userName, closeComponent, refElement}) =>{
                 </Flex>
                 <GradientButton
                     borderRadius='16px'
-                    cursor='pointer'
+                    cursor={pointSelected === 0 ? 'auto' : 'pointer'}
                     w='100%'
                     h='51px'
                     m='24px 0 0 0'
-                    onClick={()=> addPoints(parseInt(pointSelected))}>
+                    onClick={handleAddPoints}>
                         <Image
                         img='./assets/icons/aeropay-3.svg'
                         alt='aeropay icon'

@@ -67,7 +67,7 @@ const BrowseChooseEnjoy = () =>{
             <WalkthroughCard
             img='./assets/illustrations/walkthroug-2-desktop.png'
             icon='./assets/icons/walkthrough-3.svg'
-            title='23—CHOOSE'
+            title='2—CHOOSE'
             description="Exchange your hard earned AeroPoints for the item you want"
             transform=''
             zIndex='2'

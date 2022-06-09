@@ -37,6 +37,10 @@ padding: 24px;
     height: 96px;
     align-items: flex-start;
 }
+@media(max-width: 359px){
+    width: 97%;
+    height: auto;
+}
 `
 
 export const TextContainer = styled.div`
