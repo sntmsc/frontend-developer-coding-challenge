@@ -2,7 +2,6 @@ import { useContext } from 'react'
 import * as S from "./styled"
 import Text from "../Text/Text"
 import Image from "../Image/Image"
-import { Flex } from "../Flex/styled"
 import { ToastContext } from '../../../context/ToastContext'
 
 const Toast = (props) =>{
