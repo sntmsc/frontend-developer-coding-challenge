@@ -37,8 +37,8 @@ padding: 24px;
     height: 96px;
     align-items: flex-start;
 }
-@media(max-width: 359px){
-    width: 97%;
+@media(max-width: 370px){
+    width: 85%;
     height: auto;
 }
 `

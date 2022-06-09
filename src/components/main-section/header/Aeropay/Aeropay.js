@@ -7,6 +7,7 @@ import { ContextAeropoints } from "../../../../../context/Aeropoints"
 import { ToastContext } from "../../../../../context/ToastContext"
 import fetchPostAndGet from "../../../../../utils/api/fetchPostAndGet"
 import useClickOutside from "../../../../../utils/useClickOutside"
+import * as S from './styled'
 
 const PointsOption = ({children, pointSelected, handleClick}) =>{
     return(
@@ -22,7 +23,7 @@ const PointsOption = ({children, pointSelected, handleClick}) =>{
          </GradientButton>
     )
 }
-const Aeropay = ({setIsLoading, userName, closeComponent, refElement}) =>{
+const Aeropay = ({setIsLoading, userName, closeComponent, refElement, fade}) =>{
     const [pointSelected, setPointSelected] = useState(0);
     const {setAeropoints} = useContext(ContextAeropoints);
     const {toast,setToast} = useContext(ToastContext);
@@ -53,19 +54,8 @@ const Aeropay = ({setIsLoading, userName, closeComponent, refElement}) =>{
     }
 
     return(
-        <Flex
-        w='312px'
-        h='404px'
-        border='1px solid #DAE4F2'
-        borderRadius='16px'
-        boxShadow='0px 2px 12px rgba(0, 0, 0, 0.08)'
-        position='absolute'
-        top='99%'
-        right='0'
-        zIndex='8'
-        background='white'
-        direction='column'
-        justify='flex-start'>
+        <S.AeropayContainer
+        fade={fade}>
             <Flex
             w='100%'
             h='58px'
@@ -154,7 +144,7 @@ const Aeropay = ({setIsLoading, userName, closeComponent, refElement}) =>{
                      <PointsOption
                     pointSelected={pointSelected}
                     handleClick={(value)=>setPointSelected(value)}>
-                         7000
+                         7500
                      </PointsOption>
                 </Flex>
                 <GradientButton
@@ -173,7 +163,7 @@ const Aeropay = ({setIsLoading, userName, closeComponent, refElement}) =>{
                         background='white'>Add Points</Text>
                 </GradientButton>
             </Flex>
-        </Flex>
+        </S.AeropayContainer>
     )
 }
 

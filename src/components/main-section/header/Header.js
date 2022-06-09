@@ -8,18 +8,29 @@ import { ContextAeropoints } from '../../../../context/Aeropoints'
 import Link from 'next/dist/client/link'
 
 const Header = () => {
-
-  const [ isVisible, setIsVisible ] = useState(false);
+  const [ isVisible, setIsVisible ] = useState({render:false , fade: 'out'});
   const [isLoading, setIsLoading] = useState(false);
   const [ userData, setUserData] = useState({});
   const {aeropoints, setAeropoints} = useContext(ContextAeropoints);
   const ref = useRef(null);
+  const headers = fetchHeaders(process.env.NEXT_PUBLIC_TOKEN);
 
-  const handleClick = () =>{
-    setIsVisible(!isVisible);
+  const handleIsVisible = (fade, render) =>{
+
+    if(render){
+      setIsVisible({render, fade});
+    }
+    else{
+      setIsVisible({render:true, fade});
+
+      setTimeout(()=>{setIsVisible({render, fade})},500);
+    }
   }
 
-  const headers = fetchHeaders(process.env.NEXT_PUBLIC_TOKEN);
+  const handleClick = ()=>{
+    const newFade = () => isVisible.fade === 'out' ? 'in' : 'out';
+    handleIsVisible(newFade(), !isVisible.render);
+  }
 
   useEffect( ()=>{
       fetch(process.env.NEXT_PUBLIC_GET_USER, {
@@ -28,8 +39,7 @@ const Header = () => {
       })
       .then(response => response.json())
       .then(data => {setUserData(data); setAeropoints(data.points)})
-      .catch(err => console.log(err));
-  },[headers])
+  },[])
 
   return(
     <Flex
@@ -54,13 +64,14 @@ const Header = () => {
       handleClick={handleClick}
       aeropoints={aeropoints}
       isLoading={isLoading}
-      isVisible={isVisible}/>
-        { isVisible && 
+      isVisible={isVisible.render}/>
+        { isVisible.render && 
             <Aeropay
             refElement = {ref}
             setIsLoading={(value)=>setIsLoading(value)}
             userName={userData.name}
-            closeComponent={()=>setIsVisible(false)}/> 
+            fade={isVisible.fade}
+            closeComponent={()=>{handleIsVisible('out',false)}}/>
         }
         </Flex>
     </S.HeaderContainer>
