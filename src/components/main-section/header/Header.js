@@ -64,7 +64,7 @@ const Header = () => {
       handleClick={handleClick}
       aeropoints={aeropoints}
       isLoading={isLoading}
-      isVisible={isVisible.render}/>
+      isVisible={isVisible}/>
         { isVisible.render && 
             <Aeropay
             refElement = {ref}

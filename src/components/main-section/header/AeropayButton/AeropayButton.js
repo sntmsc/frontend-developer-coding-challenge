@@ -20,9 +20,9 @@ const AeropayButton = ({handleClick, aeropoints, isLoading, isVisible}) =>{
                 {aeropoints === 0  || isLoading ? 'loading..' : aeropoints}
             </Text>
             <Image
-            img={`./assets/icons/chevron-${isVisible.render ? 'active' : 'default'}.svg`}
+            img={`./assets/icons/chevron-${isVisible.fade === 'out' ? 'active' : 'default'}.svg`}
             alt='arrow toggle visibility'
-            transform={`rotate(${isVisible.render ? 270 : 90}deg)`}
+            transform={`rotate(${isVisible.fade === 'in' ? 270 : 90}deg)`}
             margin='0 0 0 10px'/>
         </S.AeropayButtonContainer>
     )
