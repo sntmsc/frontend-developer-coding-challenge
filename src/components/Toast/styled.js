@@ -32,7 +32,7 @@ justify-content: space-between;
 align-items: center;
 padding: 24px;
 
-@media not all and ${device.desktop}{
+@media not all and(min-width: 360px) and (max-width: 1919px){
     width: 360px;
     height: 96px;
     align-items: flex-start;
