@@ -9,7 +9,10 @@ function MyApp({ Component, pageProps }) {
     <Head>
       <title>Aerolab</title>
       <meta name="keywords" content="aerolab challenge"/>
-      <meta property="og:image" content="./assets/ogimage.png"/>
+      <meta property="og:image" content="https://github.com/Aerolab/frontend-developer-coding-challenge/blob/main/assets/github-cover-aerolab-frontend-developer-coding-challenge.png"/>
+      <meta property="og:title" content="Aerolab Challenge"/>
+      <meta property="og:image:width" content="600"/>
+      <meta property="og:image:height" content="250"/>
       <link rel="shortcut icon" href="./assets/icons/favicon.svg" />
     </Head>
       <ContextToast>
