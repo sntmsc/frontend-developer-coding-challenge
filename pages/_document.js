@@ -16,12 +16,6 @@ export default class MyDocument extends Document {
           <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;900&display=swap" rel="stylesheet"/>
           {this.props.styleTags}
         </Head>
-        <Head>
-          <meta property="og:image" content="https://github.com/Aerolab/frontend-developer-coding-challenge/blob/main/assets/github-cover-aerolab-frontend-developer-coding-challenge.png"/>
-          <meta property="og:title" content="Aerolab Challenge"/>
-          <meta property="og:image:width" content="600"/>
-          <meta property="og:image:height" content="250"/>
-        </Head>
         <body>
           <Main />
           <NextScript />
